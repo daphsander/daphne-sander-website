@@ -1,0 +1,14 @@
+{
+  "de": [
+    { "label": "ZEITECHT", "sublabel": "Jugendtheater", "url": "/zeitecht/", "published": true },
+    { "label": "Arbeiten", "url": "/arbeiten/", "published": true },
+    { "label": "SPARKS", "url": "/sparks/", "published": true },
+    { "label": "Über mich", "url": "/ueber-mich/", "published": true }
+  ],
+  "en": [
+    { "label": "ZEITECHT", "sublabel": "Youth Theatre", "url": "/en/zeitecht/", "published": true },
+    { "label": "Works", "url": "/en/works/", "published": true },
+    { "label": "SPARKS", "url": "/en/sparks/", "published": true },
+    { "label": "About", "url": "/en/about/", "published": true }
+  ]
+}

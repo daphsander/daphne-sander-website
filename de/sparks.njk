@@ -1,0 +1,13 @@
+---
+layout: base.njk
+permalink: /sparks/index.html
+lang: de
+pageTitle: "SPARKS — Daphne Sander"
+currentSection: "/sparks/"
+bodyClass: "sparks-page"
+---
+<div class="sparks-display" data-prompts='{{ sparks.prompts | dump | safe }}'>
+  <div class="prompt"></div>
+  <div class="helper click">click text for next</div>
+  <div class="helper tap">tap text for next</div>
+</div>

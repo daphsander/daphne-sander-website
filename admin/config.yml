@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: PLATZHALTER-GITHUB-USERNAME/PLATZHALTER-REPO-NAME
+  branch: main
+  # base_url zeigt auf den kleinen OAuth-Vermittler (Cloudflare Worker), der noch eingerichtet wird.
+  # Siehe README.md, Abschnitt "Decap CMS OAuth" — ohne diese Zeile funktioniert der Login nicht.
+  # base_url: https://PLATZHALTER.workers.dev
+  # auth_endpoint: auth
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "zeitecht_overview"
+    label: "ZEITECHT — Übersichtsseite"
+    files:
+      - file: "de/zeitecht/index.njk"
+        label: "ZEITECHT Übersicht"
+        name: "zeitecht_overview"
+        fields:
+          - { label: "Titel (Frontmatter)", name: "pageTitle", widget: "string" }
+
+  - name: "arbeiten_entries"
+    label: "Arbeiten — Einträge"
+    folder: "de/arbeiten"
+    create: true
+    slug: "{{slug}}"
+    extension: "njk"
+    fields:
+      - { label: "Titel", name: "pageTitle", widget: "string" }
+      - { label: "Status", name: "status", widget: "select", options: ["veröffentlicht", "in entwicklung"] }
+      - { label: "Format", name: "format", widget: "select", options: ["Theaterstück", "Drehbuch", "Artikel", "Jugendstück"] }
+      - { label: "Hat eigene Detailseite?", name: "has_detail_page", widget: "boolean", default: false }
+      - { label: "Derzeit zu sehen?", name: "currently_showing", widget: "boolean", default: false }
+      - { label: "Inhalt", name: "body", widget: "markdown" }
+
+  - name: "sparks"
+    label: "SPARKS — Prompts"
+    files:
+      - file: "_data/sparks.json"
+        label: "Prompts"
+        name: "sparks"
+        fields:
+          - label: "Prompts"
+            name: "prompts"
+            widget: "list"
+            field: { label: "Prompt", name: "prompt", widget: "string" }
+
+  - name: "legal"
+    label: "Rechtliches"
+    files:
+      - file: "de/impressum.njk"
+        label: "Impressum"
+        name: "impressum"
+        fields:
+          - { label: "Inhalt", name: "body", widget: "markdown" }
+      - file: "de/datenschutz.njk"
+        label: "Datenschutzerklärung"
+        name: "datenschutz"
+        fields:
+          - { label: "Inhalt", name: "body", widget: "markdown" }

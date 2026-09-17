@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('de') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle | default('Daphne Sander') }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="{{ bodyClass | default('') }}">
+
+  <div class="site-header">
+    <a class="identity" href="{{ lang == 'en' and '/en/' or '/' }}">
+      <div class="name">Daphne Sander</div>
+      <div class="subtitle">{{ subtitleText | default('Film- und Theaterautorin') }}</div>
+    </a>
+    <nav>
+      {% for item in (nav[lang | default('de')] | filterPublished) %}
+        <a href="{{ item.url }}" class="{{ 'active' if currentSection == item.url }}">
+          {{ item.label }}{% if item.sublabel %}<br>{{ item.sublabel }}{% endif %}
+        </a>
+      {% endfor %}
+    </nav>
+  </div>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <div class="site-footer">
+    <nav>
+      <a href="{{ lang == 'en' and '/en/contact/' or '/kontakt/' }}" class="{{ 'active' if currentPage == 'kontakt' }}">Kontakt</a>
+      <a href="{{ lang == 'en' and '/en/imprint/' or '/impressum/' }}" class="{{ 'active' if currentPage == 'impressum' }}">Impressum</a>
+      <a href="{{ lang == 'en' and '/en/privacy/' or '/datenschutz/' }}" class="{{ 'active' if currentPage == 'datenschutz' }}">Datenschutz</a>
+    </nav>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

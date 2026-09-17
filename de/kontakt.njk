@@ -1,0 +1,33 @@
+---
+layout: base.njk
+permalink: /kontakt/index.html
+lang: de
+pageTitle: "Kontakt — Daphne Sander"
+currentSection: ""
+currentPage: "kontakt"
+---
+<div class="kontakt-intro">
+  <h1>Kontakt</h1>
+  <p>Für Anfragen zu ZEITECHT, anderen Arbeiten oder allgemeinen Austausch.</p>
+</div>
+
+<div class="kontakt-form">
+  <!-- WICHTIG: "action" durch die echte Formspree-Endpoint-URL ersetzen, sobald das Formspree-Konto eingerichtet ist -->
+  <form action="https://formspree.io/f/PLATZHALTER" method="POST">
+    <div class="fields">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="message">Nachricht</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">Absenden</button>
+    </div>
+  </form>
+</div>
