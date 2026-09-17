@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: PLATZHALTER-GITHUB-USERNAME/PLATZHALTER-REPO-NAME
+  repo: DAPHSANDER/DAPHNE-SANDER-WEBSITE
   branch: main
   # base_url zeigt auf den kleinen OAuth-Vermittler (Cloudflare Worker), der noch eingerichtet wird.
   # Siehe README.md, Abschnitt "Decap CMS OAuth" — ohne diese Zeile funktioniert der Login nicht.
