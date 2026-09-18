@@ -1,11 +1,9 @@
 backend:
   name: github
-  repo: DAPHSANDER/DAPHNE-SANDER-WEBSITE
+  repo: PLATZHALTER-GITHUB-USERNAME/PLATZHALTER-REPO-NAME
   branch: main
-  # base_url zeigt auf den kleinen OAuth-Vermittler (Cloudflare Worker), der noch eingerichtet wird.
-  # Siehe README.md, Abschnitt "Decap CMS OAuth" — ohne diese Zeile funktioniert der Login nicht.
-  # base_url: https://PLATZHALTER.workers.dev
-  # auth_endpoint: auth
+  # Kein OAuth-Relay nötig: Sveltia CMS erlaubt den Login per persönlichem GitHub-Zugriffstoken,
+  # was für eine einzelne Nutzerin die einfachste Methode ist. Siehe README.md.
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
