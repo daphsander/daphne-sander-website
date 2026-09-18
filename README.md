@@ -41,16 +41,19 @@ preserves the folder structure. Commit directly to `main`.
 1. Sign up at formspree.io (free), create a form, copy the endpoint URL
 2. Replace `https://formspree.io/f/PLATZHALTER` in `de/kontakt.njk` with it
 
-### 4. Decap CMS (the editor at yoursite.com/admin)
-This needs one extra small piece: a tiny OAuth relay, since Decap's GitHub login
-needs a server-side handshake that Cloudflare Pages alone doesn't provide. The
-standard free solution is a small Cloudflare Worker (a few lines of code, deployed
-once, free tier). I'll walk you through deploying this in a follow-up step —
-`admin/config.yml` has a placeholder marking exactly where its URL goes once
-it exists.
+### 4. Sveltia CMS (the editor at yoursite.com/admin)
+This site uses Sveltia CMS — a modern, actively-maintained, drop-in-compatible
+successor to Decap CMS. Since you're the only person who'll ever log in, no
+OAuth relay or Cloudflare Worker is needed at all — just a personal access token.
 
-Also update `admin/config.yml`'s `repo:` line with your actual
-`github-username/repo-name` once the repo is created.
+1. Update `admin/config.yml`'s `repo:` line with your actual `github-username/repo-name`
+2. On GitHub: **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**
+3. Under **Repository access**, select **Only select repositories** → choose this one repo
+4. Under **Permissions → Repository permissions**, set **Contents** to **Read and write**
+5. Generate, and copy the token immediately (GitHub only shows it once)
+6. Visit `yoursite.com/admin`, choose the personal-access-token sign-in option, paste it in
+
+That's the whole setup — no Worker, no OAuth App, no extra account.
 
 ### 5. Domain
 Point the domain from netcup at Cloudflare Pages by adding the DNS records
@@ -58,7 +61,7 @@ Cloudflare's dashboard shows you once the domain is added there (Cloudflare
 Pages → your project → Custom domains).
 
 ## A known simplification, worth knowing about
-The Decap CMS config currently edits a few key files directly (SPARKS prompts,
+The Sveltia CMS config currently edits a few key files directly (SPARKS prompts,
 the two legal pages, Arbeiten entries). Editing the ZEITECHT and landing page
 prose through the CMS interface isn't fully wired yet — for now, those are
 easiest to edit by asking me to make the change, or by editing the `.njk` files
