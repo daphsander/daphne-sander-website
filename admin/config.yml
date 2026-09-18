@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: PLATZHALTER-GITHUB-USERNAME/PLATZHALTER-REPO-NAME
+  repo: daphsander/daphne-sander-website
   branch: main
   # Kein OAuth-Relay nötig: Sveltia CMS erlaubt den Login per persönlichem GitHub-Zugriffstoken,
   # was für eine einzelne Nutzerin die einfachste Methode ist. Siehe README.md.
