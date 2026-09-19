@@ -45,17 +45,25 @@ if (filterButtons.length) applyFilter('alle');
 document.querySelectorAll('.carousel').forEach((carousel) => {
   const dotsContainer = carousel.parentElement.querySelector('.carousel-dots');
   if (!dotsContainer) return;
-  const cards = carousel.querySelectorAll('.card');
+  const cards = Array.from(carousel.querySelectorAll('.card'));
   const dots = dotsContainer.querySelectorAll('.dot');
 
-  carousel.addEventListener('scroll', () => {
-    const scrollLeft = carousel.scrollLeft;
+  function updateActiveDot() {
+    const carouselLeft = carousel.getBoundingClientRect().left;
     let activeIndex = 0;
+    let closestDistance = Infinity;
     cards.forEach((card, i) => {
-      if (card.offsetLeft - carousel.offsetLeft <= scrollLeft + 20) activeIndex = i;
+      const distance = Math.abs(card.getBoundingClientRect().left - carouselLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        activeIndex = i;
+      }
     });
     dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
-  });
+  }
+
+  carousel.addEventListener('scroll', updateActiveDot);
+  updateActiveDot();
 });
 
 // Aktuelles "next batch" arrow: advances by one card-width click
