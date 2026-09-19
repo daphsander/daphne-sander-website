@@ -41,14 +41,13 @@ filterButtons.forEach((btn) => {
 
 if (filterButtons.length) applyFilter('alle');
 
-// ---------- Carousel dots (Aktuelles / Einblicke) ----------
+// ---------- Carousel dots + peek-fade (Aktuelles / Einblicke) ----------
 document.querySelectorAll('.carousel').forEach((carousel) => {
   const dotsContainer = carousel.parentElement.querySelector('.carousel-dots');
-  if (!dotsContainer) return;
   const cards = Array.from(carousel.querySelectorAll('.card'));
-  const dots = dotsContainer.querySelectorAll('.dot');
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
 
-  function updateActiveDot() {
+  function updateCarouselState() {
     const carouselLeft = carousel.getBoundingClientRect().left;
     let activeIndex = 0;
     let closestDistance = Infinity;
@@ -60,10 +59,55 @@ document.querySelectorAll('.carousel').forEach((carousel) => {
       }
     });
     dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+    cards.forEach((card, i) => card.classList.toggle('peek', i !== activeIndex));
   }
 
-  carousel.addEventListener('scroll', updateActiveDot);
-  updateActiveDot();
+  carousel.addEventListener('scroll', updateCarouselState);
+  updateCarouselState();
+});
+
+// ---------- Einblicke: tap an image to open it full-size, swipeable to the next ----------
+function openImageGallery(images, startIndex) {
+  const overlay = document.createElement('div');
+  overlay.className = 'gallery-overlay';
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.remove();
+  });
+
+  const scroller = document.createElement('div');
+  scroller.className = 'gallery-scroller';
+
+  images.forEach((src) => {
+    const slide = document.createElement('div');
+    slide.className = 'gallery-slide';
+    if (src) {
+      const img = document.createElement('img');
+      img.src = src;
+      slide.appendChild(img);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'ph';
+      ph.textContent = 'Bild';
+      slide.appendChild(ph);
+    }
+    scroller.appendChild(slide);
+  });
+
+  overlay.appendChild(scroller);
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => {
+    scroller.scrollLeft = startIndex * scroller.clientWidth;
+  });
+}
+
+document.querySelectorAll('.carousel[data-gallery-images]').forEach((carousel) => {
+  const images = JSON.parse(carousel.getAttribute('data-gallery-images') || '[]');
+  const cards = carousel.querySelectorAll('.card');
+  cards.forEach((card, i) => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => openImageGallery(images, i));
+  });
 });
 
 // Aktuelles "next batch" arrow: advances by one card-width click
