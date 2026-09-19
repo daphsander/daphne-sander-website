@@ -90,7 +90,7 @@ body.sparks-page .site-header nav { display: none; }
   .site-header { padding: 20px 20px; border-bottom: 1px solid var(--divider); }
   .site-header .name { font-size: 16px; letter-spacing: 0.5px; }
   .site-header .subtitle { font-size: 11.5px; margin-top: 3px; }
-  .site-header nav { font-size: 15px; margin-top: 19px; }
+  .site-header nav { font-size: 11px; margin-top: 19px; }
   .site-header nav a.active { text-underline-offset: 3px; }
 }
 
@@ -226,8 +226,12 @@ body.sparks-page .site-header nav { display: none; }
   .carousel-dots { gap: 6px; margin-top: 14px; }
   .carousel-dots .dot { width: 6px; height: 6px; }
   main { display: flex; flex-direction: column; }
+  main > * { min-width: 0; }
   .hero-portrait-row { order: 2; }
   .carousel-section { order: 1; }
+  .carousel { scroll-snap-type: x mandatory; }
+  .carousel .card { scroll-snap-align: start; }
+  .carousel .card.peek { opacity: 0.55; }
 }
 
 /* ---------- ZEITECHT overview ---------- */
@@ -349,10 +353,17 @@ body.sparks-page .site-header nav { display: none; }
 .info-strip [data-hidden="true"] { display: none; }
 
 @media (max-width: 640px) {
-  .info-strip { flex-direction: column; align-items: stretch; padding: 18px 20px; gap: 14px; }
-  .info-strip .item { border-left: none; border-top: 1px solid var(--divider); padding: 12px 0 0; }
-  .info-strip .item:first-child { border-top: none; padding-top: 0; }
-  .info-strip .item.with-key { display: flex; gap: 14px; align-items: center; justify-content: space-between; }
+  .info-strip {
+    flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    padding: 18px 20px; gap: 14px 0; border-top-width: 1px; border-bottom-width: 1px;
+  }
+  .info-strip .item { border-left: none; padding: 0; }
+  .info-strip .item:nth-child(1) { flex: 1 1 auto; }
+  .info-strip .item:nth-child(2) { flex: 0 0 auto; }
+  .info-strip .item:nth-child(3),
+  .info-strip .item:nth-child(4) {
+    flex: 0 0 100%; border-top: 1px solid var(--divider); padding-top: 12px;
+  }
   .info-strip .link { font-size: 13px; }
   .info-strip .caption { font-size: 10px; margin-top: 4px; }
   .info-strip .note { font-size: 11px; }
@@ -364,7 +375,7 @@ body.sparks-page .site-header nav { display: none; }
 .pricing-block .section-heading { border-top: 2px solid var(--divider); padding-top: 44px; }
 .pricing-row { display: flex; justify-content: space-between; font-size: 25px; margin-bottom: 20px; }
 .pricing-note { font-size: 22px; color: var(--ink-muted); margin-top: 24px; line-height: 1.5; }
-@media (max-width: 640px) { .pricing-block { padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; } .pricing-row { font-size: 12px; margin-bottom: 9px; } .pricing-note { font-size: 10.5px; margin-top: 11px; } }
+@media (max-width: 640px) { .pricing-block { padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; margin-bottom: 9px; } .pricing-note { font-size: 10.5px; margin-top: 11px; } }
 
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }
@@ -405,6 +416,28 @@ body.sparks-page .site-header nav { display: none; }
   .legal-title { padding: 30px 20px 6px; }
   .legal-title h1 { font-size: 19px; }
   .legal-body { padding: 22px 20px 26px; font-size: 12px; }
+}
+
+/* ---------- Image gallery lightbox (Einblicke) ---------- */
+.gallery-overlay {
+  position: fixed; inset: 0; background: rgba(46,42,36,0.85); z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+}
+.gallery-scroller {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+  width: 100%; height: 100%; scrollbar-width: none;
+}
+.gallery-scroller::-webkit-scrollbar { display: none; }
+.gallery-slide {
+  flex: 0 0 100%; scroll-snap-align: center;
+  display: flex; align-items: center; justify-content: center; padding: 40px;
+}
+.gallery-slide img, .gallery-slide .ph {
+  max-width: 100%; max-height: 100%; object-fit: contain; width: 400px; height: 300px;
+}
+@media (max-width: 640px) {
+  .gallery-slide { padding: 20px; }
+  .gallery-slide img, .gallery-slide .ph { width: 280px; height: 210px; }
 }
 
 /* ---------- SPARKS ---------- */
