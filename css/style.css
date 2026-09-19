@@ -87,6 +87,11 @@ body.sparks-page .site-header nav { display: none; }
     line-height: 1.4;
   }
   .site-header nav a { margin-top: 0; padding-top: 2px; }
+  .site-header { padding: 20px 20px; border-bottom: 1px solid var(--divider); }
+  .site-header .name { font-size: 16px; letter-spacing: 0.5px; }
+  .site-header .subtitle { font-size: 11.5px; margin-top: 3px; }
+  .site-header nav { font-size: 11px; margin-top: 19px; }
+  .site-header nav a.active { text-underline-offset: 3px; }
 }
 
 /* ---------- Footer ---------- */
@@ -107,7 +112,9 @@ body.sparks-page .site-header nav { display: none; }
 .site-footer a { color: inherit; text-decoration: none; }
 .site-footer a.active { text-decoration: underline; text-underline-offset: 6px; color: var(--ink-muted); }
 @media (max-width: 640px) {
+  .site-footer { padding: 10px 20px 12px; border-top: 1px solid var(--divider); }
   .site-footer nav { gap: 14px; font-size: 10px; }
+  .site-footer a.active { text-underline-offset: 3px; }
 }
 
 /* ---------- Section heading (Aktuelles, Einblicke, Preise, Kontakt-on-Ueber-mich) ---------- */
@@ -138,6 +145,12 @@ body.sparks-page .site-header nav { display: none; }
   text-align: center;
 }
 
+@media (max-width: 640px) {
+  .section-heading { font-size: 14.5px; margin-bottom: 12px; }
+  .section-heading.slim { font-size: 10px; letter-spacing: 1.5px; border-bottom-width: 2px; padding-bottom: 8px; margin-bottom: 14px; }
+  .ph { font-size: 10px; }
+}
+
 /* ---------- Landing page ---------- */
 .hero-portrait-row {
   display: flex;
@@ -160,6 +173,7 @@ body.sparks-page .site-header nav { display: none; }
 @media (max-width: 640px) {
   .hero-portrait-row { flex-direction: column; align-items: center; text-align: left; padding: 6px 20px 20px; }
   .hero-portrait-row .portrait { width: 176px; height: 220px; margin: 0 auto 14px; }
+  .hero-portrait-row .intro-text { font-size: 12.5px; max-width: 280px; margin: 0 auto; padding-top: 0; }
 }
 
 /* ---------- Aktuelles / Einblicke carousels ---------- */
@@ -201,8 +215,19 @@ body.sparks-page .site-header nav { display: none; }
 
 @media (max-width: 640px) {
   .carousel-section { padding: 22px 20px 20px; }
+  .carousel { gap: 10px; }
   .carousel .card { flex: 0 0 250px; }
-  .carousel .card img, .carousel .card .ph { height: 150px; }
+  .carousel .card img, .carousel .card .ph { height: 150px; width: 100%; }
+  .carousel .kicker { font-size: 9px; letter-spacing: 0.4px; }
+  .carousel .headline { font-size: 12.5px; margin-top: 4px; line-height: 1.3; }
+  .carousel .summary { font-size: 11px; margin-top: 4px; }
+  .carousel-next-arrow { top: 38px; right: 2px; width: 11px; height: 11px; }
+  .carousel-next-arrow span { width: 9px; height: 1.4px; }
+  .carousel-dots { gap: 6px; margin-top: 14px; }
+  .carousel-dots .dot { width: 6px; height: 6px; }
+  main { display: flex; flex-direction: column; }
+  .hero-portrait-row { order: 2; }
+  .carousel-section { order: 1; }
 }
 
 /* ---------- ZEITECHT overview ---------- */
@@ -242,7 +267,9 @@ body.sparks-page .site-header nav { display: none; }
 .foldout-panel.open { display: block; }
 @media (max-width: 640px) {
   .foldouts { flex-direction: column; align-items: center; gap: 8px; padding: 0 20px 16px; }
-  .foldout-panel { padding: 16px 20px 0; }
+  .foldouts .foldout-toggle { font-size: 11.5px; gap: 6px; }
+  .foldouts .foldout-toggle .sign { font-size: 12px; width: 10px; }
+  .foldout-panel { padding: 16px 20px 0; font-size: 13px; }
 }
 
 /* Entry list (ZEITECHT + Arbeiten overview) */
@@ -259,9 +286,14 @@ body.sparks-page .site-header nav { display: none; }
 
 @media (max-width: 640px) {
   .entry-list { padding: 20px 20px; }
-  .entry { flex-direction: column; }
+  .entry { flex-direction: column; padding: 18px 0; border-top-width: 1px; }
   .entry .thumb, .entry .ph { width: 100%; height: 150px; margin-bottom: 10px; }
   .entry .title { font-size: 16.5px; }
+  .entry .desc { font-size: 12px; margin-top: 7px; }
+  .entry .meta { font-size: 10.5px; margin-top: 9px; }
+  .entry .link { font-size: 10.5px; margin-top: 7px; }
+  .entry .tag-line { font-size: 9.5px; margin-bottom: 9px; }
+  .entry .tag-line .divider { margin: 0 5px; }
 }
 
 /* ---------- Filter bar (Arbeiten) ---------- */
@@ -277,7 +309,7 @@ body.sparks-page .site-header nav { display: none; }
   background: none; border: none; font-family: inherit; font-size: inherit; color: inherit; cursor: pointer; padding: 0;
 }
 .filter-bar button.active { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 8px; }
-@media (max-width: 640px) { .filter-bar { padding: 14px 20px; } .filter-bar .filters { gap: 16px; font-size: 11.5px; } }
+@media (max-width: 640px) { .filter-bar { padding: 14px 20px; } .filter-bar .filters { gap: 16px; font-size: 11.5px; } .filter-bar button.active { text-underline-offset: 4px; } }
 
 /* ---------- Detail page (ZEITECHT + Arbeiten) ---------- */
 .detail-hero { display: flex; gap: 44px; padding: 60px 56px 12px; max-width: var(--max-width); margin: 0 auto; }
@@ -291,6 +323,9 @@ body.sparks-page .site-header nav { display: none; }
   .detail-hero { flex-direction: column; padding: 20px 20px 6px; }
   .detail-hero .image, .detail-hero .ph { width: 100%; height: 180px; }
   .detail-hero h1 { font-size: 20px; margin-top: 16px; }
+  .detail-hero .tagline { font-size: 12.5px; margin-top: 8px; }
+  .detail-hero .desc { font-size: 12px; margin-top: 12px; }
+  .detail-hero .meta { font-size: 10.5px; margin-top: 10px; }
 }
 
 /* Info strip: Auszug lesen / Inszenierungsschluessel / PDF-per-email / pricing pointer */
@@ -318,6 +353,10 @@ body.sparks-page .site-header nav { display: none; }
   .info-strip .item { border-left: none; border-top: 1px solid var(--divider); padding: 12px 0 0; }
   .info-strip .item:first-child { border-top: none; padding-top: 0; }
   .info-strip .item.with-key { display: flex; gap: 14px; align-items: center; justify-content: space-between; }
+  .info-strip .link { font-size: 13px; }
+  .info-strip .caption { font-size: 10px; margin-top: 4px; }
+  .info-strip .note { font-size: 11px; }
+  .info-strip .key-image { width: 128px; height: 88px; }
 }
 
 /* Pricing */
@@ -325,7 +364,7 @@ body.sparks-page .site-header nav { display: none; }
 .pricing-block .section-heading { border-top: 2px solid var(--divider); padding-top: 44px; }
 .pricing-row { display: flex; justify-content: space-between; font-size: 25px; margin-bottom: 20px; }
 .pricing-note { font-size: 22px; color: var(--ink-muted); margin-top: 24px; line-height: 1.5; }
-@media (max-width: 640px) { .pricing-block { padding: 22px 20px 20px; } }
+@media (max-width: 640px) { .pricing-block { padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; } .pricing-row { font-size: 12px; margin-bottom: 9px; } .pricing-note { font-size: 10.5px; margin-top: 11px; } }
 
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }
@@ -345,14 +384,28 @@ body.sparks-page .site-header nav { display: none; }
   display: inline-block; padding: 18px 52px; border: 2px solid var(--ink); color: var(--ink); font-size: 25px;
   background: none; font-family: inherit; cursor: pointer; margin-top: 12px;
 }
-@media (max-width: 640px) { .kontakt-form button { width: 100%; padding: 11px 0; } }
+@media (max-width: 640px) {
+  .kontakt-intro { padding: 28px 20px 6px; }
+  .kontakt-intro h1 { font-size: 19px; }
+  .kontakt-intro p { font-size: 12px; margin-top: 8px; max-width: 260px; }
+  .kontakt-form { padding: 22px 20px 26px; }
+  .kontakt-form .fields { gap: 12px; max-width: none; }
+  .kontakt-form label { font-size: 10.5px; margin-bottom: 4px; }
+  .kontakt-form input, .kontakt-form textarea { border-width: 1px; font-size: 13px; padding: 8px 10px; }
+  .kontakt-form textarea { min-height: 90px; }
+  .kontakt-form button { width: 100%; padding: 11px 0; font-size: 12.5px; }
+}
 
 /* ---------- Legal pages (Impressum / Datenschutz) ---------- */
 .legal-title { padding: 76px 56px 16px; text-align: center; max-width: var(--max-width); margin: 0 auto; }
 .legal-title h1 { font-size: 44px; color: var(--ink); font-weight: 600; margin: 0; }
 .legal-body { padding: 52px 80px 68px; max-width: var(--max-width); margin: 0 auto; font-size: 26px; line-height: 1.7; }
 .legal-body.placeholder { color: #B8B2A4; font-style: italic; }
-@media (max-width: 640px) { .legal-title { padding: 30px 20px 6px; } .legal-body { padding: 22px 20px 26px; } }
+@media (max-width: 640px) {
+  .legal-title { padding: 30px 20px 6px; }
+  .legal-title h1 { font-size: 19px; }
+  .legal-body { padding: 22px 20px 26px; font-size: 12px; }
+}
 
 /* ---------- SPARKS ---------- */
 .sparks-display { padding: 180px 80px; cursor: pointer; max-width: var(--max-width); margin: 0 auto; user-select: none; }
@@ -364,6 +417,7 @@ body.sparks-page .site-header nav { display: none; }
   .sparks-display .prompt { font-size: 18px; }
   .sparks-display .helper.click { display: none; }
   .sparks-display .helper.tap { display: block; }
+  .sparks-display .helper { font-size: 9.5px; margin-top: 38px; letter-spacing: 1px; }
   body.sparks-page .site-header .name,
   body.sparks-page .site-header .subtitle { color: #B8B2A4; }
 }
@@ -386,5 +440,10 @@ body.sparks-page .site-header nav { display: none; }
   .ueber-mich-hero .photo-col .ph, .ueber-mich-hero .photo-col img { width: 176px; height: 220px; margin: 0 auto; }
   .ueber-mich-hero .bio { text-align: left; max-width: 280px; margin: 16px auto 0; }
   .ueber-mich-kontakt { text-align: center; padding: 24px 20px 24px; }
-  .ueber-mich-kontakt .inner { max-width: 280px; margin: 0 auto; }
+  .ueber-mich-kontakt .inner { max-width: 280px; margin: 0 auto; padding-top: 20px; }
+  .ueber-mich-hero .bio { font-size: 12.5px; }
+  .ueber-mich-hero .photo-dots { gap: 6px; margin-top: 9px; }
+  .ueber-mich-hero .photo-dots .dot { width: 5px; height: 5px; }
+  .ueber-mich-kontakt .heading { font-size: 14px; margin-bottom: 8px; }
+  .ueber-mich-kontakt .inner > div:last-child { font-size: 12px; }
 }
