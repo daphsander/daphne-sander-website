@@ -67,12 +67,35 @@ document.querySelectorAll('.carousel').forEach((carousel) => {
 });
 
 // ---------- Einblicke: tap an image to open it full-size, swipeable to the next ----------
+let galleryOpen = false;
+
+function closeGallery(viaPopstate) {
+  const overlay = document.querySelector('.gallery-overlay');
+  if (overlay) overlay.remove();
+  galleryOpen = false;
+  if (!viaPopstate) {
+    // Was closed via the X or an outside tap: undo the history entry we pushed on open,
+    // so the phone's native back button still just lands on this same page afterward.
+    history.back();
+  }
+}
+
+window.addEventListener('popstate', () => {
+  if (galleryOpen) closeGallery(true);
+});
+
 function openImageGallery(images, startIndex) {
   const overlay = document.createElement('div');
   overlay.className = 'gallery-overlay';
   overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.remove();
+    if (e.target === overlay) closeGallery(false);
   });
+
+  const closeBtn = document.createElement('div');
+  closeBtn.className = 'gallery-close';
+  closeBtn.textContent = '\u00d7';
+  closeBtn.addEventListener('click', () => closeGallery(false));
+  overlay.appendChild(closeBtn);
 
   const scroller = document.createElement('div');
   scroller.className = 'gallery-scroller';
@@ -80,21 +103,26 @@ function openImageGallery(images, startIndex) {
   images.forEach((src) => {
     const slide = document.createElement('div');
     slide.className = 'gallery-slide';
+    let media;
     if (src) {
-      const img = document.createElement('img');
-      img.src = src;
-      slide.appendChild(img);
+      media = document.createElement('img');
+      media.src = src;
     } else {
-      const ph = document.createElement('div');
-      ph.className = 'ph';
-      ph.textContent = 'Bild';
-      slide.appendChild(ph);
+      media = document.createElement('div');
+      media.className = 'ph';
+      media.textContent = 'Bild';
     }
+    slide.appendChild(media);
+    slide.addEventListener('click', (e) => {
+      if (e.target === slide) closeGallery(false);
+    });
     scroller.appendChild(slide);
   });
 
   overlay.appendChild(scroller);
   document.body.appendChild(overlay);
+  galleryOpen = true;
+  history.pushState({ galleryOpen: true }, '');
 
   requestAnimationFrame(() => {
     scroller.scrollLeft = startIndex * scroller.clientWidth;
