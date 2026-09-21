@@ -1,3 +1,6 @@
+const markdownIt = require("markdown-it");
+const md = markdownIt({ html: false, breaks: true, linkify: true });
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
@@ -7,6 +10,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("filterPublished", function (items) {
     return (items || []).filter((item) => item.published !== false);
+  });
+
+  eleventyConfig.addFilter("markdownify", function (content) {
+    return md.render(content || "");
   });
 
   return {
