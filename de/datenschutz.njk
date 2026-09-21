@@ -1,30 +1,18 @@
 ---
-currentPage: datenschutz
-currentSection: ''
-lang: de
 layout: base.njk
-pageTitle: Datenschutzerklärung — Daphne Sander
 permalink: /datenschutz/index.html
+lang: de
+pageTitle: "Datenschutzerklärung — Daphne Sander"
+currentSection: ""
+currentPage: "datenschutz"
+content_text: |
+  [Platzhalter — hier folgt die Datenschutzerklärung gemäß DSGVO. Sollte mindestens abdecken:
+  Hosting (Cloudflare), Server-Logs, Kontaktformular-Datenverarbeitung (Formspree),
+  ggf. E-Mail-Hosting (netcup/Zoho). Wird bei Bereitstellung der finalen Angaben eingefügt.]
 ---
-
 <div class="legal-title">
   <h1>Datenschutzerklärung</h1>
 </div>
-<div class="legal-body placeholder">
-
-Datenschutz - Kontaktformular und E-Mail-Kontakt
-
-Wenn Sie mir per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Name, E-Mail-Adresse) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei mir gespeichert. Diese Daten gebe ich nicht ohne Ihre Einwilligung an Dritte weiter. 
-
-Rechtsgrundlage der Verarbeitung
-
-Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf meinem berechtigten Interesse an der effektiven Bearbeitung der an mich gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), falls diese abgefragt wurde. Für Nutzer in der Schweiz erfolgt die Verarbeitung im Einklang mit dem Schweizer Datenschutzgesetz (DSG). 
-
-Dauer der Datenspeicherung
-
-Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei mir, bis Sie mich zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt. 
-
-Ihre Rechte (Betroffenenrechte)
-
-Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen sowie Ihre Einwilligung zur Datenverarbeitung jederzeit mit Wirkung für die Zukunft zu widerrufen. Wenden Sie sich hierzu einfach an die im Impressum angegebenen Kontaktdaten.
+<div class="legal-body">
+  {{ content_text | markdownify | safe }}
 </div>
