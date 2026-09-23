@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: PLATZHALTER-GITHUB-USERNAME/PLATZHALTER-REPO-NAME
+  repo: daphsander/daphne-sander-website
   branch: main
 
 media_folder: "images/uploads"
