@@ -5,15 +5,16 @@ lang: de
 pageTitle: "Kontakt — Daphne Sander"
 currentSection: ""
 currentPage: "kontakt"
+intro_text: "Für Anfragen zu ZEITECHT, anderen Arbeiten oder allgemeinen Austausch."
+formspree_endpoint: "https://formspree.io/f/PLATZHALTER"
 ---
 <div class="kontakt-intro">
   <h1>Kontakt</h1>
-  <p>Für Anfragen zu ZEITECHT, anderen Arbeiten oder allgemeinen Austausch.</p>
+  <p>{{ intro_text }}</p>
 </div>
 
 <div class="kontakt-form">
-  <!-- WICHTIG: "action" durch die echte Formspree-Endpoint-URL ersetzen, sobald das Formspree-Konto eingerichtet ist -->
-  <form action="https://formspree.io/f/xvkgobwz" method="POST">
+  <form action="{{ formspree_endpoint }}" method="POST">
     <div class="fields">
       <div>
         <label for="name">Name</label>

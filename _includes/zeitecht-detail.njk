@@ -1,0 +1,80 @@
+---
+layout: base.njk
+currentSection: "/zeitecht/"
+---
+<div class="detail-hero">
+  {% if image %}
+    <img class="image" src="{{ image }}" alt="{{ title }}">
+  {% else %}
+    <div class="ph image">Bild</div>
+  {% endif %}
+  <div>
+    <h1>{{ title }}</h1>
+    {% if tagline %}<div class="tagline">{{ tagline }}</div>{% endif %}
+    <div class="desc">{{ content | safe }}</div>
+    {% if meta %}<div class="meta">{{ meta }}</div>{% endif %}
+  </div>
+</div>
+
+<div class="info-strip">
+  {% if auszug_text %}
+  <div class="item">
+    <div class="link" data-lightbox="lightbox-auszug">Auszug lesen</div>
+    <div class="caption">öffnet eine Vorschau</div>
+  </div>
+  {% endif %}
+  {% if schluessel_image %}
+  <div class="item with-key">
+    <div class="key-image" data-lightbox="lightbox-schluessel">
+      <img src="{{ schluessel_image }}" alt="Inszenierungsschlüssel" style="width:128px;height:88px;object-fit:contain;">
+    </div>
+  </div>
+  {% endif %}
+  {% if auszug_text %}
+  <div class="item">
+    <div class="note">Vollständiges Skript als PDF zum Lesen (keine Aufführungsrechte) kostenfrei anfragbar unter<br><span class="email">{{ site.email }}</span></div>
+  </div>
+  {% endif %}
+  {% if pricing and pricing.length %}
+  <div class="item">
+    <div class="note">Preise und Lizenzstufen siehe unten ↓</div>
+  </div>
+  {% endif %}
+</div>
+
+{% if auszug_text %}
+<template id="lightbox-auszug">
+  <p style="font-family:monospace; white-space:pre-wrap; line-height:1.6;">{{ auszug_text }}</p>
+</template>
+{% endif %}
+{% if schluessel_image %}
+<template id="lightbox-schluessel">
+  <p>[Platzhalter — hier folgt die Bildergalerie des Inszenierungsschlüssels.]</p>
+</template>
+{% endif %}
+
+{% if einblicke and einblicke.length %}
+<div class="carousel-section">
+  <div class="section-heading">Einblicke</div>
+  <div class="carousel" data-gallery-images='{{ einblicke | map(attribute="image") | dump | safe }}'>
+    {% for pic in einblicke %}
+      <div class="card"><img src="{{ pic.image }}" style="height:95px;width:100%;object-fit:cover;" alt=""></div>
+    {% endfor %}
+  </div>
+  {% if einblicke.length > 1 %}
+  <div class="carousel-dots">
+    {% for pic in einblicke %}<div class="dot{% if loop.first %} active{% endif %}"></div>{% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if pricing and pricing.length %}
+<div class="pricing-block">
+  <div class="section-heading">Preise &amp; Lizenzstufen</div>
+  {% for row in pricing %}
+    <div class="pricing-row"><span>{{ row.label }}</span><span>{{ row.price }}</span></div>
+  {% endfor %}
+  <div class="pricing-note">Alle Preise verstehen sich zzgl. Aufführungsrechte über die Verlagsvertretung. Individuelle Anfragen (z. B. Festivals, mehrjährige Nutzung) gerne per E-Mail.</div>
+</div>
+{% endif %}

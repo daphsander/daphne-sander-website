@@ -1,0 +1,32 @@
+---
+layout: base.njk
+currentSection: "/arbeiten/"
+---
+<div class="detail-hero">
+  {% if image %}
+    <img class="image" src="{{ image }}" alt="{{ title }}">
+  {% else %}
+    <div class="ph image">Bild</div>
+  {% endif %}
+  <div>
+    <h1>{{ title }}</h1>
+    {% if tagline %}<div class="tagline">{{ tagline }}</div>{% endif %}
+    <div class="desc">{{ content | safe }}</div>
+  </div>
+</div>
+
+{% if einblicke and einblicke.length %}
+<div class="carousel-section">
+  <div class="section-heading">Einblicke</div>
+  <div class="carousel" data-gallery-images='{{ einblicke | map(attribute="image") | dump | safe }}'>
+    {% for pic in einblicke %}
+      <div class="card"><img src="{{ pic.image }}" style="height:95px;width:100%;object-fit:cover;" alt=""></div>
+    {% endfor %}
+  </div>
+  {% if einblicke.length > 1 %}
+  <div class="carousel-dots">
+    {% for pic in einblicke %}<div class="dot{% if loop.first %} active{% endif %}"></div>{% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}

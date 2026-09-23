@@ -1,28 +1,37 @@
 ---
 layout: base.njk
 permalink: /ueber-mich/index.html
+navKey: "/ueber-mich/"
 lang: de
 pageTitle: "Über mich — Daphne Sander"
 currentSection: "/ueber-mich/"
+bio_text: |
+  [Platzhalter — hier folgt der Biografietext. Zwei bis drei Absätze, wie im Konzept besprochen: Herkunft der
+  Arbeit, thematische Interessen, Stationen, aktueller Wohnort.]
+portrait_images: []
+kontakt_sentence: "Für Anfragen, Lesungen oder einfach einen Austausch"
 ---
 <div class="ueber-mich-hero">
   <div class="photo-col">
-    <div class="photo-cycle" data-images="[]">
-      <div class="ph">Porträt</div>
+    <div class="photo-cycle" data-images='{{ portrait_images | dump | safe }}'>
+      {% if portrait_images.length %}
+        <img src="{{ portrait_images[0] }}" alt="Porträt">
+      {% else %}
+        <div class="ph">Porträt</div>
+      {% endif %}
     </div>
+    {% if portrait_images.length > 1 %}
     <div class="photo-dots">
-      <div class="dot active"></div>
+      {% for pic in portrait_images %}<div class="dot{% if loop.first %} active{% endif %}"></div>{% endfor %}
     </div>
+    {% endif %}
   </div>
-  <div class="bio">
-    [Platzhalter — hier folgt der Biografietext. Zwei bis drei Absätze, wie im Konzept besprochen: Herkunft der
-    Arbeit, thematische Interessen, Stationen, aktueller Wohnort.]
-  </div>
+  <div class="bio">{{ bio_text | markdownify | safe }}</div>
 </div>
 
 <div class="ueber-mich-kontakt">
   <div class="inner">
     <div class="heading">Kontakt</div>
-    <div>Für Anfragen, Lesungen oder einfach einen Austausch — <span class="email">[Platzhalter: E-Mail-Adresse]</span></div>
+    <div>{{ kontakt_sentence }} — <span class="email">{{ site.email }}</span></div>
   </div>
 </div>

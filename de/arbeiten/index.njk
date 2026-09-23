@@ -1,10 +1,13 @@
 ---
 layout: base.njk
 permalink: /arbeiten/index.html
+navKey: "/arbeiten/"
 lang: de
 pageTitle: "Arbeiten — Daphne Sander"
 currentSection: "/arbeiten/"
+show_filter_bar: true
 ---
+{% if show_filter_bar %}
 <div class="filter-bar">
   <div class="filters">
     <button class="active" data-filter="alle">Alle</button>
@@ -12,28 +15,36 @@ currentSection: "/arbeiten/"
     <button data-filter="in entwicklung">In Entwicklung</button>
   </div>
 </div>
+{% endif %}
 
 <div class="entry-list">
-
-  <!-- BEISPIEL-EINTRÄGE — bitte durch echte Inhalte ersetzen -->
-
-  <div class="entry" data-status="in entwicklung">
-    <div class="ph thumb">Bild</div>
+  {% for item in collections.arbeiten %}
+  <div class="entry" data-status="{{ item.data.status }}">
+    {% if item.data.image %}
+      <img class="thumb" src="{{ item.data.image }}" alt="{{ item.data.title }}">
+    {% else %}
+      <div class="ph thumb">Bild</div>
+    {% endif %}
     <div>
-      <div class="tag-line">Drehbuch <span class="divider">|</span> in Entwicklung</div>
-      <div class="title">[Platzhalter-Titel]</div>
-      <div class="desc">[Platzhalter-Beschreibung — Beispieleintrag, bitte ersetzen.]</div>
+      <div class="tag-line">
+        {{ item.data.format }}
+        {% if item.data.status or item.data.currently_showing %}<span class="divider">|</span>{% endif %}
+        {% if item.data.status and item.data.currently_showing %}
+          {{ item.data.status }} — und derzeit zu sehen!
+        {% elif item.data.status %}
+          {{ item.data.status }}
+        {% elif item.data.currently_showing %}
+          derzeit zu sehen
+        {% endif %}
+      </div>
+      <div class="title">{{ item.data.title }}</div>
+      <div class="desc">{{ item.templateContent | safe }}</div>
+      {% if item.data.has_detail_page %}
+        <a class="link" href="{{ item.url }}">Mehr erfahren →</a>
+      {% elif item.data.external_link %}
+        <a class="link" href="{{ item.data.external_link }}">Zum Artikel</a>
+      {% endif %}
     </div>
   </div>
-
-  <div class="entry" data-status="veröffentlicht">
-    <div class="ph thumb">Bild</div>
-    <div>
-      <div class="tag-line">Artikel <span class="divider">|</span> veröffentlicht</div>
-      <div class="title">[Platzhalter-Titel]</div>
-      <div class="desc">[Platzhalter-Beschreibung — Beispieleintrag, bitte ersetzen.]</div>
-      <a class="link" href="#">Zum Artikel</a>
-    </div>
-  </div>
-
+  {% endfor %}
 </div>

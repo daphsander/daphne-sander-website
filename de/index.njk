@@ -4,30 +4,40 @@ permalink: /index.html
 lang: de
 pageTitle: "Daphne Sander — Film- und Theaterautorin"
 currentSection: ""
+intro_text: "Daphne Sander schreibt narrative Film- und Theaterskripte. Sie lebt in Tübingen und Wien."
+portrait_image: ""
+show_aktuelles: true
 ---
 <div class="hero-portrait-row">
-  <div class="ph portrait">Porträt</div>
-  <div class="intro-text">Daphne Sander schreibt narrative Film- und Theaterskripte. Sie lebt in Tübingen und Wien.</div>
+  {% if portrait_image %}
+    <img class="portrait" src="{{ portrait_image }}" alt="Porträt">
+  {% else %}
+    <div class="ph portrait">Porträt</div>
+  {% endif %}
+  <div class="intro-text">{{ intro_text }}</div>
 </div>
 
+{% if show_aktuelles %}
 <div class="carousel-section">
   <div class="section-heading slim">Aktuelles</div>
   <div class="carousel">
+    {% for item in collections.aktuelles %}
     <div class="card">
-      <div class="ph">Bild</div>
-      <div class="kicker">ZEITECHT</div>
-      <div class="headline">Neues Adaptionsprojekt: Eurasia</div>
-      <div class="summary">Eine Neufassung von Orwells "1984" fürs Jugendtheater.</div>
+      {% if item.data.image %}
+        <img src="{{ item.data.image }}" alt="" style="height:90px;width:100%;object-fit:cover;">
+      {% else %}
+        <div class="ph" style="height:90px;">Bild</div>
+      {% endif %}
+      <div class="kicker">{{ item.data.kicker }}</div>
+      <div class="headline">{{ item.data.headline }}</div>
+      <div class="summary">{{ item.templateContent | safe }}</div>
     </div>
-    <div class="card">
-      <div class="ph">Bild</div>
-      <div class="kicker">ZEITECHT</div>
-      <div class="headline">Zweite Adaption angekündigt</div>
-      <div class="summary">Mehr Details folgen in Kürze.</div>
-    </div>
+    {% endfor %}
   </div>
+  {% if collections.aktuelles.length > 1 %}
   <div class="carousel-dots">
-    <div class="dot active"></div>
-    <div class="dot"></div>
+    {% for item in collections.aktuelles %}<div class="dot{% if loop.first %} active{% endif %}"></div>{% endfor %}
   </div>
+  {% endif %}
 </div>
+{% endif %}

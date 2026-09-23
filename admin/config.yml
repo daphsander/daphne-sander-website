@@ -1,14 +1,71 @@
 backend:
   name: github
-  repo: daphsander/daphne-sander-website
+  repo: PLATZHALTER-GITHUB-USERNAME/PLATZHALTER-REPO-NAME
   branch: main
-  # Kein OAuth-Relay nötig: Sveltia CMS erlaubt den Login per persönlichem GitHub-Zugriffstoken,
-  # was für eine einzelne Nutzerin die einfachste Methode ist. Siehe README.md.
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "site"
+    label: "Website-Einstellungen"
+    files:
+      - file: "_data/site.json"
+        label: "Allgemein"
+        name: "site"
+        fields:
+          - { label: "E-Mail-Adresse (wird überall auf der Seite verwendet)", name: "email", widget: "string" }
+
+  - name: "navigation"
+    label: "Navigation (Seiten ein-/ausblenden)"
+    files:
+      - file: "_data/nav.json"
+        label: "Menü"
+        name: "navigation"
+        fields:
+          - label: "Menüpunkte"
+            name: "de"
+            widget: "list"
+            hint: "'url' bitte nicht verändern — nur 'Sichtbar?' an- oder ausschalten, um eine Seite ein- bzw. auszublenden."
+            fields:
+              - { label: "Titel", name: "label", widget: "string" }
+              - { label: "Untertitel (optional, z.B. bei ZEITECHT)", name: "sublabel", widget: "string", required: false }
+              - { label: "url (bitte nicht ändern)", name: "url", widget: "string" }
+              - { label: "Sichtbar?", name: "published", widget: "boolean", default: true }
+
+  - name: "landing"
+    label: "Startseite"
+    files:
+      - file: "de/index.njk"
+        label: "Startseite"
+        name: "landing"
+        fields:
+          - { label: "Einleitungssatz", name: "intro_text", widget: "string" }
+          - { label: "Porträtfoto", name: "portrait_image", widget: "image", required: false }
+          - { label: "Aktuelles-Karussell anzeigen?", name: "show_aktuelles", widget: "boolean", default: true }
+
+  - name: "arbeiten_overview"
+    label: "Arbeiten — Übersichtsseite"
+    files:
+      - file: "de/arbeiten/index.njk"
+        label: "Arbeiten Übersicht"
+        name: "arbeiten_overview"
+        fields:
+          - { label: "Filterleiste anzeigen?", name: "show_filter_bar", widget: "boolean", default: true }
+
+  - name: "aktuelles"
+    label: "Aktuelles (Startseite)"
+    folder: "de/_aktuelles"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Kategorie (frei wählbar)", name: "kicker", widget: "string" }
+      - { label: "Titel", name: "headline", widget: "string" }
+      - { label: "Bild", name: "image", widget: "image", required: false }
+      - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
+      - { label: "Ein-Satz-Zusammenfassung", name: "body", widget: "markdown" }
+
   - name: "zeitecht_overview"
     label: "ZEITECHT — Übersichtsseite"
     files:
@@ -16,21 +73,87 @@ collections:
         label: "ZEITECHT Übersicht"
         name: "zeitecht_overview"
         fields:
-          - { label: "Titel (Frontmatter)", name: "pageTitle", widget: "string" }
+          - { label: "Text: Über das Projekt", name: "projekt_text", widget: "markdown" }
+          - { label: "Text: Über das Begleitmaterial", name: "begleitmaterial_text", widget: "markdown" }
+
+  - name: "zeitecht_entries"
+    label: "ZEITECHT — Adaptionen"
+    folder: "de/zeitecht/entries"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Zitat / Tagline", name: "tagline", widget: "string", required: false }
+      - { label: "Info-Zeile (z.B. Darsteller:innen · Alter)", name: "meta", widget: "string", required: false }
+      - { label: "Bild", name: "image", widget: "image", required: false }
+      - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
+      - { label: "Hat eine eigene Detailseite mit Preisen etc.?", name: "is_detailed", widget: "boolean", default: false, hint: "Nur aktivieren, wenn diese Adaption eine vollständige eigene Seite bekommen soll (wie Eurasia). Beim Aktivieren unbedingt auch 'permalink' und 'layout' im Dateikopf ergänzen — dafür bitte kurz nachfragen." }
+      - { label: "Beschreibung", name: "body", widget: "markdown" }
+      - { label: "Auszug (Skripttext, nur bei eigener Detailseite)", name: "auszug_text", widget: "markdown", required: false }
+      - { label: "Inszenierungsschlüssel-Bild (nur bei eigener Detailseite)", name: "schluessel_image", widget: "image", required: false }
+      - label: "Preise & Lizenzstufen (nur bei eigener Detailseite)"
+        name: "pricing"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Bezeichnung", name: "label", widget: "string" }
+          - { label: "Preis", name: "price", widget: "string" }
+      - label: "Einblicke-Bilder (nur bei eigener Detailseite)"
+        name: "einblicke"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Bild", name: "image", widget: "image" }
 
   - name: "arbeiten_entries"
     label: "Arbeiten — Einträge"
-    folder: "de/arbeiten"
+    folder: "de/arbeiten/entries"
     create: true
     slug: "{{slug}}"
-    extension: "njk"
+    extension: "md"
     fields:
-      - { label: "Titel", name: "pageTitle", widget: "string" }
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Untertitel (nur bei eigener Detailseite)", name: "tagline", widget: "string", required: false }
       - { label: "Status", name: "status", widget: "select", options: ["veröffentlicht", "in entwicklung"] }
       - { label: "Format", name: "format", widget: "select", options: ["Theaterstück", "Drehbuch", "Artikel", "Jugendstück"] }
-      - { label: "Hat eigene Detailseite?", name: "has_detail_page", widget: "boolean", default: false }
       - { label: "Derzeit zu sehen?", name: "currently_showing", widget: "boolean", default: false }
-      - { label: "Inhalt", name: "body", widget: "markdown" }
+      - { label: "Bild", name: "image", widget: "image", required: false }
+      - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
+      - { label: "Hat eine eigene Detailseite?", name: "has_detail_page", widget: "boolean", default: false, hint: "Nur aktivieren, wenn dieser Eintrag eine eigene Seite bekommen soll. Beim Aktivieren unbedingt auch 'permalink' und 'layout' im Dateikopf ergänzen — dafür bitte kurz nachfragen." }
+      - { label: "Externer Link (falls keine eigene Detailseite, z.B. zu einem Artikel)", name: "external_link", widget: "string", required: false }
+      - { label: "Beschreibung", name: "body", widget: "markdown" }
+      - label: "Einblicke-Bilder (nur bei eigener Detailseite)"
+        name: "einblicke"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Bild", name: "image", widget: "image" }
+
+  - name: "ueber_mich"
+    label: "Über mich"
+    files:
+      - file: "de/ueber-mich.njk"
+        label: "Über mich"
+        name: "ueber_mich"
+        fields:
+          - { label: "Biografietext", name: "bio_text", widget: "markdown" }
+          - label: "Porträtfotos (mehrere möglich, zum Durchklicken)"
+            name: "portrait_images"
+            widget: "list"
+            required: false
+            field: { label: "Bild", name: "image", widget: "image" }
+          - { label: "Kontakt-Satz (vor der E-Mail-Adresse)", name: "kontakt_sentence", widget: "string" }
+
+  - name: "kontakt"
+    label: "Kontakt-Seite"
+    files:
+      - file: "de/kontakt.njk"
+        label: "Kontakt"
+        name: "kontakt"
+        fields:
+          - { label: "Einleitungstext", name: "intro_text", widget: "string" }
+          - { label: "Formspree-Endpoint-URL", name: "formspree_endpoint", widget: "string" }
 
   - name: "sparks"
     label: "SPARKS — Prompts"
