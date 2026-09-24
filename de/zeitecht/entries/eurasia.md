@@ -1,7 +1,7 @@
 ---
 title: EURASIA – frei nach George Orwells 1984
 tagline: »Ich denke, also lieg ich sicher falsch.«
-meta: '[Platzhalter: Anzahl Darsteller · Spielalter: ab 16 Jahren]'
+meta: '[für 6 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren]'
 image: ''
 order: 1
 is_detailed: true
