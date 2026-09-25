@@ -1,13 +1,16 @@
 {
   "name": "daphne-sander-website",
   "version": "1.0.0",
-  "description": "Website for Daphne Sander \u2014 Film- und Theaterautorin",
+  "description": "Website for Daphne Sander — Film- und Theaterautorin",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "^3.1.6",
     "markdown-it": "^14.1.0"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.4"
   }
 }
