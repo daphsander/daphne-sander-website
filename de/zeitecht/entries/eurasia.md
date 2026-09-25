@@ -4,6 +4,7 @@ tagline: »Ich denke, also lieg ich sicher falsch.«
 meta: '[für 6 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren]'
 image: ''
 order: 1
+tags: zeitecht
 is_detailed: true
 auszug_text: '[Platzhalter — hier folgt der Skriptauszug in Skriptformatierung.]'
 schluessel_image: ''

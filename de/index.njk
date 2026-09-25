@@ -25,7 +25,7 @@ permalink: /index.html
     {% for item in collections.aktuelles %}
     <div class="card">
       {% if item.data.image %}
-        <img src="{{ item.data.image }}" alt="" style="height:90px;width:100%;object-fit:cover;">
+        <img src="{{ item.data.image }}" alt="" style="height:300px;width:100%;object-fit:cover;aspect-ratio:4/3;">
       {% else %}
         <div class="ph" style="height:90px;">Bild</div>
       {% endif %}
@@ -35,13 +35,10 @@ permalink: /index.html
     </div>
     {% endfor %}
   </div>
-  Hallo, 1
-  {% if collections.aktuelles.length > 1 %}
+    {% if collections.aktuelles.length > 0 %}
   <div class="carousel-dots">
     {% for item in collections.aktuelles %}<div class="dot{% if loop.first %} active{% endif %}"></div>{% endfor %}
-    {% for item in collections.aktuelles %}Hallo, Daphne!{% endfor %}
   </div>
   {% endif %}
-  Hallo, 2
 </div>
 {% endif %}
