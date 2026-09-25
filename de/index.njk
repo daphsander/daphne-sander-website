@@ -35,11 +35,13 @@ permalink: /index.html
     </div>
     {% endfor %}
   </div>
+  Hallo, 1
   {% if collections.aktuelles.length > 1 %}
   <div class="carousel-dots">
     {% for item in collections.aktuelles %}<div class="dot{% if loop.first %} active{% endif %}"></div>{% endfor %}
     {% for item in collections.aktuelles %}Hallo, Daphne!{% endfor %}
   </div>
   {% endif %}
+  Hallo, 2
 </div>
 {% endif %}
