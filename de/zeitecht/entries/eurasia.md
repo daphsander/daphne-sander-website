@@ -1,7 +1,7 @@
 ---
 title: EURASIA – frei nach George Orwells 1984
 tagline: »Ich denke, also lieg ich sicher falsch.«
-meta: '[für 6 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren]'
+meta: '[für 11 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren]'
 image: ''
 order: 1
 tags: zeitecht
@@ -21,10 +21,9 @@ layout: zeitecht-detail.njk
 permalink: /zeitecht/eurasia/index.html
 ---
 
-Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann. Ihre Regierung bedient sich einer wohlmeinenden, egalitären Sprache: Progressive Werte und Umweltschutz werden großgeschrieben. Aber gleichzeitig vollüberwacht der Staat seine Einwohner und straft Dissidenten durch Folter und Tod.
+Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann: Progressive Werte und Umweltschutz werden großgeschrieben – aber gleichzeitig vollüberwacht der Staat seine Einwohner und straft Dissidenten durch Folter und Tod.
 
-Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Währenddessen dreht sich alles um die Frage: Worauf kann man vertrauen, wenn Wahrheiten zu Lüge geworden sind? Worauf lässt sich eine freie Gesellschaft bauen?
+Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten zur Lüge geworden sind? Was ist wirklich der Schlüssel zu einer freien Gesellschaft?
 
-Eignet sich besonders für eine diskutierfreudige, politisch und philosophisch interessierte Klasse.
+Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten zur musikalischen und tänzerischen Gestaltung.
 
-Das Skript bietet stellenweise Möglichkeiten zur musikalischen Umsetzung.
