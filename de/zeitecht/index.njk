@@ -6,7 +6,7 @@ projekt_text: |-
 
   Meine Arbeit mit den Originalen ist im selben Maße kreativ wie wertschätzend. Es geht mir nicht primär darum, kritisch auf die Stoffe zu antworten oder sie mit modernen Referenzen zu bestücken. Vielmehr beginnt jedes Skript mit einer Zuneigung zu einem klassischen Roman und mit dem Wunsch, seine Geschichte entlang eines zentralen Themas bühnenzufassen (vgl. Lajos Egris „Prämisse“, Robert McKees „leitende Idee“). Ich wende also mein Autorenhandwerk an, um auf kreative Weise diejenigen Universalien ans Licht zu bringen, um die sich ein Klassiker bemüht.
 
-  Die Sprache der Texte ist hierbei in der Regel meine eigene. Jedes Stück bewegt sich aber im Kosmos und, größtenteils, nach dem Sujet des Originals.
+  Die Sprache der Texte ist hierbei in der Regel meine eigene. Jedes Stück bewegt sich aber im Kosmos und, größtenteils, nach dem Sujet des Originals. Gerne können Sie Vollfassungen unverbindlich zur Lektüre anfragen. Senden Sie mir dafür einfach eine Nachricht an: mail@daphnesander.com.
 
   Es ist wirklich eine eigene Welt, die jedes dieser Werke aufwirft. Es würde mich freuen, Ihnen und euch dort zu begegnen.
 begleitmaterial_text: |-
@@ -45,9 +45,14 @@ permalink: /zeitecht/index.html
     {% endif %}
     <div>
       <div class="title">{{ item.data.title }}</div>
-      <div class="desc">{{ item.templateContent | safe }}</div>
       {% if item.data.meta %}<div class="meta">{{ item.data.meta }}</div>{% endif %}
-      {% if item.data.is_detailed %}<a class="link" href="{{ item.url }}">Mehr erfahren →</a>{% endif %}
+      {% if item.data.is_detailed %}<a class="link" href="{{ item.url }}">Auszüge, Bilder und Lizenzstufen →</a>{% endif %}
+      <div class="desc">{{ item.templateContent | safe }}</div>
+      {% if item.data.is_detailed %}
+        <p class="entry-detail">
+          ▪ Gerne sende ich Ihnen die Vollfassung unverbindlich zur Lektüre. Schreiben Sie mir dafür einfach eine Nachricht: mail@daphnesander.com ▪
+        </p>
+{% endif %}
     </div>
   </div>
   {% endfor %}

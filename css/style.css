@@ -232,7 +232,7 @@ body.sparks-page .site-header nav { display: none; }
   .carousel-section { order: 1; width: 100%; max-width: 100%; overflow: hidden; }
   .carousel { scroll-snap-type: x mandatory; }
   .carousel .card { scroll-snap-align: start; }
-  .carousel .card.peek { opacity: 0.55; }
+  
 }
 
 /* ---------- ZEITECHT overview ---------- */
@@ -283,20 +283,23 @@ body.sparks-page .site-header nav { display: none; }
 .entry:first-child { border-top: none; padding-top: 0; }
 .entry .thumb, .entry .ph { flex: 0 0 200px; height: 260px; }
 .entry .title { font-size: 36px; color: var(--ink); font-weight: 600; }
-.entry .desc { font-size: 23px; line-height: 1.55; margin-top: 16px; }
-.entry .meta { font-size: 22px; color: var(--ink-muted); margin-top: 20px; }
-.entry .link { font-size: 22px; color: var(--accent); margin-top: 16px; text-decoration: underline; text-underline-offset: 6px; display: inline-block; }
+.entry .desc { font-size: 23px; line-height: 1.55; margin-top: 10px; }
+.entry .meta { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 20px; }
+.entry-detail { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 20px;}
+.entry-detail .link { font-size: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 6px;}
+.entry .link { font-style: italic; font-size: 23px; color: var(--accent); margin-top: 16px; text-decoration: underline; text-underline-offset: 6px; display: inline-block; }
 .entry .tag-line { font-size: 20px; color: var(--ink-muted); letter-spacing: 0.6px; margin-bottom: 20px; }
 .entry .tag-line .divider { margin: 0 12px; color: var(--divider-quiet); }
 
 @media (max-width: 640px) {
   .entry-list { padding: 20px 20px; }
   .entry { flex-direction: column; padding: 18px 0; border-top-width: 1px; }
-  .entry .thumb, .entry .ph { width: 100%; height: 150px; margin-bottom: 10px; }
+  .entry .thumb, .entry .ph { width: 100%; aspect-ratio: 4/3; margin-bottom: 10px; }
   .entry .title { font-size: 16.5px; }
   .entry .desc { font-size: 12px; margin-top: 7px; }
-  .entry .meta { font-size: 10.5px; margin-top: 9px; }
-  .entry .link { font-size: 10.5px; margin-top: 7px; }
+  .entry .meta { font-weight: bold; font-size: 12px; margin-top: 9px; }
+  .entry-detail { font-weight: bold; font-size: 12px; margin-top: 9px;}
+  .entry .link { font-style: italic; font-size: 12px; margin-top: 7px; }
   .entry .tag-line { font-size: 9.5px; margin-bottom: 9px; }
   .entry .tag-line .divider { margin: 0 5px; }
 }
