@@ -3,8 +3,13 @@ layout: base.njk
 currentSection: "/zeitecht/"
 ---
 <div class="detail-hero">
-  {% if image %}
-    <img class="image" src="{{ image }}" alt="{{ title }}">
+  {% if desktop_image or mobile_image %}
+    <picture class="image">
+      {% if mobile_image %}
+        <source media="(max-width: 640px)" srcset="{{ mobile_image }}">
+      {% endif %}
+      <img src="{{ desktop_image or mobile_image }}" alt="{{ title }}" style="width:100%;height:100%;object-fit:cover;">
+    </picture>
   {% else %}
     <div class="ph image">Bild</div>
   {% endif %}

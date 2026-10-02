@@ -281,7 +281,7 @@ body.sparks-page .site-header nav { display: none; }
 .entry-list { padding: 48px 56px 60px; max-width: var(--max-width); margin: 0 auto; }
 .entry { display: flex; gap: 36px; padding: 40px 0; border-top: 2px solid var(--divider); }
 .entry:first-child { border-top: none; padding-top: 0; }
-.entry .thumb, .entry .ph { flex: 0 0 200px; height: 260px; }
+.entry .thumb, .entry .ph { flex: 0 0 200px; height: 260px; aspect-ratio: 3/4; }
 .entry .title { font-size: 36px; color: var(--ink); font-weight: 600; }
 .entry .desc { font-size: 23px; line-height: 1.55; margin-top: 10px; }
 .entry .meta { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 20px; }

@@ -1,7 +1,7 @@
 ---
 kicker: Substack | Brief
 headline: Brief aus Korfu
-image: \images\uploads\birdsong-cut-4x3.png
+image: \images\uploads\ferenczy-karoly-birdsong-ausschnitt-4x3.jpg
 order: 1
 tags: aktuelles
 ---

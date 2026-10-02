@@ -38,8 +38,13 @@ permalink: /zeitecht/index.html
 <div class="entry-list">
   {% for item in collections.zeitecht %}
   <div class="entry">
-    {% if item.data.image %}
-      <img class="thumb" src="{{ item.data.image }}" alt="{{ item.data.title }}">
+    {% if item.data.desktop_image or item.data.mobile_image %}
+      <picture class="thumb">
+        {% if item.data.mobile_image %}
+          <source media="(max-width: 640px)" srcset="{{ item.data.mobile_image }}">
+        {% endif %}
+        <img src="{{ item.data.desktop_image or item.data.mobile_image }}" alt="{{ item.data.title }}" style="width:100%;height:100%;object-fit:cover;">
+      </picture>
     {% else %}
       <div class="ph thumb">Bild</div>
     {% endif %}
