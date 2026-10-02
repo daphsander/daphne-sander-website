@@ -24,7 +24,7 @@ permalink: /zeitecht/eurasia/index.html
 
 Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann: Progressive Werte und Umweltschutz werden großgeschrieben – aber gleichzeitig vollüberwacht der Staat seine Einwohner und straft Dissidenten durch Folter und Tod.
 
-Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten zur Lüge geworden sind? Was ist wirklich der Schlüssel zu einer freien Gesellschaft?
+Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten zur Lüge geworden sind? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Was ist wirklich der Schlüssel zu einer freien Gesellschaft?
 
 Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten zur musikalischen und tänzerischen Gestaltung.
 
