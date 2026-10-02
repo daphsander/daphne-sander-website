@@ -294,12 +294,12 @@ body.sparks-page .site-header nav { display: none; }
 @media (max-width: 640px) {
   .entry-list { padding: 20px 20px; }
   .entry { flex-direction: column; padding: 18px 0; border-top-width: 1px; }
-  .entry .thumb, .entry .ph { width: 100%; aspect-ratio: 4/3; margin-bottom: 10px; }
+  .entry .thumb, .entry .ph { width: 100%; aspect-ratio: 4/3; margin-bottom: 0px; }
   .entry .title { font-size: 16.5px; }
-  .entry .desc { font-size: 12px; margin-top: 7px; }
+  .entry .desc { font-size: 12px; margin-top: 15px; }
   .entry .meta { font-weight: bold; font-size: 12px; margin-top: 9px; }
   .entry-detail { font-weight: bold; font-size: 12px; margin-top: 9px;}
-  .entry .link { font-style: italic; font-size: 12px; margin-top: 7px; }
+  .entry .link { font-style: italic; font-size: 12px; margin-top: 15px; }
   .entry .tag-line { font-size: 9.5px; margin-bottom: 9px; }
   .entry .tag-line .divider { margin: 0 5px; }
 }
@@ -323,17 +323,18 @@ body.sparks-page .site-header nav { display: none; }
 .detail-hero { display: flex; gap: 44px; padding: 60px 56px 12px; max-width: var(--max-width); margin: 0 auto; }
 .detail-hero .image, .detail-hero .ph { flex: 0 0 304px; height: 380px; }
 .detail-hero h1 { font-size: 46px; color: var(--ink); font-weight: 600; margin: 0; }
-.detail-hero .tagline { font-size: 26px; color: var(--accent); font-style: italic; margin-top: 16px; }
-.detail-hero .desc { font-size: 25px; line-height: 1.6; margin-top: 24px; }
-.detail-hero .meta { font-size: 22px; color: var(--ink-muted); margin-top: 20px; }
+.detail-hero .tagline { font-size: 26px; color: var(--accent); font-style: italic; margin-top: 30px; }
+.detail-hero .desc { font-size: 25px; line-height: 1.6; margin-top: 10px; }
+.detail-hero .desc p { margin-top:0; }
+.detail-hero .meta { font-size: 25px; color: var(--ink); margin-top: 30px; }
 
 @media (max-width: 640px) {
   .detail-hero { flex-direction: column; padding: 20px 20px 6px; }
   .detail-hero .image, .detail-hero .ph { width: 100%; height: 180px; }
   .detail-hero h1 { font-size: 20px; margin-top: 16px; }
-  .detail-hero .tagline { font-size: 12.5px; margin-top: 8px; }
-  .detail-hero .desc { font-size: 12px; margin-top: 12px; }
-  .detail-hero .meta { font-size: 10.5px; margin-top: 10px; }
+  .detail-hero .tagline { font-size: 12.5px; margin-top: 20px; }
+  .detail-hero .desc { font-size: 12px; margin-top: 5px; }
+  .detail-hero .meta { font-size: 12px; margin-top: 20px; }
 }
 
 /* Info strip: Auszug lesen / Inszenierungsschluessel / PDF-per-email / pricing pointer */

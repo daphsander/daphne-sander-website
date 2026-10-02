@@ -15,9 +15,9 @@ currentSection: "/zeitecht/"
   {% endif %}
   <div>
     <h1>{{ title }}</h1>
+    {% if meta %}<div class="meta">{{ meta }}</div>{% endif %}    
     {% if tagline %}<div class="tagline">{{ tagline }}</div>{% endif %}
     <div class="desc">{{ content | safe }}</div>
-    {% if meta %}<div class="meta">{{ meta }}</div>{% endif %}
   </div>
 </div>
 
