@@ -35,7 +35,7 @@ permalink: /zeitecht/index.html
 <div class="foldout-panel" id="panel-projekt">{{ projekt_text | markdownify | safe }}</div>
 <div class="foldout-panel" id="panel-begleitmaterial">{{ begleitmaterial_text | markdownify | safe }}</div>
 
-<div class="entry-list">
+<div class="entry-list zeitecht-entry-list">
   {% for item in collections.zeitecht %}
   <div class="entry">
     {% if item.data.desktop_image or item.data.mobile_image %}
@@ -49,15 +49,16 @@ permalink: /zeitecht/index.html
       <div class="ph thumb">Bild</div>
     {% endif %}
     <div>
-      <div class="title">{{ item.data.title }}</div>
-      {% if item.data.meta %}<div class="meta">{{ item.data.meta }}</div>{% endif %}
+      <div class="title">
+        {% if item.data.is_detailed %}<a class="title-link" href="{{ item.url }}">{{ item.data.title }}</a>
+        {% else %}{{ item.data.title }}{% endif %}
+      </div>
+      {% if item.data.overview_meta %}<div class="meta">{{ item.data.overview_meta }}</div>{% endif %}
       {% if item.data.is_detailed %}<a class="link" href="{{ item.url }}">Auszüge, Bilder und Lizenzstufen →</a>{% endif %}
       <div class="desc">{{ item.templateContent | safe }}</div>
-      {% if item.data.is_detailed %}
-        <p class="entry-detail">
-          ▪ Gerne sende ich Ihnen die Vollfassung unverbindlich zur Lektüre. Schreiben Sie mir dafür einfach eine Nachricht: mail@daphnesander.com ▪
-        </p>
-{% endif %}
+      {% if item.data.is_detailed and item.data.overview_detail_text %}
+        <p class="entry-detail">{{ item.data.overview_detail_text }}</p>
+      {% endif %}
     </div>
   </div>
   {% endfor %}

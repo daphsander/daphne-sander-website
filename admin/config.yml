@@ -85,14 +85,17 @@ collections:
     fields:
       - { label: "Titel", name: "title", widget: "string" }
       - { label: "Zitat / Tagline", name: "tagline", widget: "string", required: false }
-      - { label: "Info-Zeile (z.B. Darsteller:innen · Alter)", name: "meta", widget: "string", required: false }
+      - { label: "Meta-Text (Übersicht)", name: "overview_meta", widget: "string", required: false }
+      - { label: "Detailtext (Übersicht)", name: "overview_detail_text", widget: "text", required: false }
+      - { label: "Meta-Text (Detailseite)", name: "detail_meta", widget: "string", required: false }
       - { label: "Bild (Desktop)", name: "desktop_image", widget: "image", required: false }
       - { label: "Bild (Mobile)", name: "mobile_image", widget: "image", required: false }
       - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
       - { label: "Hat eine eigene Detailseite mit Preisen etc.?", name: "is_detailed", widget: "boolean", default: false, hint: "Nur aktivieren, wenn diese Adaption eine vollständige eigene Seite bekommen soll (wie Eurasia). Beim Aktivieren unbedingt auch 'permalink' und 'layout' im Dateikopf ergänzen — dafür bitte kurz nachfragen." }
-      - { label: "Beschreibung", name: "body", widget: "markdown" }
+      - { label: "Detailseitentext", name: "body", widget: "markdown" }
       - { label: "Auszug (Skripttext, nur bei eigener Detailseite)", name: "auszug_text", widget: "markdown", required: false }
       - { label: "Inszenierungsschlüssel-Bild (nur bei eigener Detailseite)", name: "schluessel_image", widget: "image", required: false }
+      - { label: "Inszenierungsschlüssel-PDF (öffnet beim Klick auf das Bild)", name: "schluessel_pdf", widget: "file", required: false }
       - label: "Preise & Lizenzstufen (nur bei eigener Detailseite)"
         name: "pricing"
         widget: "list"

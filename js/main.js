@@ -185,6 +185,19 @@ document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
   });
 });
 
+document.querySelectorAll('[data-mobile-download]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    if (!window.matchMedia('(max-width: 640px)').matches) return;
+    event.preventDefault();
+    const downloadLink = document.createElement('a');
+    downloadLink.href = link.href;
+    downloadLink.download = '';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    downloadLink.remove();
+  });
+});
+
 // ---------- Info-strip: hide any item, remaining ones reflow (CSS flex handles the reflow;
 // this only toggles the data-hidden attribute, e.g. from a future admin setting) ----------
 // Usage: add data-hidden="true" to any .info-strip .item in the template to hide it permanently.

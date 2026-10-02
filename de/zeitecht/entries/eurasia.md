@@ -1,14 +1,17 @@
 ---
 title: EURASIA – frei nach George Orwells 1984
 tagline: »Ich denke, also lieg ich sicher falsch.«
-meta: '▪ für 11 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren ▪'
+overview_meta: '▪ für 11 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren'
+overview_detail_text: '▪ Gerne sende ich Ihnen die Vollfassung unverbindlich zur Lektüre. Schreiben Sie mir dafür einfach eine Nachricht: mail@daphnesander.com'
+detail_meta: '▪ für 11 oder mehr (oder viel mehr) Darsteller · Spielalter: ab 16 Jahren ▪'
 desktop_image: \images\uploads\eurasia-cover-desktop-3x4.jpeg
 mobile_image: \images\uploads\eurasia-cover-mobile-4x3.jpeg
 order: 1
 tags: zeitecht
 is_detailed: true
 auszug_text: '[Platzhalter — hier folgt der Skriptauszug in Skriptformatierung.]'
-schluessel_image: ''
+schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
+schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
 pricing:
   - label: Einzelaufführung
     price: '[Platzhalter]'
@@ -27,4 +30,3 @@ Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann:
 Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten ad absurdum geführt wurden? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Wie findet man, in meinungslauten Zeiten, wirklich zu Freiheit und zu Selbstbestimmung?
 
 Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden.
-

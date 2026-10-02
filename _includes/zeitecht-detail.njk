@@ -15,7 +15,7 @@ currentSection: "/zeitecht/"
   {% endif %}
   <div>
     <h1>{{ title }}</h1>
-    {% if meta %}<div class="meta">{{ meta }}</div>{% endif %}    
+    {% if detail_meta %}<div class="meta">{{ detail_meta }}</div>{% endif %}
     {% if tagline %}<div class="tagline">{{ tagline }}</div>{% endif %}
     <div class="desc">{{ content | safe }}</div>
   </div>
@@ -30,9 +30,15 @@ currentSection: "/zeitecht/"
   {% endif %}
   {% if schluessel_image %}
   <div class="item with-key">
-    <div class="key-image" data-lightbox="lightbox-schluessel">
-      <img src="{{ schluessel_image }}" alt="Inszenierungsschlüssel" style="width:128px;height:88px;object-fit:contain;">
+    {% if schluessel_pdf %}
+    <a class="key-image clickable" href="{{ schluessel_pdf }}" target="_blank" rel="noopener" data-mobile-download>
+      <img src="{{ schluessel_image }}" alt="Inszenierungsschlüssel" style="width:228px;object-fit:cover;">
+    </a>
+    {% else %}
+    <div class="key-image">
+      <img src="{{ schluessel_image }}" alt="Inszenierungsschlüssel" style="width:228px;object-fit:cover;">
     </div>
+    {% endif %}
   </div>
   {% endif %}
   {% if auszug_text %}
@@ -52,12 +58,6 @@ currentSection: "/zeitecht/"
   <p style="font-family:monospace; white-space:pre-wrap; line-height:1.6;">{{ auszug_text }}</p>
 </template>
 {% endif %}
-{% if schluessel_image %}
-<template id="lightbox-schluessel">
-  <p>[Platzhalter — hier folgt die Bildergalerie des Inszenierungsschlüssels.]</p>
-</template>
-{% endif %}
-
 {% if einblicke and einblicke.length %}
 <div class="carousel-section">
   <div class="section-heading">Einblicke</div>
