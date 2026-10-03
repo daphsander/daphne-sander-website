@@ -372,10 +372,10 @@ body.sparks-page .site-header nav { display: none; }
 
 @media (max-width: 640px) {
   .info-strip {
-    flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start;
-    padding: 18px 0; column-gap: 16px; gap: 16px; border-top-width: 1px; border-bottom-width: 1px;
+    flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center;
+    padding: 18px 20px; column-gap: 16px; row-gap: 16px; border-top-width: 1px; border-bottom-width: 1px;
   }
-  .info-strip .item { border-left: 22px; padding: 0; }
+  .info-strip .item { flex: 0 0 auto; border-left: none; padding: 0; }
   .info-strip .item:nth-child(1) { flex: 0 0 auto; }
   .info-strip .item:nth-child(2) { flex: 0 0 auto; }
   .info-strip .item:nth-child(3),
