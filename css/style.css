@@ -373,9 +373,9 @@ body.sparks-page .site-header nav { display: none; }
 @media (max-width: 640px) {
   .info-strip {
     flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start;
-    padding: 18px 0; column-gap: 16px; gap: 0; border-top-width: 1px; border-bottom-width: 1px;
+    padding: 18px 0; column-gap: 16px; gap: 16px; border-top-width: 1px; border-bottom-width: 1px;
   }
-  .info-strip .item { border-left: none; padding: 0; }
+  .info-strip .item { border-left: 22px; padding: 0; }
   .info-strip .item:nth-child(1) { flex: 0 0 auto; }
   .info-strip .item:nth-child(2) { flex: 0 0 auto; }
   .info-strip .item:nth-child(3),
