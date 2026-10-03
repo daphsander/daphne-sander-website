@@ -108,7 +108,7 @@ collections:
         widget: "list"
         required: false
         fields:
-          - { label: "Bild", name: "image", widget: "image" }
+          - { label: "Bild und 4:3-Bildausschnitt (Bild ziehen)", name: "image", widget: "imageCrop" }
 
   - name: "arbeiten_entries"
     label: "Arbeiten — Einträge"
@@ -132,7 +132,7 @@ collections:
         widget: "list"
         required: false
         fields:
-          - { label: "Bild", name: "image", widget: "image" }
+          - { label: "Bild und 4:3-Bildausschnitt (Bild ziehen)", name: "image", widget: "imageCrop" }
 
   - name: "ueber_mich"
     label: "Über mich"

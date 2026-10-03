@@ -19,7 +19,12 @@ pricing:
     price: '[Platzhalter]'
   - label: Schullizenz (unbegrenzt, 1 Schule)
     price: '[Platzhalter]'
-einblicke: []
+einblicke:
+  - image: \images\uploads\1-h12-2062-FotocreditJakubKavin.jpg
+  - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg
+  - image: \images\uploads\3-h12-2062-FotocreditJakubKavin.jpg
+  - image: \images\uploads\4-h12-2062-FotocreditJakubKavin.jpg
+  - image: \images\uploads\5-h12-2062-FotocreditJakubKavin.jpg
 lang: de
 layout: zeitecht-detail.njk
 permalink: /zeitecht/eurasia/index.html
@@ -27,6 +32,6 @@ permalink: /zeitecht/eurasia/index.html
 
 Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann: Progressive Werte und Umweltschutz werden großgeschrieben – aber gleichzeitig vollüberwacht der Staat seine Einwohner und straft Dissidenten durch Folter und Tod.
 
-Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten ad absurdum geführt wurden? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Wie findet man, in meinungslauten Zeiten, wirklich zu Freiheit und zu Selbstbestimmung?
+Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten ad absurdum geführt wurden? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Wie findet man, in meinungslauten Zeiten, zu Klarheit und zu Selbstbestimmung?
 
 Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden.

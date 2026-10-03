@@ -12,6 +12,13 @@ module.exports = function (eleventyConfig) {
     return (items || []).filter((item) => item.published !== false);
   });
 
+  eleventyConfig.addFilter("galleryImages", (items) =>
+    (items || []).map((item) => {
+      const image = item.image;
+      return image && typeof image === "object" ? image.src : image;
+    })
+  );
+
   eleventyConfig.addFilter("markdownify", function (content) {
     return md.render(content || "");
   });

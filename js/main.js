@@ -45,7 +45,31 @@ if (filterButtons.length) applyFilter('alle');
 document.querySelectorAll('.carousel').forEach((carousel) => {
   const dotsContainer = carousel.parentElement.querySelector('.carousel-dots');
   const cards = Array.from(carousel.querySelectorAll('.card'));
-  const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+  let dots = [];
+  let batchPositions = [];
+
+  function renderDots() {
+    if (!dotsContainer || !carousel.clientWidth) return;
+
+    const batchCount = Math.max(1, Math.ceil(carousel.scrollWidth / carousel.clientWidth));
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    batchPositions = Array.from({ length: batchCount }, (_, index) =>
+      Math.min(index * carousel.clientWidth, maxScroll)
+    );
+    dotsContainer.replaceChildren();
+    batchPositions.forEach((position, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'dot';
+      dot.setAttribute('aria-label', `Karussell-Ansicht ${index + 1} von ${batchCount}`);
+      dot.addEventListener('click', () => {
+        carousel.scrollTo({ left: position, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+    dots = dotsContainer.querySelectorAll('.dot');
+    updateCarouselState();
+  }
 
   function updateCarouselState() {
     const carouselLeft = carousel.getBoundingClientRect().left;
@@ -58,12 +82,20 @@ document.querySelectorAll('.carousel').forEach((carousel) => {
         activeIndex = i;
       }
     });
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+    const activeBatch = batchPositions.reduce((closest, position, index) =>
+      Math.abs(position - carousel.scrollLeft) <
+        Math.abs(batchPositions[closest] - carousel.scrollLeft) ? index : closest
+    , 0);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeBatch);
+      dot.setAttribute('aria-current', i === activeBatch ? 'true' : 'false');
+    });
     cards.forEach((card, i) => card.classList.toggle('peek', i !== activeIndex));
   }
 
   carousel.addEventListener('scroll', updateCarouselState);
-  updateCarouselState();
+  renderDots();
+  window.addEventListener('resize', renderDots);
 });
 
 // ---------- Einblicke: tap an image to open it full-size, swipeable to the next ----------
@@ -85,22 +117,25 @@ window.addEventListener('popstate', () => {
 });
 
 function openImageGallery(images, startIndex) {
+  let currentIndex = startIndex;
   const overlay = document.createElement('div');
   overlay.className = 'gallery-overlay';
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeGallery(false);
   });
 
-  const closeBtn = document.createElement('div');
+  const closeBtn = document.createElement('button');
   closeBtn.className = 'gallery-close';
+  closeBtn.type = 'button';
   closeBtn.textContent = '\u00d7';
+  closeBtn.setAttribute('aria-label', 'Galerie schließen');
   closeBtn.addEventListener('click', () => closeGallery(false));
   overlay.appendChild(closeBtn);
 
   const scroller = document.createElement('div');
   scroller.className = 'gallery-scroller';
 
-  images.forEach((src) => {
+  images.forEach((src, index) => {
     const slide = document.createElement('div');
     slide.className = 'gallery-slide';
     let media;
@@ -114,7 +149,22 @@ function openImageGallery(images, startIndex) {
     }
     slide.appendChild(media);
     slide.addEventListener('click', (e) => {
-      if (e.target === slide) closeGallery(false);
+      const bounds = media.getBoundingClientRect();
+      if (e.clientX < bounds.left) {
+        if (index > 0) {
+          currentIndex = index - 1;
+          scroller.scrollTo({ left: currentIndex * scroller.clientWidth, behavior: 'smooth' });
+        } else {
+          closeGallery(false);
+        }
+      } else if (e.clientX > bounds.right) {
+        if (index < images.length - 1) {
+          currentIndex = index + 1;
+          scroller.scrollTo({ left: currentIndex * scroller.clientWidth, behavior: 'smooth' });
+        } else {
+          closeGallery(false);
+        }
+      }
     });
     scroller.appendChild(slide);
   });
