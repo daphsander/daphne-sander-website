@@ -372,7 +372,7 @@ body.sparks-page .site-header nav { display: none; }
 
 @media (max-width: 640px) {
   .info-strip {
-    flex-direction: column; flex-wrap: wrap; align-items: center; justify-content: flex-start;
+    flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start;
     padding: 18px 0; column-gap: 16px; gap: 0; border-top-width: 1px; border-bottom-width: 1px;
   }
   .info-strip .item { border-left: none; padding: 0; }
