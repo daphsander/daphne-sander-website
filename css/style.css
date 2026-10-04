@@ -391,9 +391,13 @@ body.sparks-page .site-header nav { display: none; }
 /* Pricing */
 .pricing-block { padding: 56px 56px 40px; max-width: var(--max-width); margin: 0 auto; }
 .pricing-block .section-heading { border-top: 2px solid var(--divider); padding-top: 44px; }
-.pricing-row { display: flex; justify-content: space-between; font-size: 25px; margin-bottom: 20px; }
-.pricing-note { font-size: 22px; color: var(--ink-muted); margin-top: 24px; line-height: 1.5; }
-@media (max-width: 640px) { .pricing-block { padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; margin-bottom: 9px; } .pricing-note { font-size: 10.5px; margin-top: 11px; } }
+.pricing-row { display: grid; grid-template-columns: 25% minmax(0, 1fr) max-content; font-size: 22px; margin-bottom: 0; padding: 20px 0; border-bottom: 1px solid var(--divider); }
+.pricing-block > .section-heading + .pricing-row { border-top: 1px solid var(--divider); }
+.pricing-row > span:nth-child(2):last-child { grid-column: 3; }
+.pricing-row > span:nth-child(3) {text-align: right; }
+.pricing-row > span { white-space: pre-line; }
+.pricing-note { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 24px; line-height: 1.5; }
+@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-note { font-size: 10.5px; margin-top: 11px; } }
 
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }
@@ -458,13 +462,20 @@ body.sparks-page .site-header nav { display: none; }
   flex: 0 0 100%; scroll-snap-align: center;
   display: flex; align-items: center; justify-content: center; padding: 40px;
 }
-.gallery-slide img, .gallery-slide .ph {
+.gallery-slide img {
+  width: auto; height: auto; max-width: min(950px, 100%); max-height: min(640px, 100%);
+  object-fit: contain;
+}
+.gallery-slide .ph {
   max-width: 100%; max-height: 100%; object-fit: contain; width: 400px; height: 300px;
 }
 .gallery-slide img { pointer-events: none; }
 @media (max-width: 640px) {
   .gallery-slide { padding: 20px; }
-  .gallery-slide img, .gallery-slide .ph { width: 280px; height: 210px; }
+  .gallery-slide img {
+    width: auto; height: auto; max-width: min(270px, 100%); max-height: min(265px, 100%);
+  }
+  .gallery-slide .ph { width: 280px; height: 210px; }
 }
 
 /* ---------- SPARKS ---------- */

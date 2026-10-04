@@ -13,18 +13,41 @@ auszug_text: '[Platzhalter — hier folgt der Skriptauszug in Skriptformatierung
 schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
 schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
 pricing:
-  - label: Einzelaufführung
-    price: '[Platzhalter]'
-  - label: Serie (bis 5 Aufführungen)
-    price: '[Platzhalter]'
-  - label: Schullizenz (unbegrenzt, 1 Schule)
-    price: '[Platzhalter]'
+  - label: 'SERIE 3'
+    description: |-
+      ▪ bis zu 3 Aufführungen
+      ▪ Begleithefte (Inszenierungsschlüssel
+      und Kontextschlüssel als PDF)
+    price: '300 €'
+  - label: 'SERIE 7'
+    description: |-
+      ▪ bis zu 7 Aufführungen
+      ▪ Begleithefte
+    price: '500 €'
+  - label: 'SERIE X'
+    description: |-
+      ▪ 1 Jahr lang unbegrenzt aufführen
+      ▪ Begleithefte
+    price: |-
+      Preis nach
+      Vereinbarung
+  - label: '+ Autorenbesuch'
+    description: |-
+      ▪ Probenbesuch mit Frage-Antwort-
+      Session zum Skript, zum
+      Dramatikerhandwerk und -Dasein,
+      zum Adaptieren (inkl. Material)
+      ▪ nach Wunsch: Einzelgespräche
+      (Rollengespräche), inkl. Material
+    price: |-
+      Serienpreis
+      + 400 € und Reisekosten
 einblicke:
-  - image: \images\uploads\1-h12-2062-FotocreditJakubKavin.jpg
-  - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg
-  - image: \images\uploads\3-h12-2062-FotocreditJakubKavin.jpg
-  - image: \images\uploads\4-h12-2062-FotocreditJakubKavin.jpg
-  - image: \images\uploads\5-h12-2062-FotocreditJakubKavin.jpg
+  - image: \images\uploads\1-h12-2062-RegieUndFotocreditJakubKavin.png
+  - image: \images\uploads\2-h12-2062-RegieUndFotocreditJakubKavin.jpg
+  - image: \images\uploads\3-h12-2062-RegieUndFotocreditJakubKavin.jpg
+  - image: \images\uploads\4-h12-2062-RegieUndFotocreditJakubKavin.jpg
+  - image: \images\uploads\5-h12-2062-RegieUndFotocreditJakubKavin.jpg
 lang: de
 layout: zeitecht-detail.njk
 permalink: /zeitecht/eurasia/index.html

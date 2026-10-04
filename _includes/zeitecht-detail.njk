@@ -76,8 +76,8 @@ currentSection: "/zeitecht/"
 <div class="pricing-block">
   <div class="section-heading">Preise &amp; Lizenzstufen</div>
   {% for row in pricing %}
-    <div class="pricing-row"><span>{{ row.label }}</span><span>{{ row.price }}</span></div>
+    <div class="pricing-row"><span>{{ row.label }}</span><span class="pricing-description">{{ row.description }}</span><span>{{ row.price }}</span></div>
   {% endfor %}
-  <div class="pricing-note">Alle Preise verstehen sich zzgl. Aufführungsrechte über die Verlagsvertretung. Individuelle Anfragen (z. B. Festivals, mehrjährige Nutzung) gerne per E-Mail.</div>
+  <div class="pricing-note">Wenn Sie Fragen haben oder eine individuelle Vereinbarung treffen wollen, lassen Sie uns gerne per Mail einen Termin ausmachen: mail@daphnesander.com</div>
 </div>
 {% endif %}
