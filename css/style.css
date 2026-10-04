@@ -362,7 +362,7 @@ body.sparks-page .site-header nav { display: none; }
 .info-strip .item:first-child { border-left: none; padding-left: 0; }
 .info-strip .link { font-size: 25px; color: var(--ink); text-decoration: underline; text-underline-offset: 6px; font-weight: 600; cursor: pointer; }
 .info-strip .caption { font-size: 20px; color: var(--ink-muted); margin-top: 10px; }
-.info-strip .note { font-size: 22px; line-height: 1.5; }
+.info-strip .note { color: var(--accent); font-size: 22px; line-height: 1.5; }
 .info-strip .note .email { color: var(--accent); }
 .info-strip .key-image { object-fit: cover; display: flex; align-items: center; justify-content: center; }
 .info-strip .key-image img { width: 100%; object-fit: cover; }
@@ -384,7 +384,7 @@ body.sparks-page .site-header nav { display: none; }
   }
   .info-strip .link { font-size: 13px; }
   .info-strip .caption { font-size: 10px; margin-top: 4px; }
-  .info-strip .note { font-size: 11px; }
+  .info-strip .note { color: var(--accent); font-size: 11px; }
   .info-strip .key-image { width: 128px; height: 88px; }
 }
 
@@ -396,8 +396,9 @@ body.sparks-page .site-header nav { display: none; }
 .pricing-row > span:nth-child(2):last-child { grid-column: 3; }
 .pricing-row > span:nth-child(3) {text-align: right; }
 .pricing-row > span { white-space: pre-line; }
+.pricing-break-mobile { display: none; }
 .pricing-note { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 24px; line-height: 1.5; }
-@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-note { font-size: 12px; margin-top: 11px; } }
+@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-break-mobile { display: initial; } .pricing-break-desktop { display: none; } .pricing-note { font-size: 12px; margin-top: 11px; } }
 
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }

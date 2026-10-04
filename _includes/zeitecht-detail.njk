@@ -2,6 +2,10 @@
 layout: base.njk
 currentSection: "/zeitecht/"
 ---
+{% macro pricingText(text) -%}
+  {{ text | escape | replace('[[mobile-break]]', '<br class="pricing-break-mobile">') | replace('[[desktop-break]]', '<br class="pricing-break-desktop">') | safe }}
+{%- endmacro %}
+
 <div class="detail-hero">
   {% if desktop_image or mobile_image %}
     <picture class="image">
@@ -76,7 +80,7 @@ currentSection: "/zeitecht/"
 <div class="pricing-block">
   <div class="section-heading">Preise &amp; Lizenzstufen</div>
   {% for row in pricing %}
-    <div class="pricing-row"><span>{{ row.label }}</span><span class="pricing-description">{{ row.description }}</span><span>{{ row.price }}</span></div>
+    <div class="pricing-row"><span>{{ pricingText(row.label) }}</span><span class="pricing-description">{{ pricingText(row.description) }}</span><span>{{ pricingText(row.price) }}</span></div>
   {% endfor %}
   <div class="pricing-note">Wenn Sie Fragen haben oder eine individuelle Vereinbarung treffen wollen, lassen Sie uns gerne per Mail einen Termin ausmachen: mail@daphnesander.com</div>
 </div>

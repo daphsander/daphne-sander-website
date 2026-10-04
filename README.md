@@ -24,6 +24,20 @@ The ZEITECHT section already has real content for **Eurasia** and a lighter
 placeholder for **Der Schimmelreiter**, based on what's been discussed — check
 it over and adjust anything that doesn't match your intent.
 
+### Responsive line breaks in ZEITECHT pricing
+In a pricing `label`, `description`, or `price`, insert `[[mobile-break]]` or
+`[[desktop-break]]` exactly where a line should break only on that screen size.
+For example:
+
+```yaml
+description: >-
+  ▪ Begleithefte[[mobile-break]] (Inszenierungsschlüssel und Kontextschlüssel als PDF)
+```
+
+That forces a line break before the parenthesis on mobile (640px wide or less),
+while desktop treats the text as one continuous phrase. Ordinary line breaks in
+the YAML value remain visible at every screen size.
+
 ## Setup steps
 
 ### 1. Push this to GitHub

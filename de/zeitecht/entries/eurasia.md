@@ -16,7 +16,7 @@ pricing:
   - label: 'SERIE 3'
     description: |-
       ▪ bis zu 3 Aufführungen
-      ▪ Begleithefte (Inszenierungsschlüssel
+      ▪ Begleithefte (Inszenierungs[[mobile-hyphen-break]]schlüssel
       und Kontextschlüssel als PDF)
     price: '300 €'
   - label: 'SERIE 7'
@@ -31,7 +31,7 @@ pricing:
     price: |-
       Preis nach
       Vereinbarung
-  - label: '+ Autorenbesuch'
+  - label: '+ Autoren[[mobile-hyphen-break]]besuch'
     description: |-
       ▪ Probenbesuch mit Frage-Antwort-
       Session zum Skript, zum
@@ -41,13 +41,17 @@ pricing:
       (Rollengespräche), inkl. Material
     price: |-
       Serienpreis
-      + 400 € und Reisekosten
+      + 400 € und[[mobile-break]] Reisekosten
 einblicke:
   - image: \images\uploads\1-h12-2062-RegieUndFotocreditJakubKavin.png
-  - image: \images\uploads\2-h12-2062-RegieUndFotocreditJakubKavin.jpg
-  - image: \images\uploads\3-h12-2062-RegieUndFotocreditJakubKavin.jpg
-  - image: \images\uploads\4-h12-2062-RegieUndFotocreditJakubKavin.jpg
-  - image: \images\uploads\5-h12-2062-RegieUndFotocreditJakubKavin.jpg
+  - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg
+    credit: "Fotocredit: Jakub Kavin"
+  - image: \images\uploads\3-h12-2062-FotocreditJakubKavin.jpg
+    credit: "Fotocredit: Jakub Kavin"
+  - image: \images\uploads\4-h12-2062-FotocreditJakubKavin.jpg
+    credit: "Fotocredit: Jakub Kavin"
+  - image: \images\uploads\5-h12-2062-FotocreditJakubKavin.jpg
+    credit: "Fotocredit: Jakub Kavin"
 lang: de
 layout: zeitecht-detail.njk
 permalink: /zeitecht/eurasia/index.html
