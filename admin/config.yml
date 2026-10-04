@@ -109,6 +109,7 @@ collections:
         required: false
         fields:
           - { label: "Bild und 4:3-Bildausschnitt (Bild ziehen)", name: "image", widget: "imageCrop" }
+          - { label: "Foto-Credit (optional)", name: "credit", widget: "string", required: false }
 
   - name: "arbeiten_entries"
     label: "Arbeiten — Einträge"
@@ -133,6 +134,7 @@ collections:
         required: false
         fields:
           - { label: "Bild und 4:3-Bildausschnitt (Bild ziehen)", name: "image", widget: "imageCrop" }
+          - { label: "Foto-Credit (optional)", name: "credit", widget: "string", required: false }
 
   - name: "ueber_mich"
     label: "Über mich"

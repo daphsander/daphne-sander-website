@@ -397,7 +397,7 @@ body.sparks-page .site-header nav { display: none; }
 .pricing-row > span:nth-child(3) {text-align: right; }
 .pricing-row > span { white-space: pre-line; }
 .pricing-note { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 24px; line-height: 1.5; }
-@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-note { font-size: 10.5px; margin-top: 11px; } }
+@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-note { font-size: 12px; margin-top: 11px; } }
 
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }
@@ -463,19 +463,28 @@ body.sparks-page .site-header nav { display: none; }
   display: flex; align-items: center; justify-content: center; padding: 40px;
 }
 .gallery-slide img {
-  width: auto; height: auto; max-width: min(950px, 100%); max-height: min(640px, 100%);
+  width: auto; height: auto; max-width: calc(100vw - 80px); max-height: calc(100vh - 80px);
   object-fit: contain;
 }
 .gallery-slide .ph {
   max-width: 100%; max-height: 100%; object-fit: contain; width: 400px; height: 300px;
 }
 .gallery-slide img { pointer-events: none; }
+.gallery-slide.has-credit { flex-direction: column; gap: 12px; }
+.gallery-credit {
+  max-width: 100%; color: #FDFCFA; font-size: 14px; line-height: 1.4;
+  text-align: center; overflow-wrap: anywhere;
+}
+.gallery-slide.has-credit img { max-height: calc(100vh - 152px); }
 @media (max-width: 640px) {
   .gallery-slide { padding: 20px; }
   .gallery-slide img {
-    width: auto; height: auto; max-width: min(270px, 100%); max-height: min(265px, 100%);
+    width: auto; height: auto; max-width: calc(100vw - 40px); max-height: calc(100vh - 40px);
   }
   .gallery-slide .ph { width: 280px; height: 210px; }
+  .gallery-slide.has-credit { gap: 8px; }
+  .gallery-credit { font-size: 12px; }
+  .gallery-slide.has-credit img { max-height: calc(100vh - 104px); }
 }
 
 /* ---------- SPARKS ---------- */

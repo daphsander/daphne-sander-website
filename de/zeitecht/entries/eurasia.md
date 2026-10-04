@@ -36,7 +36,7 @@ pricing:
       ▪ Probenbesuch mit Frage-Antwort-
       Session zum Skript, zum
       Dramatikerhandwerk und -Dasein,
-      zum Adaptieren (inkl. Material)
+      zum Adaptieren
       ▪ nach Wunsch: Einzelgespräche
       (Rollengespräche), inkl. Material
     price: |-

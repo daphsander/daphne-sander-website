@@ -61,7 +61,7 @@ currentSection: "/zeitecht/"
 {% if einblicke and einblicke.length %}
 <div class="carousel-section">
   <div class="section-heading">Einblicke</div>
-  <div class="carousel" data-gallery-images='{{ einblicke | galleryImages | dump | safe }}'>
+  <div class="carousel" data-gallery-images='{{ einblicke | galleryImages | dump | escape }}'>
     {% for pic in einblicke %}
       <div class="card"><img src="{{ pic.image.src or pic.image }}" style="object-position: {{ pic.image.x if pic.image.x is defined else 50 }}% {{ pic.image.y if pic.image.y is defined else 50 }}%;" alt=""></div>
     {% endfor %}

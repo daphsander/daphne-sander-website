@@ -15,7 +15,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("galleryImages", (items) =>
     (items || []).map((item) => {
       const image = item.image;
-      return image && typeof image === "object" ? image.src : image;
+      return {
+        src: image && typeof image === "object" ? image.src : image,
+        credit: item.credit || "",
+      };
     })
   );
 

@@ -135,19 +135,27 @@ function openImageGallery(images, startIndex) {
   const scroller = document.createElement('div');
   scroller.className = 'gallery-scroller';
 
-  images.forEach((src, index) => {
+  images.forEach((image, index) => {
+    const imageData = typeof image === 'string' ? { src: image, credit: '' } : image;
     const slide = document.createElement('div');
     slide.className = 'gallery-slide';
     let media;
-    if (src) {
+    if (imageData.src) {
       media = document.createElement('img');
-      media.src = src;
+      media.src = imageData.src;
     } else {
       media = document.createElement('div');
       media.className = 'ph';
       media.textContent = 'Bild';
     }
     slide.appendChild(media);
+    if (imageData.credit) {
+      slide.classList.add('has-credit');
+      const credit = document.createElement('div');
+      credit.className = 'gallery-credit';
+      credit.textContent = imageData.credit;
+      slide.appendChild(credit);
+    }
     slide.addEventListener('click', (e) => {
       const bounds = media.getBoundingClientRect();
       if (e.clientX < bounds.left) {
