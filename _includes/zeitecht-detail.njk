@@ -3,7 +3,7 @@ layout: base.njk
 currentSection: "/zeitecht/"
 ---
 {% macro pricingText(text) -%}
-  {{ text | escape | replace('[[mobile-break]]', '<br class="pricing-break-mobile">') | replace('[[desktop-break]]', '<br class="pricing-break-desktop">') | safe }}
+  {{ text | escape | replace('[[mobile-break]]', '<br class="pricing-break-mobile">') | replace('[[desktop-break]]', '<br class="pricing-break-desktop">') | replace('[[mobile-hyphen-break]]', '<span class="pricing-hyphen-break">-<br></span>') | safe }}
 {%- endmacro %}
 
 <div class="detail-hero">

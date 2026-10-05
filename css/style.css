@@ -397,8 +397,9 @@ body.sparks-page .site-header nav { display: none; }
 .pricing-row > span:nth-child(3) {text-align: right; }
 .pricing-row > span { white-space: pre-line; }
 .pricing-break-mobile { display: none; }
+.pricing-hyphen-break { display: none; }
 .pricing-note { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 24px; line-height: 1.5; }
-@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-break-mobile { display: initial; } .pricing-break-desktop { display: none; } .pricing-note { font-size: 12px; margin-top: 11px; } }
+@media (max-width: 640px) { .pricing-block { order: 2; padding: 22px 20px 20px; } .pricing-block .section-heading { padding-top: 18px; border-top-width: 1px; } .pricing-row { font-size: 12px; padding: 9px 0; } .pricing-break-mobile { display: initial; } .pricing-break-desktop { display: none; } .pricing-hyphen-break { display: initial; } .pricing-note { font-size: 12px; margin-top: 11px; } }
 
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }

@@ -27,16 +27,20 @@ it over and adjust anything that doesn't match your intent.
 ### Responsive line breaks in ZEITECHT pricing
 In a pricing `label`, `description`, or `price`, insert `[[mobile-break]]` or
 `[[desktop-break]]` exactly where a line should break only on that screen size.
-For example:
+Use `[[mobile-hyphen-break]]` to add a hyphen and break there on mobile, for
+words that need to split across lines. For example:
 
 ```yaml
 description: >-
   ▪ Begleithefte[[mobile-break]] (Inszenierungsschlüssel und Kontextschlüssel als PDF)
+  ▪ Dra[[mobile-hyphen-break]]matikerhandwerk
 ```
 
-That forces a line break before the parenthesis on mobile (640px wide or less),
-while desktop treats the text as one continuous phrase. Ordinary line breaks in
-the YAML value remain visible at every screen size.
+The first marker forces a line break before the parenthesis on mobile (640px
+wide or less), while desktop treats the text as one continuous phrase. The
+second displays as `Dra-` followed by a line break on mobile, and as
+`Dramatikerhandwerk` on desktop. Ordinary line breaks in the YAML value remain
+visible at every screen size.
 
 ## Setup steps
 
