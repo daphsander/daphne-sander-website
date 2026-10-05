@@ -226,12 +226,23 @@ function openLightbox(contentHtml) {
     document.body.appendChild(overlay);
   }
   const panel = document.createElement('div');
+  panel.className = 'lightbox-panel';
   panel.style.background = '#FDFCFA';
-  panel.style.maxWidth = '640px';
-  panel.style.maxHeight = '85vh';
-  panel.style.overflowY = 'auto';
-  panel.style.padding = '32px';
-  panel.innerHTML = contentHtml;
+  panel.style.maxWidth = '960px';
+  panel.style.maxHeight = '92vh';
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'lightbox-close';
+  closeBtn.type = 'button';
+  closeBtn.textContent = '\u00d7';
+  closeBtn.setAttribute('aria-label', 'Auszug schließen');
+  closeBtn.addEventListener('click', () => overlay.remove());
+
+  const content = document.createElement('div');
+  content.className = 'lightbox-content';
+  content.innerHTML = contentHtml;
+
+  panel.appendChild(closeBtn);
+  panel.appendChild(content);
   overlay.innerHTML = '';
   overlay.appendChild(panel);
 }

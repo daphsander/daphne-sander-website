@@ -59,7 +59,7 @@ currentSection: "/zeitecht/"
 
 {% if auszug_text %}
 <template id="lightbox-auszug">
-  <p style="font-family:monospace; white-space:pre-wrap; line-height:1.6;">{{ auszug_text }}</p>
+  <div class="auszug-text">{{ auszug_html | safe }}</div>
 </template>
 {% endif %}
 {% if einblicke and einblicke.length %}

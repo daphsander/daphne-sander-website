@@ -2,8 +2,8 @@
 ------------------------------------------------------------------------------
 
 
-                 PROLOG
-                ________
+[[center]]PROLOG
+[[center]]________
 
 ((Herr Mann wird gefoltert. Eventuell Musik. In jedem Fall empfiehlt sich, das Stück mit einem gellenden Schrei zu beginnen. Dann:))
 
@@ -50,12 +50,12 @@ Ich denke, also lieg ich sicher falsch.
 
 ((Und Musik!)) [...]
 
---------------------------------------------------------------
-------------------------------------------------------------------------------
+[[center]]--------------------------------
+[[center]]--------------------------------
 
 
-Aus 2: „FINDEN SIE NICHT AUCH?“
-________________
+[[center]]Aus 2: „FINDEN SIE NICHT AUCH?“
+[[center]]________________
 
 […]
 
@@ -84,11 +84,12 @@ CHOR:
 Puh!
 
 […]
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
+[[center]]------------------------------------
+[[center]]------------------------------------
 
 
-Aus 3: „ANTON UND DAS BUCH“
+[[center]]Aus 3: „ANTON UND DAS BUCH“
+[[center]]__________
 
 ANTON:
 Es gibt Ideen, Worte und Gedanken, zu denen man im Dunkeln besser findet. Der größte Traum. Die schlimmste Angst. Sie finden einen leichter ohne Licht.
@@ -98,12 +99,12 @@ Das ist die eine Stelle Welt, die nichts von mir verlangt.
 
 […]
 
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
+[[center]]-------------------------------------
+[[center]]-------------------------------------
 
 
-5: DER HASS I: JULIAS REDE
-__________________________
+[[center]]5: DER HASS I: JULIAS REDE
+[[center]]__________________________
 
 JULIA:
 ES GIBT KEINEN GUTEN SEX.
@@ -142,12 +143,12 @@ Es erscheint uns der einzig gerechte Ausdruck für ein so tief entwürdigendes K
 
 Mögen die Tiere, die es brauchen, zu ihm finden!
 
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
+[[center]]----------------------------
+[[center]]----------------------------
 
 
-Aus 9: ZWEITE ANNÄHERUNG AN JULIA
-_______________________
+[[center]]Aus 9: ZWEITE ANNÄHERUNG AN JULIA
+[[center]]_______________________
 
 JULIA:
 Bist du wahnsinnig? So bringen sie dich um!
