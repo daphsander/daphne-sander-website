@@ -171,4 +171,6 @@ Und—Bist du in der Geheimgesellschaft? Kennst du Goldstein—
 JULIA:
 Pschhht! Nein. Ich kenne niemanden, und ich weiß nichts. Genau wie du. Ich weiß nur, dass ich dir das hier zeigen soll.
 
+[...]
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
