@@ -350,19 +350,21 @@ body.sparks-page .site-header nav { display: none; }
 
 /* Info strip: Auszug lesen / Inszenierungsschluessel / PDF-per-email / pricing pointer */
 .info-strip {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   border-top: 2px solid var(--divider);
   border-bottom: 2px solid var(--divider);
   margin: 40px auto 0;
   max-width: var(--max-width);
-  padding: 40px 56px;
+  padding: 40px 0;
 }
-.info-strip .item { flex: 1; padding: 0 28px; border-left: 2px solid var(--divider); }
+.info-strip .item { padding: 0 28px; border-left: 2px solid var(--divider); text-align: center; }
 .info-strip .item:first-child { border-left: none; padding-left: 0; }
 .info-strip .link { font-size: 25px; color: var(--ink); text-decoration: underline; text-underline-offset: 6px; font-weight: 600; cursor: pointer; }
 .info-strip .caption { font-size: 20px; color: var(--ink-muted); margin-top: 10px; }
 .info-strip .note { color: var(--accent); font-size: 22px; line-height: 1.5; }
+.info-strip .note.note-pricing { color: var(--ink-body); }
 .info-strip .note .email { color: var(--accent); }
 .info-strip .key-image { object-fit: cover; display: flex; align-items: center; justify-content: center; }
 .info-strip .key-image img { width: 100%; object-fit: cover; }
@@ -372,6 +374,7 @@ body.sparks-page .site-header nav { display: none; }
 
 @media (max-width: 640px) {
   .info-strip {
+    display: flex;
     flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center;
     padding: 18px 20px; column-gap: 70px; row-gap: 16px; border-top-width: 1px; border-bottom-width: 1px;
   }
@@ -384,7 +387,8 @@ body.sparks-page .site-header nav { display: none; }
   }
   .info-strip .link { font-size: 13px; }
   .info-strip .caption { font-size: 10px; margin-top: 4px; }
-  .info-strip .note { color: var(--accent); font-size: 11px; }
+  .info-strip .note { color: var(--accent); font-size: 12px; }
+  .info-strip .note.note-pricing { color: var(--ink-body); }
   .info-strip .key-image { width: 128px; height: 88px; }
 }
 

@@ -93,7 +93,6 @@ collections:
       - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
       - { label: "Hat eine eigene Detailseite mit Preisen etc.?", name: "is_detailed", widget: "boolean", default: false, hint: "Nur aktivieren, wenn diese Adaption eine vollständige eigene Seite bekommen soll (wie Eurasia). Beim Aktivieren unbedingt auch 'permalink' und 'layout' im Dateikopf ergänzen — dafür bitte kurz nachfragen." }
       - { label: "Detailseitentext", name: "body", widget: "markdown" }
-      - { label: "Auszug (Skripttext, nur bei eigener Detailseite)", name: "auszug_text", widget: "markdown", required: false }
       - { label: "Inszenierungsschlüssel-Bild (nur bei eigener Detailseite)", name: "schluessel_image", widget: "image", required: false }
       - { label: "Inszenierungsschlüssel-PDF (öffnet beim Klick auf das Bild)", name: "schluessel_pdf", widget: "file", required: false }
       - label: "Preise & Lizenzstufen (nur bei eigener Detailseite)"
@@ -110,6 +109,16 @@ collections:
         fields:
           - { label: "Bild und 4:3-Bildausschnitt (Bild ziehen)", name: "image", widget: "imageCrop" }
           - { label: "Foto-Credit (optional)", name: "credit", widget: "string", required: false }
+
+  - name: "zeitecht_excerpts"
+    label: "ZEITECHT — Skriptauszüge"
+    files:
+      - name: "eurasia_excerpt"
+        label: "EURASIA — Skriptauszug"
+        file: "de/zeitecht/entries/eurasia-auszug.txt"
+        format: "raw"
+        fields:
+          - { label: "Skriptauszug", name: "body", widget: "text", required: false }
 
   - name: "arbeiten_entries"
     label: "Arbeiten — Einträge"

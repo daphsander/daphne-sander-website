@@ -9,7 +9,6 @@ mobile_image: \images\uploads\eurasia-cover-mobile-4x3.jpeg
 order: 1
 tags: zeitecht
 is_detailed: true
-auszug_text: '[Platzhalter — hier folgt der Skriptauszug in Skriptformatierung.]'
 schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
 schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
 pricing:
@@ -43,7 +42,7 @@ pricing:
       Serienpreis
       + 400 € und[[mobile-break]] Reisekosten
 einblicke:
-  - image: \images\uploads\1-h12-2062-RegieUndFotocreditJakubKavin.png
+  - image: \images\uploads\1-h12-2062-FotocreditJakubKavin-InfosAufBild.png
   - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg
     credit: "Fotocredit: Jakub Kavin"
   - image: \images\uploads\3-h12-2062-FotocreditJakubKavin.jpg

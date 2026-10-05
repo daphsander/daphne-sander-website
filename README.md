@@ -42,6 +42,12 @@ second displays as `Dra-` followed by a line break on mobile, and as
 `Dramatikerhandwerk` on desktop. Ordinary line breaks in the YAML value remain
 visible at every screen size.
 
+### ZEITECHT script excerpts
+The EURASIA script excerpt is stored separately in
+`de/zeitecht/entries/eurasia-auszug.txt` and loaded into the existing on-page
+preview at build time. Edit it in the CMS under **ZEITECHT — Skriptauszüge**;
+it remains part of the page, not a download.
+
 ## Setup steps
 
 ### 1. Push this to GitHub
