@@ -276,12 +276,74 @@ document.querySelectorAll('.photo-cycle').forEach((container) => {
   const images = JSON.parse(container.getAttribute('data-images') || '[]');
   if (images.length <= 1) return;
   let index = 0;
-  const imgEl = container.querySelector('img, .ph');
+  const track = document.createElement('div');
+  track.className = 'photo-track';
+  images.forEach((src) => {
+    const image = document.createElement('img');
+    image.src = src;
+    image.alt = 'Porträt';
+    track.appendChild(image);
+  });
+  container.replaceChildren(track);
+
   const dots = container.parentElement.querySelectorAll('.photo-dots .dot');
-  container.addEventListener('click', () => {
-    index = (index + 1) % images.length;
-    if (imgEl.tagName === 'IMG') imgEl.src = images[index];
+  let dragStartX = null;
+  let dragOffset = 0;
+
+  function setPosition(animate = true) {
+    track.style.transition = animate ? '' : 'none';
+    track.style.transform = `translate3d(calc(${-index * 100}% + ${dragOffset}px), 0, 0)`;
+  }
+
+  function setIndex(nextIndex) {
+    index = (nextIndex + images.length) % images.length;
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  container.addEventListener('pointerdown', (event) => {
+    if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    dragStartX = event.clientX;
+    dragOffset = 0;
+    container.classList.add('dragging');
+    container.setPointerCapture(event.pointerId);
+    setPosition(false);
+    event.preventDefault();
+  });
+
+  container.addEventListener('pointermove', (event) => {
+    if (dragStartX === null) return;
+    dragOffset = event.clientX - dragStartX;
+    setPosition(false);
+  });
+
+  function finishGesture(event, cancelled = false) {
+    if (dragStartX === null) return;
+    const delta = event.clientX - dragStartX;
+    const width = container.getBoundingClientRect().width;
+    dragStartX = null;
+    container.classList.remove('dragging');
+
+    if (cancelled) {
+      dragOffset = 0;
+    } else if (Math.abs(delta) < Math.max(24, width * 0.08)) {
+      const bounds = container.getBoundingClientRect();
+      setIndex(event.clientX < bounds.left + width / 2 ? index - 1 : index + 1);
+      dragOffset = 0;
+    } else if (Math.abs(delta) >= width * 0.18) {
+      setIndex(delta > 0 ? index - 1 : index + 1);
+      dragOffset = 0;
+    } else {
+      dragOffset = 0;
+    }
+    setPosition();
+  }
+
+  container.addEventListener('pointerup', (event) => finishGesture(event));
+  container.addEventListener('pointercancel', (event) => finishGesture(event, true));
+  container.addEventListener('lostpointercapture', (event) => finishGesture(event, true));
+
+  container.addEventListener('dragstart', (event) => {
+    event.preventDefault();
   });
 });
 

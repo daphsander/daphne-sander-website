@@ -173,8 +173,8 @@ body.sparks-page .site-header nav { display: none; }
 }
 @media (max-width: 640px) {
   .hero-portrait-row { flex-direction: column; align-items: center; text-align: left; gap: 0; padding: 6px 20px 20px; }
-  .hero-portrait-row .portrait { width: 300px; height: 400px; object-fit: cover; margin: 0 auto 14px; }
-  .hero-portrait-row .intro-text { font-size: 12.5px; max-width: 280px; margin: 0 auto; padding-top: 0; }
+  .hero-portrait-row .portrait { flex: 0 1 auto; width: min(80vw, 300px); height: auto; aspect-ratio: 3 / 4; object-fit: cover; margin: 0 auto 14px; }
+  .hero-portrait-row .intro-text { width: 100%; max-width: min(86vw, 400px); font-size: clamp(12px, 3.4vw, 14px); margin: 0 auto; padding-top: 0; }
 }
 
 /* ---------- Aktuelles / Einblicke carousels ---------- */
@@ -363,7 +363,7 @@ body.sparks-page .site-header nav { display: none; }
 .info-strip .item:first-child { border-left: none; padding-left: 0; }
 .info-strip .link { font-size: 25px; color: var(--ink); text-decoration: underline; text-underline-offset: 6px; font-weight: 600; cursor: pointer; }
 .info-strip .caption { font-size: 20px; color: var(--ink-muted); margin-top: 10px; }
-.info-strip .note { color: var(--accent); font-size: 22px; line-height: 1.5; }
+.info-strip .note { font-weight: bold; color: var(--ink-body); font-size: 22px; line-height: 1.5; }
 .info-strip .note.note-pricing { color: var(--ink-body); }
 .info-strip .note .email { color: var(--accent); }
 .info-strip .key-image { object-fit: cover; display: flex; align-items: center; justify-content: center; }
@@ -426,7 +426,7 @@ body.sparks-page .site-header nav { display: none; }
   }
   .info-strip .link { font-size: 13px; }
   .info-strip .caption { font-size: 10px; margin-top: 4px; }
-  .info-strip .note { color: var(--accent); font-size: 12px; }
+  .info-strip .note { font-weight: bold; color: var(--ink-body); font-size: 12px; }
   .info-strip .note.note-pricing { color: var(--ink-body); }
   .info-strip .key-image { width: 128px; height: 88px; }
 }
@@ -550,7 +550,10 @@ body.sparks-page .site-header nav { display: none; }
 /* ---------- Ueber mich ---------- */
 .ueber-mich-hero { display: flex; gap: 40px; align-items: flex-start; padding: 60px 56px 12px; max-width: var(--max-width); margin: 0 auto; }
 .ueber-mich-hero .photo-col { flex: 0 0 300px; }
-.ueber-mich-hero .photo-col .ph, .ueber-mich-hero .photo-col img { width: 300px; height: 420px; cursor: pointer; }
+.ueber-mich-hero .photo-cycle { width: 100%; height: 420px; overflow: hidden; cursor: pointer; touch-action: pan-y; }
+.ueber-mich-hero .photo-cycle.dragging { cursor: grabbing; }
+.ueber-mich-hero .photo-track { display: flex; width: 100%; height: 100%; will-change: transform; transition: transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+.ueber-mich-hero .photo-track > img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; -webkit-user-drag: none; }
 .ueber-mich-hero .photo-dots { display: flex; justify-content: center; gap: 12px; margin-top: 18px; }
 .ueber-mich-hero .photo-dots .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--divider-quiet); }
 .ueber-mich-hero .photo-dots .dot.active { background: var(--ink); }
@@ -562,11 +565,12 @@ body.sparks-page .site-header nav { display: none; }
 
 @media (max-width: 640px) {
   .ueber-mich-hero { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px 6px; }
-  .ueber-mich-hero .photo-col .ph, .ueber-mich-hero .photo-col img { width: 280px; aspect-ratio: 3/4; object-fit: cover; margin: 0 auto; }
-  .ueber-mich-hero .bio { text-align: left; max-width: 300px; margin: 16px auto 0; }
+  .ueber-mich-hero .photo-col { width: min(80vw, 280px); flex: 0 1 auto; }
+  .ueber-mich-hero .photo-cycle { height: auto; aspect-ratio: 3 / 4; }
+  .ueber-mich-hero .bio { width: 100%; max-width: min(90vw, 420px); text-align: left; margin: 16px auto 0; }
   .ueber-mich-kontakt { text-align: center; padding: 24px 20px 24px; }
   .ueber-mich-kontakt .inner { max-width: 280px; margin: 0 auto; padding-top: 20px; }
-  .ueber-mich-hero .bio { font-size: 12.5px; }
+  .ueber-mich-hero .bio { font-size: clamp(12px, 3.4vw, 14px); }
   .ueber-mich-hero .photo-dots { gap: 6px; margin-top: 9px; }
   .ueber-mich-hero .photo-dots .dot { width: 5px; height: 5px; }
   .ueber-mich-kontakt .heading { font-size: 14px; margin-bottom: 8px; }
