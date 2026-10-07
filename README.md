@@ -24,23 +24,10 @@ The ZEITECHT section already has real content for **Eurasia** and a lighter
 placeholder for **Der Schimmelreiter**, based on what's been discussed — check
 it over and adjust anything that doesn't match your intent.
 
-### Responsive line breaks in ZEITECHT pricing
-In a pricing `label`, `description`, or `price`, insert `[[mobile-break]]` or
-`[[desktop-break]]` exactly where a line should break only on that screen size.
-Use `[[mobile-hyphen-break]]` to add a hyphen and break there on mobile, for
-words that need to split across lines. For example:
-
-```yaml
-description: >-
-  ▪ Begleithefte[[mobile-break]] (Inszenierungsschlüssel und Kontextschlüssel als PDF)
-  ▪ Dra[[mobile-hyphen-break]]matikerhandwerk
-```
-
-The first marker forces a line break before the parenthesis on mobile (640px
-wide or less), while desktop treats the text as one continuous phrase. The
-second displays as `Dra-` followed by a line break on mobile, and as
-`Dramatikerhandwerk` on desktop. Ordinary line breaks in the YAML value remain
-visible at every screen size.
+### ZEITECHT pricing PDF
+Each ZEITECHT detail page can link its **Preise & Lizensstufen (PDF) →** title
+to a pricing PDF by setting `pricing_pdf` in its front matter (or uploading the
+file in the CMS). The PDF opens in a new tab on desktop and downloads on mobile.
 
 ### ZEITECHT script excerpts
 The EURASIA script excerpt is stored separately in

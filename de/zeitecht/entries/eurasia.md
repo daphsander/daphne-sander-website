@@ -11,36 +11,7 @@ tags: zeitecht
 is_detailed: true
 schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
 schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
-pricing:
-  - label: 'SERIE 3'
-    description: |-
-      ▪ bis zu 3 Aufführungen
-      ▪ Begleithefte (Inszenierungs[[mobile-hyphen-break]]schlüssel
-      und Kontextschlüssel als PDF)
-    price: '300 €'
-  - label: 'SERIE 7'
-    description: |-
-      ▪ bis zu 7 Aufführungen
-      ▪ Begleithefte
-    price: '500 €'
-  - label: 'SERIE X'
-    description: |-
-      ▪ 1 Jahr lang unbegrenzt aufführen
-      ▪ Begleithefte
-    price: |-
-      Preis nach
-      Vereinbarung
-  - label: '+ Autoren[[mobile-hyphen-break]]besuch'
-    description: |-
-      ▪ Probenbesuch mit Frage-Antwort-
-      Session zum Skript, zum
-      Dramatikerhandwerk und -Dasein,
-      zum Adaptieren
-      ▪ nach Wunsch: Einzelgespräche
-      (Rollengespräche), inkl. Material
-    price: |-
-      Serienpreis
-      + 400 € und[[mobile-break]] Reisekosten
+pricing_pdf: \images\uploads\Preise-und-Lizensstufen-Eurasia.pdf
 einblicke:
   - image: \images\uploads\1-h12-2062-FotocreditJakubKavin-InfosAufBild.png
   - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg

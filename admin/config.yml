@@ -91,17 +91,11 @@ collections:
       - { label: "Bild (Desktop)", name: "desktop_image", widget: "image", required: false }
       - { label: "Bild (Mobile)", name: "mobile_image", widget: "image", required: false }
       - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
-      - { label: "Hat eine eigene Detailseite mit Preisen etc.?", name: "is_detailed", widget: "boolean", default: false, hint: "Nur aktivieren, wenn diese Adaption eine vollständige eigene Seite bekommen soll (wie Eurasia). Beim Aktivieren unbedingt auch 'permalink' und 'layout' im Dateikopf ergänzen — dafür bitte kurz nachfragen." }
+      - { label: "Hat eine eigene Detailseite?", name: "is_detailed", widget: "boolean", default: false, hint: "Nur aktivieren, wenn diese Adaption eine vollständige eigene Seite bekommen soll (wie Eurasia). Beim Aktivieren unbedingt auch 'permalink' und 'layout' im Dateikopf ergänzen — dafür bitte kurz nachfragen." }
       - { label: "Detailseitentext", name: "body", widget: "markdown" }
       - { label: "Inszenierungsschlüssel-Bild (nur bei eigener Detailseite)", name: "schluessel_image", widget: "image", required: false }
       - { label: "Inszenierungsschlüssel-PDF (öffnet beim Klick auf das Bild)", name: "schluessel_pdf", widget: "file", required: false }
-      - label: "Preise & Lizenzstufen (nur bei eigener Detailseite)"
-        name: "pricing"
-        widget: "list"
-        required: false
-        fields:
-          - { label: "Bezeichnung", name: "label", widget: "string" }
-          - { label: "Preis", name: "price", widget: "string" }
+      - { label: "Preise & Lizensstufen-PDF (nur bei eigener Detailseite)", name: "pricing_pdf", widget: "file", required: false }
       - label: "Einblicke-Bilder (nur bei eigener Detailseite)"
         name: "einblicke"
         widget: "list"

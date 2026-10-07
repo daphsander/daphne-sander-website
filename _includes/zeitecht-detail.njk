@@ -2,9 +2,6 @@
 layout: base.njk
 currentSection: "/zeitecht/"
 ---
-{% macro pricingText(text) -%}
-  {{ text | escape | replace('[[mobile-break]]', '<br class="pricing-break-mobile">') | replace('[[desktop-break]]', '<br class="pricing-break-desktop">') | replace('[[mobile-hyphen-break]]', '<span class="pricing-hyphen-break">-<br></span>') | safe }}
-{%- endmacro %}
 
 <div class="detail-hero">
   {% if desktop_image or mobile_image %}
@@ -50,11 +47,6 @@ currentSection: "/zeitecht/"
     <div class="note">Gerne sende ich Ihnen das vollständige Skript unverbindlich zur Lektüre. Schreiben Sie mir einfach eine Nachricht an: mail@daphnesander.com</div>
   </div>
   {% endif %}
-  {% if pricing and pricing.length %}
-  <div class="item" data-hidden="true">
-    <div class="note note-pricing">Preise und Lizenzstufen siehe unten ↓</div>
-  </div>
-  {% endif %}
 </div>
 
 {% if auszug_text %}
@@ -76,12 +68,12 @@ currentSection: "/zeitecht/"
 </div>
 {% endif %}
 
-{% if pricing and pricing.length %}
 <div class="pricing-block">
-  <div class="section-heading">Preise &amp; Lizenzstufen</div>
-  {% for row in pricing %}
-    <div class="pricing-row"><span>{{ pricingText(row.label) }}</span><span class="pricing-description">{{ pricingText(row.description) }}</span><span>{{ pricingText(row.price) }}</span></div>
-  {% endfor %}
-  <div class="pricing-note">Wenn Sie Fragen haben oder eine individuelle Vereinbarung treffen wollen, lassen Sie uns gerne per Mail einen Termin ausmachen: mail@daphnesander.com</div>
+  <div class="section-heading">
+    {% if pricing_pdf %}
+    <a class="pricing-link" href="{{ pricing_pdf }}" target="_blank" rel="noopener" data-mobile-download>Preise &amp; Lizensstufen (PDF) →</a>
+    {% else %}
+    Preise &amp; Lizensstufen (PDF) →
+    {% endif %}
+  </div>
 </div>
-{% endif %}
