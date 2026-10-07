@@ -179,13 +179,15 @@ collections:
   - name: "legal"
     label: "Rechtliches"
     files:
-      - file: "de/impressum.njk"
+      - file: "de/impressum.md"
         label: "Impressum"
         name: "impressum"
         fields:
-          - { label: "Inhalt", name: "content_text", widget: "markdown" }
-      - file: "de/datenschutz.njk"
+          - { label: "Titel", name: "legal_title", widget: "string" }
+          - { label: "Inhalt", name: "body", widget: "markdown" }
+      - file: "de/datenschutz.md"
         label: "Datenschutzerklärung"
         name: "datenschutz"
         fields:
-          - { label: "Inhalt", name: "content_text", widget: "markdown" }
+          - { label: "Titel", name: "legal_title", widget: "string" }
+          - { label: "Inhalt", name: "body", widget: "markdown" }

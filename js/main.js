@@ -352,12 +352,22 @@ const sparksDisplay = document.querySelector('.sparks-display');
 if (sparksDisplay) {
   const prompts = JSON.parse(sparksDisplay.getAttribute('data-prompts') || '[]');
   const promptEl = sparksDisplay.querySelector('.prompt');
-  let current = -1;
+  let remaining = [];
+  let previous = -1;
   function showNext() {
-    let next = Math.floor(Math.random() * prompts.length);
-    if (prompts.length > 1 && next === current) next = (next + 1) % prompts.length;
-    current = next;
-    promptEl.textContent = prompts[current];
+    if (!prompts.length || !promptEl) return;
+    if (!remaining.length) {
+      remaining = prompts.map((_, index) => index);
+      for (let i = remaining.length - 1; i > 0; i--) {
+        const swapIndex = Math.floor(Math.random() * (i + 1));
+        [remaining[i], remaining[swapIndex]] = [remaining[swapIndex], remaining[i]];
+      }
+      if (remaining.length > 1 && remaining[remaining.length - 1] === previous) {
+        [remaining[0], remaining[remaining.length - 1]] = [remaining[remaining.length - 1], remaining[0]];
+      }
+    }
+    previous = remaining.pop();
+    promptEl.textContent = prompts[previous];
   }
   showNext();
   sparksDisplay.addEventListener('click', showNext);
