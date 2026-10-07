@@ -174,7 +174,7 @@ body.sparks-page .site-header nav { display: none; }
 @media (max-width: 640px) {
   .hero-portrait-row { flex-direction: column; align-items: center; text-align: left; gap: 0; padding: 6px 20px 20px; }
   .hero-portrait-row .portrait { flex: 0 1 auto; width: min(80vw, 300px); height: auto; aspect-ratio: 3 / 4; object-fit: cover; margin: 0 auto 14px; }
-  .hero-portrait-row .intro-text { width: 100%; max-width: min(86vw, 400px); font-size: clamp(12px, 3.4vw, 14px); margin: 0 auto; padding-top: 0; }
+  .hero-portrait-row .intro-text { text-align: center; width: 100%; max-width: min(86vw, 400px); font-size: clamp(12px, 3.4vw, 14px); margin: 0 auto; padding-top: 0; }
 }
 
 /* ---------- Aktuelles / Einblicke carousels ---------- */
@@ -552,7 +552,7 @@ body.sparks-page .site-header nav { display: none; }
 .ueber-mich-hero .photo-dots .dot.active { background: var(--ink); }
 .ueber-mich-hero .bio { font-size: 22px; line-height: 1.65; }
 .ueber-mich-kontakt { padding: 56px 56px 40px; max-width: var(--max-width); margin: 0 auto; }
-.ueber-mich-kontakt .inner { border-top: 2px solid var(--divider); padding-top: 44px; }
+.ueber-mich-kontakt .inner { font-size: 20px; border-top: 2px solid var(--divider); padding-top: 44px; }
 .ueber-mich-kontakt .heading { font-size: 28px; color: var(--ink); font-weight: 600; margin-bottom: 16px; }
 .ueber-mich-kontakt .email { color: var(--accent); }
 
