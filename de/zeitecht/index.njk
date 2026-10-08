@@ -58,7 +58,7 @@ permalink: /zeitecht/index.html
       {% if item.data.overview_meta %}<div class="meta">{{ item.data.overview_meta }}</div>{% endif %}
       {% if item.data.is_detailed %}<a class="link" href="{{ item.url }}">Auszüge, Bilder und Lizenzstufen →</a>{% endif %}
       <div class="desc">{{ item.templateContent | safe }}</div>
-      {% if item.data.is_detailed and item.data.overview_detail_text %}
+      {% if item.data.overview_detail_text %}
         <p class="entry-detail">{{ item.data.overview_detail_text }}</p>
       {% endif %}
     </div>
