@@ -22,7 +22,7 @@ permalink: /index.html
 <div class="carousel-section">
   <div class="section-heading slim">Aktuelles</div>
   <div class="carousel">
-    {% for item in collections.aktuelles %}
+    {% for item in collections.aktuelles | sortByOrderDescending %}
     <div class="card">
       {% if item.data.image %}
         <img src="{{ item.data.image }}" alt="" style="width:100%;object-fit:cover;aspect-ratio:4/3;">

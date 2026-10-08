@@ -12,6 +12,19 @@ module.exports = function (eleventyConfig) {
     return (items || []).filter((item) => item.published !== false);
   });
 
+  eleventyConfig.addFilter("sortByOrderDescending", function (items) {
+    return (items || [])
+      .map((item, index) => ({ item, index }))
+      .sort((a, b) => {
+        const orderA = Number(a.item.data.order);
+        const orderB = Number(b.item.data.order);
+        const valueA = Number.isFinite(orderA) ? orderA : 0;
+        const valueB = Number.isFinite(orderB) ? orderB : 0;
+        return valueB - valueA || a.index - b.index;
+      })
+      .map(({ item }) => item);
+  });
+
   eleventyConfig.addFilter("galleryImages", (items) =>
     (items || []).map((item) => {
       const image = item.image;
