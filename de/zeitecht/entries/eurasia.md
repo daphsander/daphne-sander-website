@@ -32,6 +32,8 @@ Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann:
 
 Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten ad absurdum geführt wurden? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Wie findet man, in meinungslauten Zeiten, zu Klarheit und zu Selbstbestimmung?
 
+                                  —
+
 Das Stück agiert absichtlich abseits des gängigen Meinungstheaters. Denn die didaktische Kunst – wie auch der medial befeuerte politische Diskurs unserer Zeit – wie auch das dystopische Genre haben eine Gefahr gemeinsam: die des vereinfachten Antagonisten. Der Feind ist gesichtslos, oder verzerrt, und auf jeden Fall nicht wir selbst.
 
 EURASIAS dystopisches Regime repräsentiert deshalb nicht ein in Künstlerkreisen geläufiges Feindbild (z.B. Big Business, Konservatismus). Stattdessen greift der Staat zu einer Sprache, die vielen Theatergängern eigen ist. Dadurch entsteht eine spannendere Erfahrung für das Publikum – und für die Spieler ein doxisch tatsächlich herausfordernder Prozess, der zur eigenen Meinungsbildung einlädt.
