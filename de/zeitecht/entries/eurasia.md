@@ -7,28 +7,33 @@ detail_meta: '▪ für 11 oder mehr (oder viel mehr) Darsteller · Spielalter: a
 desktop_image: \images\uploads\eurasia-cover-desktop-3x4.jpeg
 mobile_image: \images\uploads\eurasia-cover-mobile-4x3.jpeg
 order: 1
-tags: zeitecht
 is_detailed: true
 schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
 schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
 pricing_pdf: \images\uploads\Preise-und-Lizensstufen-Eurasia.pdf
 einblicke:
   - image: \images\uploads\1-h12-2062-FotocreditJakubKavin-InfosAufBild.png
+    credit: ''
   - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
   - image: \images\uploads\3-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
   - image: \images\uploads\4-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
   - image: \images\uploads\5-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
 lang: de
 layout: zeitecht-detail.njk
 permalink: /zeitecht/eurasia/index.html
+tags: zeitecht
 ---
 
 Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann: Progressive Werte und Umweltschutz werden großgeschrieben – aber gleichzeitig vollüberwacht der Staat seine Einwohner und straft Dissidenten durch Folter und Tod.
 
 Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten ad absurdum geführt wurden? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Wie findet man, in meinungslauten Zeiten, zu Klarheit und zu Selbstbestimmung?
+
+Das Stück agiert absichtlich abseits des gängigen Meinungstheaters. Denn die didaktische Kunst – wie auch der medial befeuerte politische Diskurs unserer Zeit – wie auch das dystopische Genre haben eine Gefahr gemeinsam: die des vereinfachten Antagonisten. Der Feind ist gesichtslos, oder verzerrt, und auf jeden Fall nicht wir selbst.
+
+EURASIAS dystopisches Regime repräsentiert deshalb nicht ein in Künstlerkreisen geläufiges Feindbild (z.B. Big Business, Konservatismus). Stattdessen greift der Staat zu einer Sprache, die vielen Theatergängern eigen ist. Dadurch entsteht eine spannendere Erfahrung für das Publikum – und für die Spieler ein doxisch tatsächlich herausfordernder Prozess, der die eigene Meinungsbildung einlädt.
 
 Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden.
