@@ -34,6 +34,6 @@ Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefolter
 
 Das Stück agiert absichtlich abseits des gängigen Meinungstheaters. Denn die didaktische Kunst – wie auch der medial befeuerte politische Diskurs unserer Zeit – wie auch das dystopische Genre haben eine Gefahr gemeinsam: die des vereinfachten Antagonisten. Der Feind ist gesichtslos, oder verzerrt, und auf jeden Fall nicht wir selbst.
 
-EURASIAS dystopisches Regime repräsentiert deshalb nicht ein in Künstlerkreisen geläufiges Feindbild (z.B. Big Business, Konservatismus). Stattdessen greift der Staat zu einer Sprache, die vielen Theatergängern eigen ist. Dadurch entsteht eine spannendere Erfahrung für das Publikum – und für die Spieler ein doxisch tatsächlich herausfordernder Prozess, der die eigene Meinungsbildung einlädt.
+EURASIAS dystopisches Regime repräsentiert deshalb nicht ein in Künstlerkreisen geläufiges Feindbild (z.B. Big Business, Konservatismus). Stattdessen greift der Staat zu einer Sprache, die vielen Theatergängern eigen ist. Dadurch entsteht eine spannendere Erfahrung für das Publikum – und für die Spieler ein doxisch tatsächlich herausfordernder Prozess, der zur eigenen Meinungsbildung einlädt.
 
 Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden.
