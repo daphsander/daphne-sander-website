@@ -32,8 +32,8 @@ Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann:
 
 Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefoltert. Und dabei steht und fällt alles mit der Frage: Worauf kann man vertrauen, wenn bisherige Gewissheiten ad absurdum geführt wurden? Wenn man Gut und Böse nicht an ihren Wahlsprüchen erkennen kann? Wie findet man, in meinungslauten Zeiten, zu Klarheit und zu Selbstbestimmung?
 
-                                  —
- 
+\~
+
 Der größte Unterschied zu Orwells Original liegt im Antagonisten: In EURASIA macht die Diktatur es einem nicht leicht, sie als Feind zu erkennen. Das Regime bedient sich einer Sprache, die in Theaterkreisen, aber auch darüber hinaus, das moralische Selbstverständnis vieler ausmacht: die der sozialen Gleichheit, der Solidarität und des Altruismus. Parallelen zu autoritären Regimes der Geschichte und der Gegenwart sind dabei nicht zufällig — autoritäre Systeme haben sich von der Sowjetunion bis zur Gegenwart regelmäßig genau dieser Begriffe bedient, um Kontrolle als Fürsorge zu verkleiden.
 
 Verbreiteten Wertebegriffen auf diese Weise zu begegnen erzeugt bei Spielern wie Publikum eine moralische Spannung – und lädt zur eigenen Meinungsbildung ein.
