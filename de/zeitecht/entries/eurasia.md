@@ -40,4 +40,4 @@ Verbreiteten Wertebegriffen auf diese Weise zu begegnen erzeugt bei Spielern wie
 
 Das Stück selbst nimmt dabei keine politische Position ein. Stattdessen fragt es nach Werten, die tiefer greifen als Parteigrenzen und Diskurse.
 
-Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden.
+▪ Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden. ▪
