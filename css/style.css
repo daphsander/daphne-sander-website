@@ -337,6 +337,7 @@ body.sparks-page .site-header nav { display: none; }
 .detail-hero .tagline { font-size: 26px; color: var(--accent); font-style: italic; margin-top: 30px; }
 .detail-hero .desc { font-size: 25px; line-height: 1.6; margin-top: 10px; }
 .detail-hero .desc p { margin-top:0; }
+.detail-hero .desc .text-center { text-align: center; }
 .detail-hero .meta { font-size: 25px; color: var(--ink); margin-top: 30px; }
 
 @media (max-width: 640px) {
