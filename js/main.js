@@ -149,11 +149,12 @@ function openImageGallery(images, startIndex) {
       media.textContent = 'Bild';
     }
     slide.appendChild(media);
-    if (imageData.credit) {
+    const captionText = imageData.caption || imageData.credit || '';
+    if (captionText) {
       slide.classList.add('has-credit');
       const credit = document.createElement('div');
       credit.className = 'gallery-credit';
-      credit.textContent = imageData.credit;
+      credit.textContent = captionText;
       slide.appendChild(credit);
     }
     slide.addEventListener('click', (e) => {
@@ -186,6 +187,135 @@ function openImageGallery(images, startIndex) {
     scroller.scrollLeft = startIndex * scroller.clientWidth;
   });
 }
+
+document.querySelectorAll('.first-sights-gallery[data-gallery-images]').forEach((gallery) => {
+  const images = JSON.parse(gallery.getAttribute('data-gallery-images') || '[]');
+  const items = Array.from(gallery.querySelectorAll('.first-sights-gallery-item'));
+  const gap = () => parseFloat(getComputedStyle(gallery).rowGap) || 0;
+
+  function distributeRows(count, rowCount, maxItems, fixed = {}) {
+    const rows = Array(rowCount).fill(null);
+    for (const [index, value] of Object.entries(fixed)) {
+      if (index < 0 || index >= rowCount || value > maxItems) return null;
+      rows[index] = value;
+    }
+
+    const fixedTotal = rows.reduce((total, value) => total + (value || 0), 0);
+    const emptyRows = rows.filter((value) => value === null).length;
+    const remaining = count - fixedTotal;
+    if (emptyRows === 0) return remaining === 0 ? rows : null;
+    if (remaining < emptyRows || remaining > emptyRows * maxItems) return null;
+
+    const evenCount = Math.floor(remaining / emptyRows);
+    let extraItems = remaining % emptyRows;
+    for (let index = 0; index < rowCount; index += 1) {
+      if (rows[index] === null) {
+        rows[index] = evenCount + (extraItems > 0 ? 1 : 0);
+        extraItems -= extraItems > 0 ? 1 : 0;
+      }
+    }
+    return rows;
+  }
+
+  function getRowCounts(maxItems) {
+    if (maxItems < 3 || items.length < 3) {
+      const rowCount = Math.ceil(items.length / maxItems);
+      return distributeRows(items.length, rowCount, maxItems);
+    }
+
+    const rowCount = Math.ceil((items.length - 3) / maxItems) + 2;
+    const firstAndLast = { 0: 2, [rowCount - 1]: 1 };
+    const baseRows = distributeRows(items.length, rowCount, maxItems, firstAndLast);
+    if (!baseRows || maxItems < 4 || rowCount < 3) return baseRows;
+
+    const secondRow = 1;
+    const secondToLastRow = rowCount - 2;
+    const bothRules = secondRow !== secondToLastRow
+      ? distributeRows(items.length, rowCount, maxItems, {
+        ...firstAndLast,
+        [secondRow]: 3,
+        [secondToLastRow]: 2,
+      })
+      : null;
+    if (bothRules) return bothRules;
+
+    const preferredRule = distributeRows(items.length, rowCount, maxItems, {
+      ...firstAndLast,
+      [secondToLastRow]: 2,
+    });
+    if (preferredRule) return preferredRule;
+
+    return distributeRows(items.length, rowCount, maxItems, {
+      ...firstAndLast,
+      [secondRow]: 3,
+    }) || baseRows;
+  }
+
+  function layoutGallery() {
+    if (!items.length) return;
+    const maxItems = window.innerWidth <= 640 ? 2 : window.innerWidth >= 1600 ? 4 : 3;
+    const counts = getRowCounts(maxItems);
+    if (!counts) throw new Error('Unable to arrange FIRST SIGHTS gallery rows.');
+
+    const rows = [];
+    let itemIndex = 0;
+    counts.forEach((count) => {
+      const rowItems = items.slice(itemIndex, itemIndex + count);
+      itemIndex += count;
+      const row = document.createElement('div');
+      row.className = 'first-sights-gallery-row';
+      rowItems.forEach((item) => row.appendChild(item));
+      rows.push({ element: row, items: rowItems });
+    });
+    gallery.replaceChildren(...rows.map(({ element }) => element));
+
+    const galleryWidth = gallery.clientWidth;
+    if (!galleryWidth) return;
+    const rowGap = gap();
+    const weights = rows.map(({ items: rowItems }) =>
+      rowItems.map((item) => item.classList.contains('is-landscape') ? 1.3333 : 1)
+    );
+    const unitWidth = Math.min(...weights.map((rowWeights) =>
+      (galleryWidth - rowGap * (rowWeights.length - 1)) /
+      rowWeights.reduce((total, weight) => total + weight, 0)
+    ));
+
+    rows.forEach(({ element, items: rowItems }, index) => {
+      const rowWeights = weights[index];
+      const totalWeight = rowWeights.reduce((total, weight) => total + weight, 0);
+      element.style.gridTemplateColumns = rowWeights.map((weight) => `${weight}fr`).join(' ');
+      element.style.width = `${unitWidth * totalWeight + rowGap * (rowItems.length - 1)}px`;
+    });
+  }
+
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openImageGallery(images, index));
+  });
+  layoutGallery();
+  window.addEventListener('resize', layoutGallery);
+});
+
+document.querySelectorAll('[data-first-sights-intro]').forEach((intro) => {
+  const buttons = intro.querySelectorAll('[data-first-sights-mode]');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const mode = intro.getAttribute('data-mode') === button.dataset.firstSightsMode
+        ? ''
+        : button.dataset.firstSightsMode;
+      intro.setAttribute('data-mode', mode);
+      intro.querySelectorAll('[data-intro-image-pair]').forEach((pair) => {
+        const slot = pair.closest('.first-sights-slot');
+        const pairMode = slot.classList.contains('first-sights-slot-left')
+          ? 'project'
+          : 'artists';
+        pair.classList.toggle('is-active', mode === pairMode);
+      });
+      buttons.forEach((item) => {
+        item.setAttribute('aria-expanded', item.dataset.firstSightsMode === mode ? 'true' : 'false');
+      });
+    });
+  });
+});
 
 document.querySelectorAll('.carousel[data-gallery-images]').forEach((carousel) => {
   const images = JSON.parse(carousel.getAttribute('data-gallery-images') || '[]');

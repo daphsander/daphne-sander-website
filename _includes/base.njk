@@ -15,9 +15,21 @@
     </a>
     <nav>
       {% for item in (nav[lang | default('de')] | filterPublished) %}
-        <a href="{{ item.url }}" class="{{ 'active' if currentSection == item.url }}">
-          {{ item.label }}{% if item.sublabel %}<br>{{ item.sublabel }}{% endif %}
-        </a>
+        {% if item.children %}
+          {% set visibleChildren = item.children | filterPublished %}
+          <details class="nav-dropdown">
+            <summary>{{ item.label }}</summary>
+            <div class="nav-submenu">
+              {% for child in visibleChildren %}
+                <a href="{{ child.url }}" class="{{ 'active' if currentSection == child.url }}">{{ child.label }}</a>
+              {% endfor %}
+            </div>
+          </details>
+        {% else %}
+          <a href="{{ item.url }}" class="{{ 'active' if currentSection == item.url }}">
+            {{ item.label }}{% if item.sublabel %}<br>{{ item.sublabel }}{% endif %}
+          </a>
+        {% endif %}
       {% endfor %}
     </nav>
   </div>

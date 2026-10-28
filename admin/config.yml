@@ -30,8 +30,16 @@ collections:
             fields:
               - { label: "Titel", name: "label", widget: "string" }
               - { label: "Untertitel (optional, z.B. bei ZEITECHT)", name: "sublabel", widget: "string", required: false }
-              - { label: "url (bitte nicht ändern)", name: "url", widget: "string" }
+              - { label: "url (bei normalen Menüpunkten)", name: "url", widget: "string", required: false }
               - { label: "Sichtbar?", name: "published", widget: "boolean", default: true }
+              - label: "Unterseiten (optional)"
+                name: "children"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Titel", name: "label", widget: "string" }
+                  - { label: "url", name: "url", widget: "string" }
+                  - { label: "Sichtbar?", name: "published", widget: "boolean", default: true }
 
   - name: "landing"
     label: "Startseite"
@@ -45,10 +53,10 @@ collections:
           - { label: "Aktuelles-Karussell anzeigen?", name: "show_aktuelles", widget: "boolean", default: true }
 
   - name: "arbeiten_overview"
-    label: "Arbeiten — Übersichtsseite"
+    label: "Film & Theater — Übersichtsseite"
     files:
       - file: "de/arbeiten/index.njk"
-        label: "Arbeiten Übersicht"
+        label: "Film & Theater Übersicht"
         name: "arbeiten_overview"
         fields:
           - { label: "Filterleiste anzeigen?", name: "show_filter_bar", widget: "boolean", default: true }
@@ -65,6 +73,44 @@ collections:
       - { label: "Bild", name: "image", widget: "image", required: false }
       - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
       - { label: "Ein-Satz-Zusammenfassung", name: "body", widget: "markdown" }
+
+  - name: "first_sights_aktuelles"
+    label: "FIRST SIGHTS — Aktuelles"
+    folder: "de/first-sights/aktuelles"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Sammlung", name: "tags", widget: "hidden", default: "first_sights_aktuelles" }
+      - { label: "Kategorie (frei wählbar)", name: "kicker", widget: "string" }
+      - { label: "Titel", name: "headline", widget: "string" }
+      - { label: "Bild", name: "image", widget: "image", required: false }
+      - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
+      - { label: "Ein-Satz-Zusammenfassung", name: "body", widget: "markdown" }
+
+  - name: "first_sights"
+    label: "FIRST SIGHTS — Seite"
+    files:
+      - file: "de/first-sights/index.njk"
+        label: "FIRST SIGHTS"
+        name: "first_sights_page"
+        fields:
+          - { label: "Text: Über das Projekt", name: "project_text", widget: "markdown" }
+          - { label: "Bild links (Cover)", name: "intro_image_left", widget: "image", required: false }
+          - { label: "Bild links (nach Klick auf Über das Projekt)", name: "intro_image_left_active", widget: "image", required: false }
+          - { label: "Bild Mitte (Cover)", name: "intro_image_center", widget: "image", required: false }
+          - { label: "Bild Mitte (nach Klick auf Über die Künstler)", name: "intro_image_center_active", widget: "image", required: false }
+          - { label: "Bild rechts", name: "intro_image_right", widget: "image", required: false }
+          - { label: "Text links: Über die Künstler", name: "artist_left_text", widget: "markdown" }
+          - { label: "Text rechts: Über die Künstler", name: "artist_right_text", widget: "markdown" }
+          - label: "Galeriebilder (A6)"
+            name: "gallery_images"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Bild", name: "image", widget: "image" }
+              - { label: "Ausrichtung", name: "orientation", widget: "select", options: ["portrait", "landscape"], default: "portrait" }
+              - { label: "Bildunterschrift (optional)", name: "caption", widget: "string", required: false }
 
   - name: "zeitecht_overview"
     label: "ZEITECHT — Übersichtsseite"

@@ -8,12 +8,22 @@
     },
     {
       "label": "Arbeiten",
-      "sublabel": "",
-      "url": "/arbeiten/",
-      "published": false
+      "published": true,
+      "children": [
+        {
+          "label": "Film & Theater",
+          "url": "/arbeiten/",
+          "published": false
+        },
+        {
+          "label": "First Sights",
+          "url": "/first-sights/",
+          "published": true
+        }
+      ]
     },
     {
-      "label": "SPARKS",
+      "label": "Sparks",
       "sublabel": "",
       "url": "/sparks/",
       "published": true
