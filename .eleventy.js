@@ -25,13 +25,6 @@ module.exports = function (eleventyConfig) {
       .map(({ item }) => item);
   });
 
-  eleventyConfig.addCollection("first_sights_aktuelles", (collectionApi) =>
-    collectionApi
-      .getFilteredByGlob("de/first-sights/aktuelles/*.md")
-      .filter((item) => !item.fileSlug.startsWith("_"))
-      .sort((a, b) => (Number(b.data.order) || 0) - (Number(a.data.order) || 0))
-  );
-
   eleventyConfig.addFilter("galleryImages", (items) =>
     (items || []).map((item) => {
       const image = item.image;

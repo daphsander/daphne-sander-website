@@ -74,20 +74,6 @@ collections:
       - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
       - { label: "Ein-Satz-Zusammenfassung", name: "body", widget: "markdown" }
 
-  - name: "first_sights_aktuelles"
-    label: "FIRST SIGHTS — Aktuelles"
-    folder: "de/first-sights/aktuelles"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    fields:
-      - { label: "Sammlung", name: "tags", widget: "hidden", default: "first_sights_aktuelles" }
-      - { label: "Kategorie (frei wählbar)", name: "kicker", widget: "string" }
-      - { label: "Titel", name: "headline", widget: "string" }
-      - { label: "Bild", name: "image", widget: "image", required: false }
-      - { label: "Reihenfolge (kleinere Zahl zuerst)", name: "order", widget: "number", default: 1 }
-      - { label: "Ein-Satz-Zusammenfassung", name: "body", widget: "markdown" }
-
   - name: "first_sights"
     label: "FIRST SIGHTS — Seite"
     files:
@@ -95,20 +81,30 @@ collections:
         label: "FIRST SIGHTS"
         name: "first_sights_page"
         fields:
-          - { label: "Text: Über das Projekt", name: "project_text", widget: "markdown" }
-          - { label: "Bild links (Cover)", name: "intro_image_left", widget: "image", required: false }
-          - { label: "Bild links (nach Klick auf Über das Projekt)", name: "intro_image_left_active", widget: "image", required: false }
-          - { label: "Bild Mitte (Cover)", name: "intro_image_center", widget: "image", required: false }
-          - { label: "Bild Mitte (nach Klick auf Über die Künstler)", name: "intro_image_center_active", widget: "image", required: false }
-          - { label: "Bild rechts", name: "intro_image_right", widget: "image", required: false }
-          - { label: "Text links: Über die Künstler", name: "artist_left_text", widget: "markdown" }
-          - { label: "Text rechts: Über die Künstler", name: "artist_right_text", widget: "markdown" }
+          - { label: "Kicker", name: "intro_kicker", widget: "string" }
+          - { label: "Titel", name: "intro_title", widget: "string" }
+          - { label: "Untertitel", name: "intro_tagline", widget: "string" }
+          - { label: "Einleitung", name: "intro_text", widget: "text" }
+          - { label: "Kontakt-Popup", name: "contact_text", widget: "markdown" }
+          - label: "Karussell (Bilder und Videos)"
+            name: "intro_carousel"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Medientyp", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Bild", name: "image", widget: "image", required: false }
+              - { label: "Video", name: "video", widget: "file", required: false }
+              - { label: "Alternativtext", name: "alt", widget: "string", required: false }
+          - { label: "Name: Künstler links", name: "artist_left_name", widget: "string" }
+          - { label: "Kurzbiografie links", name: "artist_left_text", widget: "text" }
+          - { label: "Name: Künstler rechts", name: "artist_right_name", widget: "string" }
+          - { label: "Kurzbiografie rechts", name: "artist_right_text", widget: "text" }
           - label: "Galeriebilder (A6)"
             name: "gallery_images"
             widget: "list"
             required: false
             fields:
-              - { label: "Bild", name: "image", widget: "image" }
+              - { label: "Bild", name: "image", widget: "image", required: false }
               - { label: "Ausrichtung", name: "orientation", widget: "select", options: ["portrait", "landscape"], default: "portrait" }
               - { label: "Bildunterschrift (optional)", name: "caption", widget: "string", required: false }
 

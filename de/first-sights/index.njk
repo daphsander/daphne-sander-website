@@ -4,148 +4,130 @@ permalink: /first-sights/index.html
 lang: de
 currentSection: "/first-sights/"
 pageTitle: "FIRST SIGHTS — Live Sketching Duo"
-project_text: "FIRST SIGHTS is a flash art project by Daphne Sander and Odysseus Stamoglou. Together, the two artists go to different locations – from cafés to concerts to resorts – and create sketches of what they see around them. Odysseus sketches in ink drawings, Daphne does in words. The resulting art pieces, created on the spot, combine these two voices. The art thus creates something that in real life, we can only dream of: one memory, by two people.
+intro_kicker: "LIVE SKETCHING DUO"
+intro_title: "First Sights"
+intro_tagline: "One memory, by two people."
+intro_text: "Odysseus Stamoglou draws in ink. Daphne Sander draws in words. As a duo, they visit different locations and events, and sketch what they see around them, on the spot."
+contact_text: "For event invitations, collaborations, and inquiries about original works or prints, please contact us: mail@daphnesander.com."
+intro_carousel:
+  - type: image
+    image: /images/uploads/FS_cover_full.jpg
+    alt: "First Sights artwork"
+  - type: image
+    image: /images/uploads/FS_no8_every-sight.jpg
+    alt: "First Sights artwork"
+  - type: video
+    video: /images\uploads\FS_gallery_video-mila_20261011.mp4
+    alt: "First Sights gallery display"
+  - type: image
+    image: /images/uploads/FirstSights-Photo_261029_vertical.jpg
+    alt: "First Sights artwork"
+  - type: image
+    image: /images/uploads/FS_cover_eyes.jpg
+    alt: "First Sights artwork"
 
-
-
-If you think that our duo could work well at your private or public event, or if you are interested in a collaboration, please reach out to us through: mail@daphnesander.com.
-
-
-For inquiries regarding acquisition of originals or prints, also write to us at: mail@daphnesander.com."
-intro_image_left: \images\uploads\FS_no8_every-sight.jpg
-intro_image_left_active: \images\uploads\FS_cover_full.jpg
-intro_image_center: \images\uploads\FS_cover_eyes.jpg
-intro_image_center_active: \images\uploads\FirstSights-Photo_261029_vertical.jpg
-intro_image_right: \images\uploads\FS_no22_was-steht.jpg
-artist_left_text: "Odysseus Stamoglou, is a painter, musician and performer, born in Greece. Since 2008, his designs and illustrations have been published worldwide, featuring on award-winning board games, books, covers, video games, films, traditional and digital paintings. Odysseus composes music, plays several instruments, leads, organizes and performs in  public events, gives workshops on drawing and visual communication, and cooperates with individuals and teams from around the globe."
-artist_right_text: "Daphne Sander is a script writer from Tübingen, Germany. She studied literature, cognitive linguistics, philosophy and classics at the University of Tübingen. Sander began working her first professional film jobs while still at university, after cold-emailing her original scripts to production companies. She continues to pursue and share her love of literature, for example in her youth theater project ZEITECHT."
+artist_left_name: "Odysseus Stamoglou"
+artist_left_text: "Painter, illustrator, musician and performer, born in Greece."
+artist_right_name: "Daphne Sander"
+artist_right_text: "Playwright and screenwriter from Tübingen."
 gallery_images:
-  - image: \images\uploads\FS_no2_all-here.jpg
+  - image: /images/uploads/FS_no2_all-here.jpg
     orientation: portrait
     caption: "First Sight #2"
-  - image: \images\uploads\FS_no17_wien-hoert-nie-auf.jpg
+  - image: /images/uploads/FS_no17_wien-hoert-nie-auf.jpg
     orientation: portrait
     caption: "First Sight #17"
-  - image: \images\uploads\FS_no28_woman-of-many-ways.jpg
+  - image: /images/uploads/FS_no28_woman-of-many-ways.jpg
     orientation: landscape
     caption: "First Sight #28"
-  - image: \images\uploads\FS_no29_leaves.jpg
+  - image: /images/uploads/FS_no29_leaves.jpg
     orientation: portrait
     caption: "First Sight #29"
-  - image: \images\uploads\FS_no34_jeder-allalleinzig.jpg
+  - image: /images/uploads/FS_no34_jeder-allalleinzig.jpg
     orientation: landscape
     caption: "First Sight #34"
-  - image: \images\uploads\FS_no8_every-sight.jpg
+  - image: /images/uploads/FS_no8_every-sight.jpg
     orientation: portrait
     caption: "First Sight #8"
-  - image: \images\uploads\FS_no27_axes.jpg
+  - image: /images/uploads/FS_no27_axes.jpg
     orientation: portrait
     caption: "First Sight #27"
-  - image: \images\uploads\FS_no63_can-you-not-hear.jpg
+  - image: /images/uploads/FS_no63_can-you-not-hear.jpg
     orientation: portrait
     caption: "First Sight #63"
-  - image: \images\uploads\FS_no22_was-steht.jpg
+  - image: /images/uploads/FS_no22_was-steht.jpg
     orientation: portrait
     caption: "First Sight #22"
-  - image: \images\uploads\FS_no32_nicht-leicht.jpg
+  - image: /images/uploads/FS_no32_nicht-leicht.jpg
     orientation: portrait
     caption: "First Sight #32"
 ---
 
-<section class="first-sights-title wrap">
-  <h1>FIRST SIGHTS</h1>
-  <div class="tagline">Live Sketching Duo</div>
-</section>
-
-<section class="first-sights-intro" data-first-sights-intro data-mode="">
-  <div class="first-sights-grid">
-    <div class="first-sights-slot first-sights-slot-left">
-      <div class="first-sights-image-pair" data-intro-image-pair>
-        <div class="first-sights-image-track">
-          {% if intro_image_left %}
-            <img class="first-sights-image" src="{{ intro_image_left }}" alt="FIRST SIGHTS artwork">
+<section class="first-sights-hero wrap">
+  <div class="first-sights-media">
+    <div class="first-sights-carousel" data-first-sights-carousel aria-label="First Sights images and videos">
+      {% for item in intro_carousel %}
+        <div class="first-sights-carousel-slide">
+          {% if item.type == "video" and item.video %}
+            <video muted loop playsinline preload="metadata" aria-label="{{ item.alt or 'First Sights video' }}">
+              <source src="{{ item.video }}">
+            </video>
+          {% elif item.image %}
+            <img src="{{ item.image }}" alt="{{ item.alt or 'First Sights artwork' }}">
           {% else %}
-            <div class="ph first-sights-image">Bild links</div>
-          {% endif %}
-          {% if intro_image_left_active %}
-            <img class="first-sights-image" src="{{ intro_image_left_active }}" alt="FIRST SIGHTS artwork">
-          {% else %}
-            <div class="ph first-sights-image">Bild links</div>
+            <div class="first-sights-media-placeholder" aria-hidden="true"></div>
           {% endif %}
         </div>
-      </div>
-      <button class="first-sights-link" type="button" data-first-sights-mode="project" aria-expanded="false">Über das Projekt</button>
+      {% endfor %}
     </div>
-    <div class="first-sights-slot first-sights-slot-center">
-      <div class="first-sights-image-pair" data-intro-image-pair>
-        <div class="first-sights-image-track">
-          {% if intro_image_center %}
-            <img class="first-sights-image" src="{{ intro_image_center }}" alt="FIRST SIGHTS artwork">
-          {% else %}
-            <div class="ph first-sights-image">Bild Mitte</div>
-          {% endif %}
-          {% if intro_image_center_active %}
-            <img class="first-sights-image" src="{{ intro_image_center_active }}" alt="FIRST SIGHTS artwork">
-          {% else %}
-            <div class="ph first-sights-image">Bild Mitte</div>
-          {% endif %}
-        </div>
-      </div>
-      <button class="first-sights-link" type="button" data-first-sights-mode="artists" aria-expanded="false">Über die Künstler</button>
-    </div>
-    <div class="first-sights-slot first-sights-slot-right">
-      {% if intro_image_right %}
-        <img class="first-sights-image" src="{{ intro_image_right }}" alt="FIRST SIGHTS artwork">
-      {% else %}
-        <div class="ph first-sights-image">Bild rechts</div>
-      {% endif %}
-      <a class="first-sights-link" href="#first-sights-gallery">Galerie ↓</a>
-    </div>
+    <div class="first-sights-carousel-dots" aria-label="Choose an image or video"></div>
+  </div>
 
-    <div class="first-sights-copy first-sights-project-copy">
-      {{ project_text | markdownify | safe }}
-    </div>
-    <div class="first-sights-copy first-sights-artist-copy first-sights-artist-left">
-      {{ artist_left_text | markdownify | safe }}
-    </div>
-    <div class="first-sights-copy first-sights-artist-copy first-sights-artist-right">
-      {{ artist_right_text | markdownify | safe }}
-    </div>
+  <div class="first-sights-hero-copy">
+    <div class="first-sights-kicker">{{ intro_kicker }}</div>
+    <h1>{{ intro_title }}</h1>
+    <div class="first-sights-tagline">{{ intro_tagline }}</div>
+    <p>{{ intro_text }}</p>
+    <button class="first-sights-button" type="button" data-lightbox="first-sights-contact">
+      Invite us to your Event
+    </button>
   </div>
 </section>
 
-<section class="carousel-section first-sights-news">
-  <div class="section-heading slim">News</div>
-  <div class="carousel">
-    {% for item in collections.first_sights_aktuelles | sortByOrderDescending %}
-    <div class="card">
-      {% if item.data.image %}
-        <img src="{{ item.data.image.src or item.data.image }}" alt="" style="width:100%;object-fit:cover;aspect-ratio:4/3;">
-      {% else %}
-        <div class="ph" style="height:90px;">Bild</div>
-      {% endif %}
-      <div class="kicker">{{ item.data.kicker }}</div>
-      <div class="headline">{{ item.data.headline }}</div>
-      <div class="summary">{{ item.templateContent | safe }}</div>
-    </div>
-    {% endfor %}
-  </div>
-  {% if collections.first_sights_aktuelles.length > 1 %}
-  <div class="carousel-dots"></div>
-  {% endif %}
-</section>
-
-<section class="first-sights-gallery-section" id="first-sights-gallery">
-  <div class="section-heading">Galerie</div>
+<section class="first-sights-gallery-section wrap" id="first-sights-gallery">
+  <h2 class="first-sights-section-heading">Selected work</h2>
   <div class="first-sights-gallery" data-gallery-images='{{ gallery_images | galleryImages | dump | escape }}'>
     {% for item in gallery_images %}
-      <button class="first-sights-gallery-item{% if item.orientation == 'landscape' %} is-landscape{% endif %}" type="button" aria-label="Galeriebild öffnen">
+      <button class="first-sights-gallery-item{% if item.orientation == 'landscape' %} is-landscape{% endif %}"
+        type="button" aria-label="Open {{ item.caption or 'First Sights artwork' }}">
         {% if item.image %}
-          <img src="{{ item.image.src or item.image }}" alt="{{ item.caption or '' }}">
+          <img src="{{ item.image }}" alt="{{ item.caption or 'First Sights artwork' }}">
         {% else %}
-          <div class="ph">Bild</div>
+          <div class="first-sights-media-placeholder" aria-hidden="true"></div>
         {% endif %}
+        {% if item.caption %}<span class="first-sights-gallery-caption">{{ item.caption }}</span>{% endif %}
       </button>
     {% endfor %}
   </div>
 </section>
+
+<section class="first-sights-artists wrap">
+  <article>
+    <h2>{{ artist_left_name }}</h2>
+    <p>{{ artist_left_text }}</p>
+  </article>
+  <article>
+    <h2>{{ artist_right_name }}</h2>
+    <p>{{ artist_right_text }}</p>
+  </article>
+  <button class="first-sights-button first-sights-contact-button" type="button" data-lightbox="first-sights-contact">
+    Contact &amp; Acquisition
+  </button>
+</section>
+
+<template id="first-sights-contact">
+  <div class="first-sights-contact-content">
+    <h2 id="first-sights-contact-title">Contact &amp; Acquisition</h2>
+    {{ contact_text | markdownify | safe }}
+  </div>
+</template>

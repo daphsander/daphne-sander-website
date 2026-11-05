@@ -191,74 +191,25 @@ function openImageGallery(images, startIndex) {
 document.querySelectorAll('.first-sights-gallery[data-gallery-images]').forEach((gallery) => {
   const images = JSON.parse(gallery.getAttribute('data-gallery-images') || '[]');
   const items = Array.from(gallery.querySelectorAll('.first-sights-gallery-item'));
-  const gap = () => parseFloat(getComputedStyle(gallery).rowGap) || 0;
 
-  function distributeRows(count, rowCount, maxItems, fixed = {}) {
-    const rows = Array(rowCount).fill(null);
-    for (const [index, value] of Object.entries(fixed)) {
-      if (index < 0 || index >= rowCount || value > maxItems) return null;
-      rows[index] = value;
-    }
-
-    const fixedTotal = rows.reduce((total, value) => total + (value || 0), 0);
-    const emptyRows = rows.filter((value) => value === null).length;
-    const remaining = count - fixedTotal;
-    if (emptyRows === 0) return remaining === 0 ? rows : null;
-    if (remaining < emptyRows || remaining > emptyRows * maxItems) return null;
-
-    const evenCount = Math.floor(remaining / emptyRows);
-    let extraItems = remaining % emptyRows;
-    for (let index = 0; index < rowCount; index += 1) {
-      if (rows[index] === null) {
-        rows[index] = evenCount + (extraItems > 0 ? 1 : 0);
-        extraItems -= extraItems > 0 ? 1 : 0;
-      }
-    }
-    return rows;
-  }
-
-  function getRowCounts(maxItems) {
-    if (maxItems < 3 || items.length < 3) {
-      const rowCount = Math.ceil(items.length / maxItems);
-      return distributeRows(items.length, rowCount, maxItems);
-    }
-
-    const rowCount = Math.ceil((items.length - 3) / maxItems) + 2;
-    const firstAndLast = { 0: 2, [rowCount - 1]: 1 };
-    const baseRows = distributeRows(items.length, rowCount, maxItems, firstAndLast);
-    if (!baseRows || maxItems < 4 || rowCount < 3) return baseRows;
-
-    const secondRow = 1;
-    const secondToLastRow = rowCount - 2;
-    const bothRules = secondRow !== secondToLastRow
-      ? distributeRows(items.length, rowCount, maxItems, {
-        ...firstAndLast,
-        [secondRow]: 3,
-        [secondToLastRow]: 2,
-      })
-      : null;
-    if (bothRules) return bothRules;
-
-    const preferredRule = distributeRows(items.length, rowCount, maxItems, {
-      ...firstAndLast,
-      [secondToLastRow]: 2,
-    });
-    if (preferredRule) return preferredRule;
-
-    return distributeRows(items.length, rowCount, maxItems, {
-      ...firstAndLast,
-      [secondRow]: 3,
-    }) || baseRows;
-  }
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openImageGallery(images, index));
+  });
 
   function layoutGallery() {
     if (!items.length) return;
-    const maxItems = window.innerWidth <= 640 ? 2 : window.innerWidth >= 1600 ? 4 : 3;
-    const counts = getRowCounts(maxItems);
-    if (!counts) throw new Error('Unable to arrange FIRST SIGHTS gallery rows.');
-
+    const maxItems = window.innerWidth <= 640 ? 2 : 4;
+    const rowCount = Math.ceil(items.length / maxItems);
+    const baseCount = Math.floor(items.length / rowCount);
+    let remainingItems = items.length % rowCount;
+    const counts = Array.from({ length: rowCount }, () => {
+      const count = baseCount + (remainingItems > 0 ? 1 : 0);
+      remainingItems -= remainingItems > 0 ? 1 : 0;
+      return count;
+    });
     const rows = [];
     let itemIndex = 0;
+
     counts.forEach((count) => {
       const rowItems = items.slice(itemIndex, itemIndex + count);
       itemIndex += count;
@@ -271,7 +222,7 @@ document.querySelectorAll('.first-sights-gallery[data-gallery-images]').forEach(
 
     const galleryWidth = gallery.clientWidth;
     if (!galleryWidth) return;
-    const rowGap = gap();
+    const rowGap = parseFloat(getComputedStyle(gallery).rowGap) || 0;
     const weights = rows.map(({ items: rowItems }) =>
       rowItems.map((item) => item.classList.contains('is-landscape') ? 1.3333 : 1)
     );
@@ -288,33 +239,88 @@ document.querySelectorAll('.first-sights-gallery[data-gallery-images]').forEach(
     });
   }
 
-  items.forEach((item, index) => {
-    item.addEventListener('click', () => openImageGallery(images, index));
-  });
   layoutGallery();
   window.addEventListener('resize', layoutGallery);
 });
 
-document.querySelectorAll('[data-first-sights-intro]').forEach((intro) => {
-  const buttons = intro.querySelectorAll('[data-first-sights-mode]');
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const mode = intro.getAttribute('data-mode') === button.dataset.firstSightsMode
-        ? ''
-        : button.dataset.firstSightsMode;
-      intro.setAttribute('data-mode', mode);
-      intro.querySelectorAll('[data-intro-image-pair]').forEach((pair) => {
-        const slot = pair.closest('.first-sights-slot');
-        const pairMode = slot.classList.contains('first-sights-slot-left')
-          ? 'project'
-          : 'artists';
-        pair.classList.toggle('is-active', mode === pairMode);
+document.querySelectorAll('[data-first-sights-carousel]').forEach((carousel) => {
+  const slides = Array.from(carousel.querySelectorAll('.first-sights-carousel-slide'));
+  const dotsContainer = carousel.parentElement.querySelector('.first-sights-carousel-dots');
+  const videos = Array.from(carousel.querySelectorAll('video'));
+  const visibleVideos = new Set();
+  let activeIndex = 0;
+
+  function playVideo(video) {
+    video.play().catch((error) => {
+      if (error.name !== 'AbortError') console.warn('First Sights video could not autoplay.', error);
+    });
+  }
+
+  function syncVideoVisibility() {
+    const carouselBounds = carousel.getBoundingClientRect();
+    const carouselVisible = carouselBounds.top < window.innerHeight && carouselBounds.bottom > 0;
+    videos.forEach((video) => {
+      const bounds = video.getBoundingClientRect();
+      const slideVisible = bounds.left < carouselBounds.right && bounds.right > carouselBounds.left;
+      if (carouselVisible && slideVisible && document.visibilityState === 'visible') playVideo(video);
+      else video.pause();
+    });
+  }
+
+  function setActive(index) {
+    activeIndex = index;
+    dotsContainer.querySelectorAll('.dot').forEach((dot, dotIndex) => {
+      dot.classList.toggle('active', dotIndex === activeIndex);
+      dot.setAttribute('aria-current', dotIndex === activeIndex ? 'true' : 'false');
+    });
+  }
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'dot';
+    dot.setAttribute('aria-label', `Show carousel item ${index + 1} of ${slides.length}`);
+    dot.addEventListener('click', () => {
+      carousel.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
+      setActive(index);
+    });
+    dotsContainer.appendChild(dot);
+  });
+  setActive(0);
+
+  carousel.addEventListener('scroll', () => {
+    const index = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    setActive(Math.min(index, slides.length - 1));
+  });
+
+  if ('IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((observations) => {
+      observations.forEach((observation) => {
+        const video = observation.target;
+        if (observation.isIntersecting && document.visibilityState === 'visible') {
+          visibleVideos.add(video);
+          playVideo(video);
+        } else {
+          visibleVideos.delete(video);
+          video.pause();
+        }
       });
-      buttons.forEach((item) => {
-        item.setAttribute('aria-expanded', item.dataset.firstSightsMode === mode ? 'true' : 'false');
+    }, { root: carousel, threshold: 0.6 });
+    videos.forEach((video) => videoObserver.observe(video));
+    document.addEventListener('visibilitychange', () => {
+      visibleVideos.forEach((video) => {
+        if (document.visibilityState === 'visible') playVideo(video);
+        else video.pause();
       });
     });
-  });
+  } else {
+    carousel.addEventListener('scroll', syncVideoVisibility);
+    window.addEventListener('scroll', syncVideoVisibility);
+    window.addEventListener('resize', syncVideoVisibility);
+    document.addEventListener('visibilitychange', syncVideoVisibility);
+    videos.forEach((video) => video.addEventListener('loadeddata', syncVideoVisibility));
+    syncVideoVisibility();
+  }
 });
 
 document.querySelectorAll('.carousel[data-gallery-images]').forEach((carousel) => {
@@ -337,50 +343,61 @@ document.querySelectorAll('.carousel-next-arrow').forEach((arrow) => {
 });
 
 // ---------- Lightbox (Auszug lesen / Inszenierungsschluessel) ----------
-function openLightbox(contentHtml) {
-  let overlay = document.getElementById('lightbox-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'lightbox-overlay';
-    overlay.style.position = 'fixed';
-    overlay.style.inset = '0';
-    overlay.style.background = 'rgba(46,42,36,0.55)';
-    overlay.style.display = 'flex';
-    overlay.style.alignItems = 'center';
-    overlay.style.justifyContent = 'center';
-    overlay.style.zIndex = '999';
-    overlay.style.padding = '20px';
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) overlay.remove();
-    });
-    document.body.appendChild(overlay);
-  }
+function openLightbox(contentHtml, isContact = false) {
+  const previousFocus = document.activeElement;
+  const overlay = document.createElement('div');
+  overlay.id = 'lightbox-overlay';
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.background = isContact ? 'rgba(0,0,0,0.86)' : 'rgba(46,42,36,0.55)';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.zIndex = '999';
+  overlay.style.padding = '20px';
   const panel = document.createElement('div');
   panel.className = 'lightbox-panel';
   panel.style.background = '#FDFCFA';
   panel.style.maxWidth = '960px';
   panel.style.maxHeight = '92vh';
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-modal', 'true');
+  panel.setAttribute('tabindex', '-1');
+  if (isContact) panel.setAttribute('aria-labelledby', 'first-sights-contact-title');
   const closeBtn = document.createElement('button');
   closeBtn.className = 'lightbox-close';
   closeBtn.type = 'button';
   closeBtn.textContent = '\u00d7';
-  closeBtn.setAttribute('aria-label', 'Auszug schließen');
-  closeBtn.addEventListener('click', () => overlay.remove());
+  closeBtn.setAttribute('aria-label', 'Close window');
 
   const content = document.createElement('div');
   content.className = 'lightbox-content';
   content.innerHTML = contentHtml;
 
+  function closeLightbox() {
+    overlay.remove();
+    document.removeEventListener('keydown', handleEscape);
+    if (previousFocus instanceof HTMLElement) previousFocus.focus();
+  }
+  function handleEscape(event) {
+    if (event.key === 'Escape') closeLightbox();
+  }
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) closeLightbox();
+  });
   panel.appendChild(closeBtn);
   panel.appendChild(content);
-  overlay.innerHTML = '';
   overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+  document.addEventListener('keydown', handleEscape);
+  closeBtn.focus();
 }
 
 document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
     const template = document.getElementById(trigger.getAttribute('data-lightbox'));
-    if (template) openLightbox(template.innerHTML);
+    if (template) openLightbox(template.innerHTML, trigger.getAttribute('data-lightbox') === 'first-sights-contact');
   });
 });
 
