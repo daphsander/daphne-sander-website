@@ -7,24 +7,25 @@ detail_meta: '▪ für 11 oder mehr (oder viel mehr) Darsteller · Spielalter: a
 desktop_image: \images\uploads\eurasia-cover-desktop-3x4.jpeg
 mobile_image: \images\uploads\eurasia-cover-mobile-4x3.jpeg
 order: 1
-tags: zeitecht
 is_detailed: true
 schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
 schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
 pricing_pdf: \images\uploads\Preise-und-Lizensstufen-Eurasia.pdf
 einblicke:
   - image: \images\uploads\1-h12-2062-FotocreditJakubKavin-InfosAufBild.png
+    credit: ''
   - image: \images\uploads\2-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
   - image: \images\uploads\3-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
   - image: \images\uploads\4-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
   - image: \images\uploads\5-h12-2062-FotocreditJakubKavin.jpg
-    credit: "Fotocredit: Jakub Kavin"
+    credit: 'Fotocredit: Jakub Kavin'
 lang: de
 layout: zeitecht-detail.njk
 permalink: /zeitecht/eurasia/index.html
+tags: zeitecht
 ---
 
 Anton und Julia leben in einer Welt, in der man dem Wort nicht mehr trauen kann: Progressive Werte und Umweltschutz werden großgeschrieben – aber gleichzeitig vollüberwacht der Staat seine Einwohner und straft Dissidenten durch Folter und Tod.
@@ -33,10 +34,10 @@ Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefolter
 
 <p class="text-center">~</p>
 
-Der größte Unterschied zu Orwells Original liegt im Antagonisten: In EURASIA macht die Diktatur es einem nicht leicht, sie als Feind zu erkennen. Das Regime bedient sich einer Sprache, die in Theaterkreisen, aber auch darüber hinaus, das moralische Selbstverständnis vieler ausmacht: die der sozialen Gleichheit, der Solidarität und des Altruismus. Parallelen zu autoritären Regimes der Geschichte und der Gegenwart sind dabei nicht zufällig — autoritäre Systeme haben sich von der Sowjetunion bis zur Gegenwart regelmäßig genau dieser Begriffe bedient, um Kontrolle als Fürsorge zu verkleiden.
+Der größte Unterschied zu Orwells Original liegt im Antagonisten: In EURASIA macht die Diktatur es einem nicht leicht, sie als Feind zu erkennen. Denn das Regime bedient sich einer Sprache, die in Theaterkreisen, aber auch darüber hinaus, als moralisch und selbstverständlich gilt: Eurasiens oppressive Regierung verficht scheinbar soziale Gleichheit, Solidarität und Altruismus. Parallelen zu autoritären Regimes der Geschichte und der Gegenwart sind dabei nicht zufällig — wie oft haben sich autoritäre Systeme nicht genau dieser Begriffe bedient, um Kontrolle als Fürsorge zu verkleiden.
 
 Verbreiteten Wertebegriffen auf diese Weise zu begegnen erzeugt bei Spielern wie Publikum eine moralische Spannung – und lädt zur eigenen Meinungsbildung ein.
 
-Das Stück selbst nimmt dabei keine politische Position ein. Stattdessen fragt es nach Werten, die tiefer greifen als Parteigrenzen und Diskurse.
+Das Stück selbst nimmt dabei keine politische Position ein. Stattdessen fragt es nach Werten, die tiefer greifen als Parteiengrenzen und Diskurse.
 
 Das Skript eignet sich besonders für diskutierfreudige, politisch und philosophisch interessierte Klassen. Außerdem gibt es stellenweise Möglichkeiten, musikalisch und tänzerisch kreativ zu werden.
