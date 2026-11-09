@@ -116,10 +116,10 @@ window.addEventListener('popstate', () => {
   if (galleryOpen) closeGallery(true);
 });
 
-function openImageGallery(images, startIndex) {
+function openImageGallery(images, startIndex, overlayClass = '') {
   let currentIndex = startIndex;
   const overlay = document.createElement('div');
-  overlay.className = 'gallery-overlay';
+  overlay.className = `gallery-overlay ${overlayClass}`.trim();
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeGallery(false);
   });
@@ -193,7 +193,7 @@ document.querySelectorAll('.first-sights-gallery[data-gallery-images]').forEach(
   const items = Array.from(gallery.querySelectorAll('.first-sights-gallery-item'));
 
   items.forEach((item, index) => {
-    item.addEventListener('click', () => openImageGallery(images, index));
+    item.addEventListener('click', () => openImageGallery(images, index, 'first-sights-gallery-overlay'));
   });
 
   function layoutGallery() {
@@ -276,6 +276,30 @@ document.querySelectorAll('[data-first-sights-carousel]').forEach((carousel) => 
   }
 
   slides.forEach((slide, index) => {
+    if (index > 0) {
+      const previousButton = document.createElement('button');
+      previousButton.type = 'button';
+      previousButton.className = 'first-sights-carousel-nav first-sights-carousel-nav--previous';
+      previousButton.setAttribute('aria-label', `Show carousel item ${index} of ${slides.length}`);
+      previousButton.addEventListener('click', () => {
+        carousel.scrollTo({ left: slides[index - 1].offsetLeft, behavior: 'smooth' });
+        setActive(index - 1);
+      });
+      slide.appendChild(previousButton);
+    }
+
+    if (index < slides.length - 1) {
+      const nextButton = document.createElement('button');
+      nextButton.type = 'button';
+      nextButton.className = 'first-sights-carousel-nav first-sights-carousel-nav--next';
+      nextButton.setAttribute('aria-label', `Show carousel item ${index + 2} of ${slides.length}`);
+      nextButton.addEventListener('click', () => {
+        carousel.scrollTo({ left: slides[index + 1].offsetLeft, behavior: 'smooth' });
+        setActive(index + 1);
+      });
+      slide.appendChild(nextButton);
+    }
+
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'dot';
