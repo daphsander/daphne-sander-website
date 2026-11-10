@@ -245,10 +245,32 @@ document.querySelectorAll('.first-sights-gallery[data-gallery-images]').forEach(
 
 document.querySelectorAll('[data-first-sights-carousel]').forEach((carousel) => {
   const slides = Array.from(carousel.querySelectorAll('.first-sights-carousel-slide'));
-  const dotsContainer = carousel.parentElement.querySelector('.first-sights-carousel-dots');
+  const media = carousel.closest('.first-sights-media');
+  const dotsContainer = media.querySelector('.first-sights-carousel-dots');
   const videos = Array.from(carousel.querySelectorAll('video'));
   const visibleVideos = new Set();
   let activeIndex = 0;
+  const previousButton = document.createElement('button');
+  previousButton.type = 'button';
+  previousButton.className = 'first-sights-carousel-nav first-sights-carousel-nav--previous';
+  previousButton.setAttribute('aria-label', 'Show previous carousel item');
+  previousButton.addEventListener('click', () => {
+    if (activeIndex > 0) {
+      carousel.scrollTo({ left: slides[activeIndex - 1].offsetLeft, behavior: 'smooth' });
+      setActive(activeIndex - 1);
+    }
+  });
+  const nextButton = document.createElement('button');
+  nextButton.type = 'button';
+  nextButton.className = 'first-sights-carousel-nav first-sights-carousel-nav--next';
+  nextButton.setAttribute('aria-label', 'Show next carousel item');
+  nextButton.addEventListener('click', () => {
+    if (activeIndex < slides.length - 1) {
+      carousel.scrollTo({ left: slides[activeIndex + 1].offsetLeft, behavior: 'smooth' });
+      setActive(activeIndex + 1);
+    }
+  });
+  carousel.parentElement.append(previousButton, nextButton);
 
   function playVideo(video) {
     video.play().catch((error) => {
@@ -269,6 +291,8 @@ document.querySelectorAll('[data-first-sights-carousel]').forEach((carousel) => 
 
   function setActive(index) {
     activeIndex = index;
+    previousButton.hidden = activeIndex === 0;
+    nextButton.hidden = activeIndex === slides.length - 1;
     dotsContainer.querySelectorAll('.dot').forEach((dot, dotIndex) => {
       dot.classList.toggle('active', dotIndex === activeIndex);
       dot.setAttribute('aria-current', dotIndex === activeIndex ? 'true' : 'false');
@@ -276,30 +300,6 @@ document.querySelectorAll('[data-first-sights-carousel]').forEach((carousel) => 
   }
 
   slides.forEach((slide, index) => {
-    if (index > 0) {
-      const previousButton = document.createElement('button');
-      previousButton.type = 'button';
-      previousButton.className = 'first-sights-carousel-nav first-sights-carousel-nav--previous';
-      previousButton.setAttribute('aria-label', `Show carousel item ${index} of ${slides.length}`);
-      previousButton.addEventListener('click', () => {
-        carousel.scrollTo({ left: slides[index - 1].offsetLeft, behavior: 'smooth' });
-        setActive(index - 1);
-      });
-      slide.appendChild(previousButton);
-    }
-
-    if (index < slides.length - 1) {
-      const nextButton = document.createElement('button');
-      nextButton.type = 'button';
-      nextButton.className = 'first-sights-carousel-nav first-sights-carousel-nav--next';
-      nextButton.setAttribute('aria-label', `Show carousel item ${index + 2} of ${slides.length}`);
-      nextButton.addEventListener('click', () => {
-        carousel.scrollTo({ left: slides[index + 1].offsetLeft, behavior: 'smooth' });
-        setActive(index + 1);
-      });
-      slide.appendChild(nextButton);
-    }
-
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'dot';

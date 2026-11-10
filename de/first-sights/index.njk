@@ -30,9 +30,9 @@ intro_carousel:
     alt: "First Sights artwork"
 
 artist_left_name: "Odysseus Stamoglou"
-artist_left_text: "Painter, illustrator, musician and performer, born in Greece."
+artist_left_text: "Painter, illustrator, musician and performer, born in Athens, Greece. Odysseus' designs and illustrations have been published worldwide, featuring on award-winning board games, books, covers, video games, films, traditional and digital paintings. See more at [odysseusart.com](https://odysseusart.com)."
 artist_right_name: "Daphne Sander"
-artist_right_text: "Playwright and screenwriter from Tübingen."
+artist_right_text: "Narrative playwright and screenwriter from Tübingen, Germany. Daphne has collaborated as head writer with film producers and theaters in Germany and Austria. She also visits schools and youth groups, teaching classical narrative and theme-oriented writing. See more at [daphnesander.com](https://daphnesander.com)."
 gallery_images:
   - image: /images/uploads/FS_no2_all-here.jpg
     orientation: portrait
@@ -68,20 +68,22 @@ gallery_images:
 
 <section class="first-sights-hero wrap">
   <div class="first-sights-media">
-    <div class="first-sights-carousel" data-first-sights-carousel aria-label="First Sights images and videos">
-      {% for item in intro_carousel %}
-        <div class="first-sights-carousel-slide">
-          {% if item.type == "video" and item.video %}
-            <video muted loop playsinline preload="metadata" aria-label="{{ item.alt or 'First Sights video' }}">
-              <source src="{{ item.video }}">
-            </video>
-          {% elif item.image %}
-            <img src="{{ item.image }}" alt="{{ item.alt or 'First Sights artwork' }}">
-          {% else %}
-            <div class="first-sights-media-placeholder" aria-hidden="true"></div>
-          {% endif %}
-        </div>
-      {% endfor %}
+    <div class="first-sights-carousel-wrap">
+      <div class="first-sights-carousel" data-first-sights-carousel aria-label="First Sights images and videos">
+        {% for item in intro_carousel %}
+          <div class="first-sights-carousel-slide">
+            {% if item.type == "video" and item.video %}
+              <video muted loop playsinline preload="metadata" aria-label="{{ item.alt or 'First Sights video' }}">
+                <source src="{{ item.video }}">
+              </video>
+            {% elif item.image %}
+              <img src="{{ item.image }}" alt="{{ item.alt or 'First Sights artwork' }}">
+            {% else %}
+              <div class="first-sights-media-placeholder" aria-hidden="true"></div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
     <div class="first-sights-carousel-dots" aria-label="Choose an image or video"></div>
   </div>
@@ -117,11 +119,11 @@ gallery_images:
 <section class="first-sights-artists wrap">
   <article>
     <h2>{{ artist_left_name }}</h2>
-    <p>{{ artist_left_text }}</p>
+    <div class="artist-bio">{{ artist_left_text | markdownify | safe }}</div>
   </article>
   <article>
     <h2>{{ artist_right_name }}</h2>
-    <p>{{ artist_right_text }}</p>
+    <div class="artist-bio">{{ artist_right_text | markdownify | safe }}</div>
   </article>
   <button class="first-sights-button first-sights-contact-button" type="button" data-lightbox="first-sights-contact">
     Contact &amp; Acquisition

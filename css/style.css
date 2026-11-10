@@ -222,6 +222,7 @@ body.sparks-page .site-header nav { display: none; }
   padding-bottom: 68px;
 }
 .first-sights-media { width: min(100%, 360px); justify-self: center; }
+.first-sights-carousel-wrap { position: relative; }
 .first-sights-carousel {
   display: flex;
   overflow-x: auto;
@@ -241,17 +242,31 @@ body.sparks-page .site-header nav { display: none; }
 }
 .first-sights-carousel-nav {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 40px;
   padding: 0;
   border: 0;
   background: transparent;
   cursor: pointer;
+  transform: translateY(-50%);
 }
-.first-sights-carousel-nav--previous { left: 0; }
-.first-sights-carousel-nav--next { right: 0; }
-.first-sights-carousel-nav:focus-visible { outline: 2px solid var(--first-sights-red); outline-offset: -4px; }
+.first-sights-carousel-nav[hidden] { display: none; }
+.first-sights-carousel-nav--previous { left: -34px; }
+.first-sights-carousel-nav--next { right: -34px; }
+.first-sights-carousel-nav::before {
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--ink-body);
+  border-right: 1px solid var(--ink-body);
+  content: "";
+}
+.first-sights-carousel-nav--previous::before { transform: rotate(-135deg); }
+.first-sights-carousel-nav--next::before { transform: rotate(45deg); }
+.first-sights-carousel-nav:focus-visible { outline: 2px solid var(--first-sights-red); }
 .first-sights-carousel-slide img,
 .first-sights-carousel-slide video,
 .first-sights-media-placeholder {
@@ -339,13 +354,14 @@ body.sparks-page .site-header nav { display: none; }
 .first-sights-artists {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px 48px;
+  gap: 48px 48px;
   padding-top: 28px;
   padding-bottom: 40px;
   border-top: 1px solid var(--ink-muted);
 }
 .first-sights-artists h2 { margin: 0 0 12px; color: var(--ink); font-size: 23px; font-weight: 400; }
-.first-sights-artists p { margin: 0; font-size: 15px; line-height: 1.6; }
+.first-sights-artists .artist-bio p { margin: 0; font-size: 15px; line-height: 1.6; }
+.first-sights-artists a { color: var(--first-sights-red); }
 .first-sights-contact-button { grid-column: 1 / -1; justify-self: center; }
 .first-sights-contact-content { color: var(--ink-body); font-size: 18px; line-height: 1.6; }
 .first-sights-contact-content h2 { margin: 0 0 18px; color: var(--ink); font-size: 28px; font-weight: 400; }
@@ -376,11 +392,11 @@ body.sparks-page .site-header nav { display: none; }
   .first-sights-gallery-caption { padding-top: 5px; font-size: 10px; }
   .first-sights-artists {
     grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
+    gap: 40px;
     padding: 20px 20px 26px;
   }
   .first-sights-artists h2 { margin-bottom: 6px; font-size: 18px; }
-  .first-sights-artists p { font-size: 13px; }
+  .first-sights-artists .artist-bio p { font-size: 13px; }
   .first-sights-contact-button { grid-column: 1; }
   .first-sights-contact-content { font-size: 14px; }
   .first-sights-contact-content h2 { font-size: 21px; }

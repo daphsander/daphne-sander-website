@@ -96,9 +96,9 @@ collections:
               - { label: "Video", name: "video", widget: "file", required: false }
               - { label: "Alternativtext", name: "alt", widget: "string", required: false }
           - { label: "Name: Künstler links", name: "artist_left_name", widget: "string" }
-          - { label: "Kurzbiografie links", name: "artist_left_text", widget: "text" }
+          - { label: "Kurzbiografie links", name: "artist_left_text", widget: "markdown", hint: "Links mit Markdown einfügen: [Linktext](https://beispiel.de)." }
           - { label: "Name: Künstler rechts", name: "artist_right_name", widget: "string" }
-          - { label: "Kurzbiografie rechts", name: "artist_right_text", widget: "text" }
+          - { label: "Kurzbiografie rechts", name: "artist_right_text", widget: "markdown", hint: "Links mit Markdown einfügen: [Linktext](https://beispiel.de)." }
           - label: "Galeriebilder (A6)"
             name: "gallery_images"
             widget: "list"
