@@ -367,21 +367,25 @@ document.querySelectorAll('.carousel-next-arrow').forEach((arrow) => {
 });
 
 // ---------- Lightbox (Auszug lesen / Inszenierungsschluessel) ----------
-function openLightbox(contentHtml, isContact = false) {
+function openLightbox(contentHtml, isContact = false, isExcerpt = false) {
   const previousFocus = document.activeElement;
   const overlay = document.createElement('div');
   overlay.id = 'lightbox-overlay';
   overlay.style.position = 'fixed';
   overlay.style.inset = '0';
-  overlay.style.background = isContact ? 'rgba(0,0,0,0.86)' : 'rgba(46,42,36,0.55)';
+  overlay.style.background = isContact
+    ? 'rgba(0,0,0,0.86)'
+    : isExcerpt
+      ? 'rgba(46,42,36,0.98)'
+      : 'rgba(46,42,36,0.55)';
   overlay.style.display = 'flex';
   overlay.style.alignItems = 'center';
   overlay.style.justifyContent = 'center';
   overlay.style.zIndex = '999';
   overlay.style.padding = '20px';
   const panel = document.createElement('div');
-  panel.className = 'lightbox-panel';
-  panel.style.background = '#FDFCFA';
+  panel.className = `lightbox-panel${isExcerpt ? ' lightbox-excerpt-panel' : ''}`;
+  if (!isExcerpt) panel.style.background = '#FDFCFA';
   panel.style.maxWidth = '960px';
   panel.style.maxHeight = '92vh';
   panel.setAttribute('role', 'dialog');
@@ -420,8 +424,15 @@ function openLightbox(contentHtml, isContact = false) {
 
 document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
   trigger.addEventListener('click', () => {
-    const template = document.getElementById(trigger.getAttribute('data-lightbox'));
-    if (template) openLightbox(template.innerHTML, trigger.getAttribute('data-lightbox') === 'first-sights-contact');
+    const lightboxId = trigger.getAttribute('data-lightbox');
+    const template = document.getElementById(lightboxId);
+    if (template) {
+      openLightbox(
+        template.innerHTML,
+        lightboxId === 'first-sights-contact',
+        lightboxId === 'lightbox-auszug'
+      );
+    }
   });
 });
 

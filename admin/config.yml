@@ -204,7 +204,14 @@ collections:
         name: "kontakt"
         fields:
           - { label: "Einleitungstext", name: "intro_text", widget: "string" }
-          - { label: "Formspree-Endpoint-URL", name: "formspree_endpoint", widget: "string" }
+          - label: "Kontaktmöglichkeiten"
+            name: "contacts"
+            widget: "list"
+            min: 3
+            max: 3
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Inhalt", name: "content", widget: "string" }
 
   - name: "sparks"
     label: "SPARKS — Prompts"

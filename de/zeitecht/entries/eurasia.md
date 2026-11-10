@@ -34,7 +34,7 @@ Julia und Anton suchen Mitstreiter – werden verraten – schließlich gefolter
 
 <p class="text-center">~</p>
 
-Der größte Unterschied zu Orwells Original liegt im Antagonisten: In EURASIA macht die Diktatur es einem nicht leicht, sie als Feind zu erkennen. Denn das Regime bedient sich einer Sprache, die in Theaterkreisen, aber auch darüber hinaus, als moralisch und selbstverständlich gilt: Eurasiens oppressive Regierung verficht scheinbar soziale Gleichheit, Solidarität und Altruismus. Parallelen zu autoritären Regimes der Geschichte und der Gegenwart sind dabei nicht zufällig — wie oft haben sich autoritäre Systeme nicht genau dieser Begriffe bedient, um Kontrolle als Fürsorge zu verkleiden.
+Der größte Unterschied zu Orwells Original liegt im Antagonisten: In EURASIA macht die Diktatur es einem nicht leicht, sie als Feind zu erkennen. Denn das Regime bedient sich einer Sprache, die in Theaterkreisen, aber auch darüber hinaus, als moralisch und selbstverständlich gilt: Eurasiens oppressive Regierung verficht scheinbar soziale Gleichheit, Solidarität und Altruismus. Parallelen zu autoritären Regimes der Geschichte und der Gegenwart sind dabei nicht zufällig — wie oft haben sich autoritäre Systeme nicht genau dieser Begriffe bedient, um Kontrolle als Fürsorge zu verkleiden?
 
 Verbreiteten Wertebegriffen auf diese Weise zu begegnen erzeugt bei Spielern wie Publikum eine moralische Spannung – und lädt zur eigenen Meinungsbildung ein.
 

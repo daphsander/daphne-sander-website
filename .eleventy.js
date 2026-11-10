@@ -1,4 +1,6 @@
-﻿const markdownIt = require("markdown-it");
+const markdownIt = require("markdown-it");
+const fs = require("node:fs");
+const path = require("node:path");
 const md = markdownIt({ html: false, breaks: true, linkify: true });
 
 module.exports = function (eleventyConfig) {
@@ -38,6 +40,33 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("markdownify", function (content) {
     return md.render(content || "");
+  });
+
+  eleventyConfig.addFilter("zeitechtExcerpt", (inputPath) => {
+    const entryPath = path.resolve(inputPath);
+    const excerptPath = path.join(
+      path.dirname(entryPath),
+      `${path.parse(entryPath).name}-auszug.txt`
+    );
+    if (!fs.existsSync(excerptPath)) return null;
+
+    const text = fs.readFileSync(excerptPath, "utf8");
+    const html = text
+      .split(/(\r?\n)/)
+      .map((line) => {
+        if (line === "\n" || line === "\r\n") return line;
+        const centered = line.startsWith("[[center]]");
+        const content = centered ? line.slice("[[center]]".length) : line;
+        const escaped = content.replace(/[&<>]/g, (character) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+        })[character]);
+        return centered ? `<span class="auszug-center">${escaped}</span>` : escaped;
+      })
+      .join("");
+
+    return { text, html };
   });
 
   return {

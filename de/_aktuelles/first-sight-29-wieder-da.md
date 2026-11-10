@@ -8,4 +8,4 @@ tags: aktuelles
 ---
 
 Und zwar aus der Galerie Grundstein35 (Wien). Dort war es Teil der Ausstellung "vielleicht.wolke".
-First Sights ist mein Duo-Projekt mit dem visuellen Künstler <a href="https://www.odysseusart.com/gallery/ink-brush/" target="_blank" rel="noopener noreferrer">Odysseus Stamoglou</a>.
+<a href="https://daphnesander.com/first-sights" target="_blank" rel="noopener noreferrer">First Sights</a> ist mein Duo-Projekt mit dem visuellen Künstler Odysseus Stamoglou.

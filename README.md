@@ -11,14 +11,15 @@ get built into HTML and served for free via Cloudflare Pages.
 - `_data/sparks.json` — the SPARKS prompts. One line per prompt.
 - `css/style.css` — all styling for every page and breakpoint
 - `js/main.js` — accordion, filter, carousel, lightbox, and SPARKS logic
-- `admin/` — Decap CMS (the simple content editor) — see setup step 4 below
+- `admin/` — Decap CMS (the simple content editor) — see setup step 3 below
 
 ## What's still a placeholder
 Anything in square brackets like `[Platzhalter — ...]` needs your real content:
-your address for the Impressum, the Datenschutz text, your bio, the Formspree
-form endpoint, real photos in place of the gray placeholder boxes, real Arbeiten
-entries (the two currently in there are clearly-marked examples), and the
-Inszenierungsschlüssel key-sketch image once you have it.
+your address for the Impressum, the Datenschutz text, your bio, real photos in
+place of the gray placeholder boxes, real Arbeiten entries (the two currently
+in there are clearly-marked examples), and the Inszenierungsschlüssel key-sketch
+image once you have it. The mobile number and Instagram contact on the Kontakt
+page also need to be filled in.
 
 The ZEITECHT section already has real content for **Eurasia** and a lighter
 placeholder for **Der Schimmelreiter**, based on what's been discussed — check
@@ -30,10 +31,12 @@ to a pricing PDF by setting `pricing_pdf` in its front matter (or uploading the
 file in the CMS). The PDF opens in a new tab on desktop and downloads on mobile.
 
 ### ZEITECHT script excerpts
-The EURASIA script excerpt is stored separately in
-`de/zeitecht/entries/eurasia-auszug.txt` and loaded into the existing on-page
-preview at build time. Edit it in the CMS under **ZEITECHT — Skriptauszüge**;
-it remains part of the page, not a download.
+Each ZEITECHT detail page reads its own excerpt from a sibling text file named
+`<entry>-auszug.txt` (for example, `eurasia-auszug.txt` for `eurasia.md`).
+The excerpt is loaded into that page's on-page preview at build time; a page
+without a matching file has no excerpt preview. Edit the EURASIA excerpt in the
+CMS under **ZEITECHT — Skriptauszüge**. For other entries, add a matching text
+file in the same folder.
 
 ## Setup steps
 
@@ -48,11 +51,7 @@ preserves the folder structure. Commit directly to `main`.
 3. Build settings: **Build command** `npm run build`, **Build output directory** `_site`
 4. Deploy — you'll get a `*.pages.dev` URL immediately; the custom domain (from netcup) gets attached afterward in the same project's settings
 
-### 3. Formspree (Kontakt form)
-1. Sign up at formspree.io (free), create a form, copy the endpoint URL
-2. Replace `https://formspree.io/f/PLATZHALTER` in `de/kontakt.njk` with it
-
-### 4. Sveltia CMS (the editor at yoursite.com/admin)
+### 3. Sveltia CMS (the editor at yoursite.com/admin)
 This site uses Sveltia CMS — a modern, actively-maintained, drop-in-compatible
 successor to Decap CMS. Since you're the only person who'll ever log in, no
 OAuth relay or Cloudflare Worker is needed at all — just a personal access token.
@@ -65,8 +64,10 @@ OAuth relay or Cloudflare Worker is needed at all — just a personal access tok
 6. Visit `yoursite.com/admin`, choose the personal-access-token sign-in option, paste it in
 
 That's the whole setup — no Worker, no OAuth App, no extra account.
+The three contact titles and their text on the Kontakt page can be edited in
+the CMS under **Kontakt-Seite**.
 
-### 5. Domain
+### 4. Domain
 Point the domain from netcup at Cloudflare Pages by adding the DNS records
 Cloudflare's dashboard shows you once the domain is added there (Cloudflare
 Pages → your project → Custom domains).

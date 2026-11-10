@@ -10,7 +10,6 @@
   --divider: #EEEDE9;
   --divider-quiet: #D8D5CC;
   --placeholder-bg: #EFEDE7;
-  --input-border: #E0DCCF;
   --max-width: 1280px;
 }
 
@@ -619,6 +618,7 @@ body.sparks-page .site-header nav { display: none; }
   overflow: hidden;
   padding: 16px 32px 32px;
 }
+.lightbox-excerpt-panel { background: var(--bg); color: var(--ink); }
 .lightbox-close {
   align-self: flex-end;
   flex: 0 0 40px;
@@ -672,31 +672,37 @@ body.sparks-page .site-header nav { display: none; }
 /* ---------- Filter-aware first-entry border fix ---------- */
 .entry[data-first-visible="true"] { border-top: none; padding-top: 0; }
 
-/* ---------- Kontakt form ---------- */
+/* ---------- Kontakt page ---------- */
 .kontakt-intro { padding: 72px 56px 16px; text-align: center; max-width: var(--max-width); margin: 0 auto; }
 .kontakt-intro h1 { font-size: 44px; color: var(--ink); font-weight: 600; margin: 0; }
 .kontakt-intro p { font-size: 25px; color: #6B6560; margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.5; }
-.kontakt-form { padding: 56px 56px 68px; max-width: var(--max-width); margin: 0 auto; }
-.kontakt-form .fields { display: flex; flex-direction: column; gap: 28px; max-width: 760px; margin: 0 auto; }
-.kontakt-form label { font-size: 22px; color: var(--ink-muted); margin-bottom: 10px; display: block; }
-.kontakt-form input, .kontakt-form textarea {
-  width: 100%; border: 2px solid var(--input-border); background: #fff; font-family: inherit; font-size: 26px; padding: 16px 20px;
+.kontakt-wege {
+  display: grid;
+  grid-template-columns: minmax(0, 760px);
+  list-style: none;
+  padding: 56px 56px 68px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  justify-content: center;
 }
-.kontakt-form textarea { min-height: 160px; resize: vertical; }
-.kontakt-form button {
-  display: inline-block; padding: 18px 52px; border: 2px solid var(--ink); color: var(--ink); font-size: 25px;
-  background: none; font-family: inherit; cursor: pointer; margin-top: 12px;
+.kontakt-weg {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  align-items: baseline;
+  gap: 24px;
+  border-top: 2px solid var(--divider-quiet);
+  padding: 20px 0;
 }
+.kontakt-weg h2 { font-size: 24px; color: var(--ink); font-weight: 600; margin: 0; }
+.kontakt-weg p { font-size: 20px; line-height: 1.5; margin: 0; overflow-wrap: anywhere; }
 @media (max-width: 640px) {
   .kontakt-intro { padding: 28px 20px 6px; }
   .kontakt-intro h1 { font-size: 19px; }
   .kontakt-intro p { font-size: 12px; margin-top: 8px; max-width: 260px; }
-  .kontakt-form { padding: 22px 20px 26px; }
-  .kontakt-form .fields { gap: 12px; max-width: none; }
-  .kontakt-form label { font-size: 10.5px; margin-bottom: 4px; }
-  .kontakt-form input, .kontakt-form textarea { border-width: 1px; font-size: 13px; padding: 8px 10px; }
-  .kontakt-form textarea { min-height: 90px; }
-  .kontakt-form button { width: 100%; padding: 11px 0; font-size: 12.5px; }
+  .kontakt-wege { padding: 22px 20px 26px; }
+  .kontakt-weg { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 12px; border-top-width: 1px; padding: 12px 0; }
+  .kontakt-weg h2 { font-size: 14px; }
+  .kontakt-weg p { font-size: 13px; }
 }
 
 /* ---------- Legal pages (Impressum / Datenschutz) ---------- */
