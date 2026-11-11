@@ -468,11 +468,13 @@ body.sparks-page .site-header nav { display: none; }
 /* ---------- ZEITECHT overview ---------- */
 .page-title-block { padding: 76px 56px 40px; text-align: center; max-width: var(--max-width); margin: 0 auto; }
 .page-title-block h1 { font-size: 54px; color: var(--ink); font-weight: 600; letter-spacing: 1px; margin: 0; }
-.page-title-block .tagline { font-size: 34px; color: var(--accent); font-weight: 600; margin-top: 24px; letter-spacing: 0.6px; }
+.page-title-block .tagline { font-size: 34px; color: var(--accent); font-weight: 600; margin-top: 10px; letter-spacing: 0.6px; }
+.page-title-block .secondary-tagline { font-size: 24px; color: var(--ink-body); margin-top: 20px; }
 @media (max-width: 640px) {
   .page-title-block { padding: 32px 22px 18px; }
   .page-title-block h1 { font-size: 23px; }
   .page-title-block .tagline { font-size: 14.5px; }
+  .page-title-block .secondary-tagline { font-size: 12.5px; }
 }
 
 /* Fold-out labels (Ueber das Projekt / Ueber das Begleitmaterial) */

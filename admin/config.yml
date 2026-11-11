@@ -115,6 +115,7 @@ collections:
         label: "ZEITECHT Übersicht"
         name: "zeitecht_overview"
         fields:
+          - { label: "Zusatzzeile unter dem Titel", name: "secondary_tagline", widget: "string", required: false }
           - { label: "Text: Über das Projekt", name: "projekt_text", widget: "markdown" }
           - { label: "Text: Über das Begleitmaterial", name: "begleitmaterial_text", widget: "markdown" }
 

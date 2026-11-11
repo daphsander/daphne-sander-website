@@ -20,12 +20,14 @@ lang: de
 layout: base.njk
 navKey: /zeitecht/
 pageTitle: ZEITECHT — Neufassungen klassischer Stoffe fürs Jugendtheater
+secondary_tagline: ▪ Skripte mit Begleitmaterial für Schul- und Jugendtheatergruppen ▪
 permalink: /zeitecht/index.html
 ---
 
 <div class="page-title-block">
   <h1>ZEITECHT</h1>
   <div class="tagline">Neufassungen klassischer Stoffe fürs Jugendtheater</div>
+  {% if secondary_tagline %}<div class="secondary-tagline">{{ secondary_tagline }}</div>{% endif %}
 </div>
 
 <div class="foldouts">
