@@ -10,11 +10,23 @@ projekt_text: |-
 
   Es ist wirklich eine eigene Welt, die jedes dieser Werke aufwirft. Es würde mich freuen, Ihnen und euch dort zu begegnen.
 begleitmaterial_text: |-
-  Das Begleitmaterial besteht aus drei Schlüsseln:
-
-  - Der **Inszenierungsschlüssel** ist ein Heft mit offenen Fragen, die eine werkthematische Regie anregen. Es handelt sich also nicht um ein ausgemaltes Regiekonzept — sondern um eine Einführung ins Inszenieren überhaupt.  Gedacht ist das Heft als Spielinstrument und Anregung für jugendliche Spieler. Entsprechend kann es als Unterrichtsmaterial verwendet werden, oder als Ratgeber beim eigenen Inszenieren. Der Inszenierungsschlüssel ist online zur freien Ansicht verfügbar.
-  - Im **Kontextschlüssel** sind verschiedenste Quellentexte gesammelt – von philosophischen Essays hin zu Gedichten – die mit der Stückwelt zu tun haben. Im Sinn habe ich dabei Leser, die tiefer in die Dramaturgie und historische Recherche rund um das Skript eintauchen möchten. Das Heft ist in jedem Lizenzkauf miteinbegriffen.
-  - Letztlich biete ich überaus gerne im persönlichen Gespräch Rede und Antwort zum Skript – zum Adaptieren und Neufassen von Werken – zum Dramatiker-Dasein im Allgemeinen. Hierbei handelt es sich um den **Dramatikschlüssel**: eine Frage-Antwort-Session mit der Spielgruppe und mögliche Einzelgespräche (Rollengespräche). Wie und wann das mit Ihrer Gruppe geschehen kann, koordinieren wir vorab in einem Planungsmeeting.
+  - **Inszenierungsschlüssel**: Es handelt sich hierbei nicht um ein ausgemaltes Regiekonzept — sondern um eine Einführung ins Inszenieren überhaupt.  Gedacht ist das Heft als Spielinstrument und Anregung für jugendliche Spieler. Entsprechend kann es als Unterrichtsmaterial verwendet werden, oder als Ratgeber beim eigenen Inszenieren.
+  - **Kontextschlüssel**: Im Sinn habe ich Leser, die tiefer in die Dramaturgie und historische Recherche rund um das Skript eintauchen möchten. Das Heft ist in jedem Lizenzkauf miteinbegriffen.
+  - **Dramatikschlüssel**: Überaus gerne biete ich im persönlichen Gespräch Rede und Antwort zum Skript – zum Adaptieren und Neufassen von Werken – zum Dramatiker-Dasein im Allgemeinen. Wie und wann das mit Ihrer Gruppe geschehen kann, koordinieren wir vorab in einem Planungsmeeting.
+begleitmaterial_intro_title: "Das Begleitmaterial besteht aus drei Schlüsseln:"
+inszenierungsschluessel_title: Inszenierungsschlüssel
+inszenierungsschluessel_intro: Ein Heft mit offenen Fragen, die eine werkthematische Regie anregen.
+inszenierungsschluessel_eurasia_label: "Inszenierungsschlüssel 'Eurasia' →"
+inszenierungsschluessel_eurasia_url: https://daphnesander.com/images/uploads/Leseansicht-Heft-Inszenierungsschl%C3%BCssel-komprimiert.pdf
+inszenierungsschluessel_note: In jedem Lizenzkauf miteinbegriffen
+kontextschluessel_title: Kontextschlüssel
+kontextschluessel_intro: Verschiedenste Quellentexte – von philosophischen Essays hin zu Gedichten – die mit der Stückwelt zu tun haben.
+kontextschluessel_note: In jedem Lizenzkauf miteinbegriffen
+dramatikschluessel_title: Dramatikschlüssel
+dramatikschluessel_intro: Eine Frage-Antwort-Session mit der Spielgruppe und mögliche Einzelgespräche (Rollengespräche).
+dramatikschluessel_note: Optional · Autorenbesuch
+dramatikschluessel_pricing_label: "Preise & Lizensstufen →"
+dramatikschluessel_pricing_url: https://daphnesander.com/images/uploads/Preise-und-Lizensstufen-Zeitecht.pdf
 currentSection: /zeitecht/
 lang: de
 layout: base.njk
@@ -35,7 +47,58 @@ permalink: /zeitecht/index.html
   <button class="foldout-toggle" data-target="panel-begleitmaterial"><span class="sign">+</span> Über das Begleitmaterial</button>
 </div>
 <div class="foldout-panel" id="panel-projekt">{{ projekt_text | markdownify | safe }}</div>
-<div class="foldout-panel" id="panel-begleitmaterial">{{ begleitmaterial_text | markdownify | safe }}</div>
+<div class="foldout-panel" id="panel-begleitmaterial">
+  <section class="begleitmaterial-intro">
+    <h2>{{ begleitmaterial_intro_title }}</h2>
+    <div class="begleitmaterial-intro__columns">
+      <article class="begleitmaterial-intro__column">
+        <h3>
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="7.5" cy="8" r="4.5"></circle><path d="m11 11.5 9.5 9.5 2-2-2-2 2-2-3-3-2 2-3.5-3.5"></path></svg>
+          {{ inszenierungsschluessel_title }}
+        </h3>
+        <p>{{ inszenierungsschluessel_intro }}</p>
+        <div class="begleitmaterial-intro__resource">
+          {% if inszenierungsschluessel_eurasia_url %}
+          <a href="{{ inszenierungsschluessel_eurasia_url }}">{{ inszenierungsschluessel_eurasia_label }}</a>
+          {% else %}
+          <span>{{ inszenierungsschluessel_eurasia_label }}</span>
+          {% endif %}
+        </div>
+        <div class="begleitmaterial-intro__footer">
+          <div class="begleitmaterial-intro__note">{{ inszenierungsschluessel_note }}</div>
+        </div>
+      </article>
+      <article class="begleitmaterial-intro__column">
+        <h3>
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="7.5" cy="8" r="4.5"></circle><path d="m11 11.5 9.5 9.5 2-2-2-2 2-2-3-3-2 2-3.5-3.5"></path></svg>
+          {{ kontextschluessel_title }}
+        </h3>
+        <p>{{ kontextschluessel_intro }}</p>
+        <div class="begleitmaterial-intro__footer">
+          <div class="begleitmaterial-intro__note">{{ kontextschluessel_note }}</div>
+        </div>
+      </article>
+      <article class="begleitmaterial-intro__column">
+        <h3>
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="7.5" cy="8" r="4.5"></circle><path d="m11 11.5 9.5 9.5 2-2-2-2 2-2-3-3-2 2-3.5-3.5"></path></svg>
+          {{ dramatikschluessel_title }}
+        </h3>
+        <p>{{ dramatikschluessel_intro }}</p>
+        <div class="begleitmaterial-intro__footer">
+          <div class="begleitmaterial-intro__note">{{ dramatikschluessel_note }}</div>
+          <div class="begleitmaterial-intro__pricing">
+            {% if dramatikschluessel_pricing_url %}
+            <a href="{{ dramatikschluessel_pricing_url }}">{{ dramatikschluessel_pricing_label }}</a>
+            {% else %}
+            {{ dramatikschluessel_pricing_label }}
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  {{ begleitmaterial_text | markdownify | safe }}
+</div>
 
 <div class="entry-list zeitecht-entry-list">
   {% for item in collections.zeitecht %}

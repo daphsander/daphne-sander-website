@@ -502,11 +502,35 @@ body.sparks-page .site-header nav { display: none; }
 .foldouts .foldout-toggle .sign { font-size: 26px; color: var(--ink-muted); width: 20px; display: inline-block; }
 .foldout-panel { display: none; padding: 36px 56px 0; max-width: var(--max-width); margin: 0 auto; font-size: 26px; line-height: 1.7; }
 .foldout-panel.open { display: block; }
+.begleitmaterial-intro { margin-bottom: 36px; }
+.begleitmaterial-intro h2 { margin: 0 0 26px; color: var(--ink); font-size: 24px; font-weight: 400; line-height: 1.4; }
+.begleitmaterial-intro__columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.begleitmaterial-intro__column { display: flex; flex-direction: column; padding-top: 10px; }
+.begleitmaterial-intro__column h3 { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.35; }
+.begleitmaterial-intro__column h3 svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.begleitmaterial-intro__column p { margin: 8px 0 0; font-size: 18px; line-height: 1.5; }
+.begleitmaterial-intro__footer { margin-top: auto; padding-top: 12px; }
+.begleitmaterial-intro__note { color: var(--ink-muted); font-size: 16px; line-height: 1.5; }
+.begleitmaterial-intro__pricing { padding-top: 8px; color: var(--accent); font-size: 16px; line-height: 1.5; }
+.begleitmaterial-intro__pricing a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.begleitmaterial-intro__resource { margin-top: 8px; color: var(--accent); font-size: 16px; line-height: 1.5; }
+.begleitmaterial-intro__resource a,
+.begleitmaterial-intro__resource span { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 640px) {
   .foldouts { flex-direction: column; align-items: center; gap: 8px; padding: 0 20px 16px; }
   .foldouts .foldout-toggle { font-size: 11.5px; gap: 6px; }
   .foldouts .foldout-toggle .sign { font-size: 12px; width: 10px; }
   .foldout-panel { padding: 16px 20px 0; font-size: 16px; }
+  .begleitmaterial-intro { margin-bottom: 24px; }
+  .begleitmaterial-intro h2 { margin-bottom: 16px; font-size: 18px; }
+  .begleitmaterial-intro__columns { grid-template-columns: 1fr; gap: 18px; }
+  .begleitmaterial-intro__column { padding-top: 8px; }
+  .begleitmaterial-intro__column h3 { gap: 8px; font-size: 17px; }
+  .begleitmaterial-intro__column h3 svg { flex-basis: 16px; width: 16px; height: 16px; }
+  .begleitmaterial-intro__column p { font-size: 15px; }
+  .begleitmaterial-intro__note,
+  .begleitmaterial-intro__pricing,
+  .begleitmaterial-intro__resource { font-size: 14px; }
 }
 
 /* Entry list (ZEITECHT + Arbeiten overview) */

@@ -10,7 +10,7 @@ order: 1
 is_detailed: true
 schluessel_image: \images\uploads\inszenierungsschlüssel-eurasia.jpeg
 schluessel_pdf: \images\uploads\Leseansicht-Heft-Inszenierungsschlüssel-komprimiert.pdf
-pricing_pdf: \images\uploads\Preise-und-Lizensstufen-Eurasia.pdf
+pricing_pdf: \images\uploads\Preise-und-Lizensstufen-Zeitecht.pdf
 einblicke:
   - image: \images\uploads\1-h12-2062-FotocreditJakubKavin-InfosAufBild.png
     credit: ''
