@@ -101,7 +101,7 @@ permalink: /zeitecht/index.html
 </div>
 
 <div class="entry-list zeitecht-entry-list">
-  {% for item in collections.zeitecht %}
+  {% for item in collections.zeitecht | sort(false, false, "data.order") %}
   <div class="entry">
     {% if item.data.is_detailed %}<a class="entry-image-link thumb" href="{{ item.url }}" aria-label="{{ item.data.title }}">{% endif %}
     {% if item.data.desktop_image or item.data.mobile_image %}
