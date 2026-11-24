@@ -1,17 +1,35 @@
 ---
 projekt_text: |-
+  ### Das Projekt
+
   Ich liebe Klassiker – und will sie deswegen oft umschreiben. Das Adaptieren und Neufassen ist mir zu einem liebsten Weg geworden, die Themen klassischer Werke besser zu verstehen.
 
-  Mit dem Projekt ZEITECHT möchte ich sowohl meine Neufassungen teilen, als auch die Herangehensweise, die hinter ihnen steht. Die macht nämlich ungeheuer Freude! Zusammen mit dem Skript biete ich daher auch Begleitmaterial und, bei Interesse, einen persönlichen Autorenbesuch an.
+  Mit dem Projekt ZEITECHT möchte ich sowohl meine Neufassungen teilen, als auch die Herangehensweise, die hinter ihnen steht. Die macht nämlich ungeheuer Freude! Zusammen mit dem Skript biete ich daher auch **Begleitmaterial** und, bei Interesse, einen persönlichen **Autorenbesuch** an.
+
+  ### Die Herangehensweise
 
   Meine Arbeit mit den Originalen ist im selben Maße kreativ wie wertschätzend. Es geht mir nicht primär darum, kritisch auf die Stoffe zu antworten oder sie mit modernen Referenzen zu bestücken. Vielmehr beginnt jedes Skript mit einer Zuneigung zu einem klassischen Roman und mit dem Wunsch, seine Geschichte entlang eines zentralen Themas bühnenzufassen (vgl. Lajos Egris „Prämisse“, Robert McKees „leitende Idee“). Ich wende also mein Handwerk an, um diejenigen Universalien ans Licht zu bringen, um die sich ein Klassiker bemüht.
 
-  Die Sprache der Texte ist hierbei in der Regel meine eigene. Jedes Stück bewegt sich aber im Kosmos und, größtenteils, nach dem Sujet des Originals. Gerne können Sie Vollfassungen zur Lektüre anfragen. Senden Sie mir dafür einfach eine Nachricht an: mail@daphnesander.com. Das ist ganz unverbindlich.
+  ### Die Stücke
+
+  Die Sprache der Texte ist hierbei in der Regel meine eigene. Jedes Stück bewegt sich aber im Kosmos und, größtenteils, **nach dem Sujet des Originals.**
+
+  ZEITECHT-LESEANFRAGE-START
+
+  Gerne können Sie Vollfassungen zur Lektüre anfragen. Senden Sie mir dafür einfach eine Nachricht an: mail@daphnesander.com. Das ist ganz unverbindlich.
+
+  ZEITECHT-LESEANFRAGE-END
+
+  ZEITECHT-ABSCHLUSS-START
 
   Es ist wirklich eine eigene Welt, die jedes dieser Werke aufwirft. Es würde mich freuen, Ihnen und euch dort zu begegnen.
+
+  **Daphne Sander** · [Zur Autorin: Über mich →](/ueber-mich/)
+
+  ZEITECHT-ABSCHLUSS-END
 begleitmaterial_text: |-
   - **Inszenierungsschlüssel**: Es handelt sich hierbei nicht um ein ausgemaltes Regiekonzept — sondern um eine Einführung ins Inszenieren überhaupt.  Gedacht ist das Heft als Spielinstrument und Anregung für jugendliche Spieler. Entsprechend kann es als Unterrichtsmaterial verwendet werden, oder als Ratgeber beim eigenen Inszenieren.
-  - **Kontextschlüssel**: Im Sinn habe ich Leser, die tiefer in die Dramaturgie und historische Recherche rund um das Skript eintauchen möchten. Das Heft ist in jedem Lizenzkauf miteinbegriffen.
+  - **Kontextschlüssel**: Im Sinn habe ich Leser, die tiefer in die Dramaturgie und historische Recherche rund um das Skript eintauchen möchten. Gleichzeitig ist der Zugang, den das Heft zu den philosophischen Texten bietet, nicht streng akademisch, sondern theatral: Aufgabenstellungen im Heft regen an, die Autoren in Szene zu setzen und ihre (mitunter sehr abstrakten) Gedanken dadurch als echte, potentiell handlungstreibende Prinzipien umzusetzen und zu verstehen.
   - **Dramatikschlüssel**: Überaus gerne biete ich im persönlichen Gespräch Rede und Antwort zum Skript – zum Adaptieren und Neufassen von Werken – zum Dramatiker-Dasein im Allgemeinen. Wie und wann das mit Ihrer Gruppe geschehen kann, koordinieren wir vorab in einem Planungsmeeting.
 begleitmaterial_intro_title: "Das Begleitmaterial besteht aus drei Schlüsseln:"
 inszenierungsschluessel_title: Inszenierungsschlüssel
@@ -20,7 +38,7 @@ inszenierungsschluessel_eurasia_label: "Inszenierungsschlüssel 'Eurasia' →"
 inszenierungsschluessel_eurasia_url: https://daphnesander.com/images/uploads/Leseansicht-Heft-Inszenierungsschl%C3%BCssel-komprimiert.pdf
 inszenierungsschluessel_note: In jedem Lizenzkauf miteinbegriffen
 kontextschluessel_title: Kontextschlüssel
-kontextschluessel_intro: Verschiedenste Quellentexte – von philosophischen Essays hin zu Gedichten – die mit der Stückwelt zu tun haben.
+kontextschluessel_intro: Verschiedenste Quellentexte – von philosophischen Essays hin zu Gedichten – die mit der Stückwelt zu tun haben. Den Rahmen für die Texte bilden theatrale und szenische Aufgaben.
 kontextschluessel_note: In jedem Lizenzkauf miteinbegriffen
 dramatikschluessel_title: Dramatikschlüssel
 dramatikschluessel_intro: Eine Frage-Antwort-Session mit der Spielgruppe und mögliche Einzelgespräche (Rollengespräche).
@@ -46,7 +64,16 @@ permalink: /zeitecht/index.html
   <button class="foldout-toggle" data-target="panel-projekt"><span class="sign">+</span> Über das Projekt</button>
   <button class="foldout-toggle" data-target="panel-begleitmaterial"><span class="sign">+</span> Über das Begleitmaterial</button>
 </div>
-<div class="foldout-panel" id="panel-projekt">{{ projekt_text | replace("mail@daphnesander.com", "ZEITECHTEMAILCOPYCONTROL") | markdownify | replace("ZEITECHTEMAILCOPYCONTROL", '<span class="email-copy-wrap"><button type="button" class="email-copy" data-copy-email="mail@daphnesander.com" data-copy-hint="zum Kopieren klicken" aria-label="E-Mail-Adresse kopieren">mail@daphnesander.com</button><span class="email-copy-status" role="status" aria-live="polite"></span></span>') | safe }}</div>
+{% set projekt_html = projekt_text
+  | replace("mail@daphnesander.com", "ZEITECHTEMAILCOPYCONTROL")
+  | markdownify
+  | replace("<p>ZEITECHT-LESEANFRAGE-START</p>", '<div class="project-reading-request">')
+  | replace("<p>ZEITECHT-LESEANFRAGE-END</p>", "</div>")
+  | replace("<p>ZEITECHT-ABSCHLUSS-START</p>", '<div class="project-closing">')
+  | replace("<p>ZEITECHT-ABSCHLUSS-END</p>", "</div>")
+  | replace("ZEITECHTEMAILCOPYCONTROL", '<span class="email-copy-wrap"><button type="button" class="email-copy" data-copy-email="mail@daphnesander.com" data-copy-hint="zum Kopieren klicken" aria-label="E-Mail-Adresse kopieren">mail@daphnesander.com</button><span class="email-copy-status" role="status" aria-live="polite"></span></span>')
+%}
+<div class="foldout-panel" id="panel-projekt">{{ projekt_html | safe }}</div>
 <div class="foldout-panel" id="panel-begleitmaterial">
   <section class="begleitmaterial-intro">
     <h2>{{ begleitmaterial_intro_title }}</h2>
