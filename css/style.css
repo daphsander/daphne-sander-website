@@ -554,6 +554,52 @@ body.sparks-page .site-header nav { display: none; }
 .entry .meta { font-weight: bold; font-size: 22px; color: var(--ink); margin-top: 20px; }
 .entry-detail { font-size: 22px; color: var(--ink); margin-top: 20px;}
 .entry-detail .link { font-size: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 6px;}
+.email-copy-wrap { position: relative; }
+.email-copy {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.email-copy-status {
+  margin-left: 0.45em;
+  color: var(--ink-muted);
+  font-size: 0.72em;
+  font-weight: normal;
+}
+.email-copy-status:empty { display: none; }
+@media (hover: hover) and (min-width: 641px) {
+  .email-copy::after,
+  .info-strip .key-image.clickable::after {
+    position: absolute;
+    z-index: 1;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    padding: 4px 7px;
+    border-radius: 3px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.3;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: opacity 120ms ease-in-out;
+    white-space: nowrap;
+  }
+  .email-copy::after { content: attr(data-copy-hint); }
+  .info-strip .key-image.clickable::after { content: attr(data-hover-hint); }
+  .email-copy:hover::after,
+  .email-copy:focus-visible::after,
+  .info-strip .key-image.clickable:hover::after,
+  .info-strip .key-image.clickable:focus-visible::after { opacity: 1; }
+}
 .entry .link { font-style: italic; font-size: 23px; color: var(--accent); margin-top: 16px; text-decoration: underline; text-underline-offset: 6px; display: inline-block; }
 .entry .tag-line { font-size: 20px; color: var(--ink-muted); letter-spacing: 0.6px; margin-bottom: 20px; }
 .entry .tag-line .divider { margin: 0 12px; color: var(--divider-quiet); }
@@ -625,6 +671,7 @@ body.sparks-page .site-header nav { display: none; }
 .info-strip .note .email { color: var(--accent); }
 .info-strip .key-image { object-fit: cover; display: flex; align-items: center; justify-content: center; }
 .info-strip .key-image img { width: 100%; object-fit: cover; }
+.info-strip .key-image.clickable { position: relative; }
 .info-strip .key-image.clickable, .info-strip .key-image.clickable img { cursor: pointer; }
 .info-strip a.key-image { color: inherit; text-decoration: none; }
 .info-strip [data-hidden="true"] { display: none; }

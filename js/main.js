@@ -15,6 +15,53 @@ document.querySelectorAll('.foldout-toggle').forEach((btn) => {
   });
 });
 
+// ---------- Copy ZEITECHT contact email ----------
+document.querySelectorAll('[data-copy-email]').forEach((button) => {
+  const status = button.parentElement.querySelector('.email-copy-status');
+  let statusTimeout;
+
+  button.addEventListener('click', async () => {
+    const email = button.getAttribute('data-copy-email');
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch {
+          copyWithSelection(email);
+        }
+      } else {
+        copyWithSelection(email);
+      }
+      status.textContent = 'In die Zwischenablage kopiert';
+    } catch (error) {
+      status.textContent = 'Kopieren nicht möglich';
+      console.error('E-Mail-Adresse konnte nicht kopiert werden.', error);
+    }
+
+    window.clearTimeout(statusTimeout);
+    statusTimeout = window.setTimeout(() => {
+      status.textContent = '';
+    }, 2500);
+  });
+});
+
+function copyWithSelection(text) {
+  const input = document.createElement('textarea');
+  input.value = text;
+  input.setAttribute('readonly', '');
+  input.style.position = 'fixed';
+  input.style.opacity = '0';
+  document.body.appendChild(input);
+  try {
+    input.focus();
+    input.select();
+    input.setSelectionRange(0, text.length);
+    if (!document.execCommand('copy')) throw new Error('Clipboard copy command was rejected.');
+  } finally {
+    input.remove();
+  }
+}
+
 // ---------- Filter bar (Arbeiten) ----------
 const filterButtons = document.querySelectorAll('.filter-bar button');
 const entries = document.querySelectorAll('[data-status]');

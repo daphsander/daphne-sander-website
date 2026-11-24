@@ -34,7 +34,7 @@ currentSection: "/zeitecht/"
   {% if schluessel_image %}
   <div class="item with-key">
     {% if schluessel_pdf %}
-    <a class="key-image clickable" href="{{ schluessel_pdf }}" target="_blank" rel="noopener" data-mobile-download>
+    <a class="key-image clickable" href="{{ schluessel_pdf }}" target="_blank" rel="noopener" data-mobile-download data-hover-hint="öffnet PDF in neuem Fenster">
       <img src="{{ schluessel_image }}" alt="Inszenierungsschlüssel" style="width:228px;object-fit:cover;">
     </a>
     {% else %}
@@ -46,7 +46,7 @@ currentSection: "/zeitecht/"
   {% endif %}
   {% if auszug %}
   <div class="item">
-    <div class="note">Gerne sende ich Ihnen das vollständige Skript unverbindlich zur Lektüre. Schreiben Sie mir einfach eine Nachricht an: mail@daphnesander.com</div>
+    <div class="note">Gerne sende ich Ihnen das vollständige Skript unverbindlich zur Lektüre. Schreiben Sie mir einfach eine Nachricht an: <span class="email-copy-wrap"><button type="button" class="email-copy" data-copy-email="mail@daphnesander.com" data-copy-hint="zum Kopieren klicken" aria-label="E-Mail-Adresse kopieren">mail@daphnesander.com</button><span class="email-copy-status" role="status" aria-live="polite"></span></span></div>
   </div>
   {% endif %}
 </div>

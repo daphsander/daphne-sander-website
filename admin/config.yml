@@ -129,7 +129,8 @@ collections:
       - { label: "Titel", name: "title", widget: "string" }
       - { label: "Zitat / Tagline", name: "tagline", widget: "string", required: false }
       - { label: "Meta-Text (Übersicht)", name: "overview_meta", widget: "string", required: false }
-      - { label: "Detailtext (Übersicht)", name: "overview_detail_text", widget: "text", required: false }
+      - { label: "Synopsis (Übersicht)", name: "overview_synopsis", widget: "text", required: false }
+      - { label: "CTA (Übersicht)", name: "overview_cta", widget: "text", required: false }
       - { label: "Meta-Text (Detailseite)", name: "detail_meta", widget: "string", required: false }
       - { label: "Bild (Desktop)", name: "desktop_image", widget: "image", required: false }
       - { label: "Bild (Mobile)", name: "mobile_image", widget: "image", required: false }

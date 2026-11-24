@@ -2,7 +2,8 @@
 title: EURASIA – frei nach George Orwells '1984'
 tagline: »Ich denke, also lieg ich sicher falsch.«
 overview_meta: '▪ Spielalter: ab 16 Jahren · für 11-30 Darsteller · Dauer: 1h30-45'
-overview_detail_text: '▪ Gerne sende ich Ihnen die Vollfassung unverbindlich zur Lektüre. Schreiben Sie mir dafür einfach eine Nachricht: mail@daphnesander.com'
+overview_synopsis: '▪ Über ein Regime, das aus Menschenliebe mordet. Und zwei, die sich inmitten Propaganda, Zensur und Konsenskultur eine neue Wahrheit erkämpfen wollen.'
+overview_cta: '▪ Gerne sende ich Ihnen die Vollfassung unverbindlich zur Lektüre. Schreiben Sie mir dafür einfach eine Nachricht: mail@daphnesander.com'
 detail_meta: '▪ für 11-30 Darsteller · Spielalter: ab 16 Jahren · Dauer: 1h30-45 ▪'
 desktop_image: \images\uploads\eurasia-cover-desktop-3x4.jpeg
 mobile_image: \images\uploads\eurasia-cover-mobile-4x3.jpeg

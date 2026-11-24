@@ -46,7 +46,7 @@ permalink: /zeitecht/index.html
   <button class="foldout-toggle" data-target="panel-projekt"><span class="sign">+</span> Über das Projekt</button>
   <button class="foldout-toggle" data-target="panel-begleitmaterial"><span class="sign">+</span> Über das Begleitmaterial</button>
 </div>
-<div class="foldout-panel" id="panel-projekt">{{ projekt_text | markdownify | safe }}</div>
+<div class="foldout-panel" id="panel-projekt">{{ projekt_text | replace("mail@daphnesander.com", "ZEITECHTEMAILCOPYCONTROL") | markdownify | replace("ZEITECHTEMAILCOPYCONTROL", '<span class="email-copy-wrap"><button type="button" class="email-copy" data-copy-email="mail@daphnesander.com" data-copy-hint="zum Kopieren klicken" aria-label="E-Mail-Adresse kopieren">mail@daphnesander.com</button><span class="email-copy-status" role="status" aria-live="polite"></span></span>') | safe }}</div>
 <div class="foldout-panel" id="panel-begleitmaterial">
   <section class="begleitmaterial-intro">
     <h2>{{ begleitmaterial_intro_title }}</h2>
@@ -59,7 +59,7 @@ permalink: /zeitecht/index.html
         <p>{{ inszenierungsschluessel_intro }}</p>
         <div class="begleitmaterial-intro__resource">
           {% if inszenierungsschluessel_eurasia_url %}
-          <a href="{{ inszenierungsschluessel_eurasia_url }}">{{ inszenierungsschluessel_eurasia_label }}</a>
+          <a href="{{ inszenierungsschluessel_eurasia_url }}" target="_blank" rel="noopener">{{ inszenierungsschluessel_eurasia_label }}</a>
           {% else %}
           <span>{{ inszenierungsschluessel_eurasia_label }}</span>
           {% endif %}
@@ -88,7 +88,7 @@ permalink: /zeitecht/index.html
           <div class="begleitmaterial-intro__note">{{ dramatikschluessel_note }}</div>
           <div class="begleitmaterial-intro__pricing">
             {% if dramatikschluessel_pricing_url %}
-            <a href="{{ dramatikschluessel_pricing_url }}">{{ dramatikschluessel_pricing_label }}</a>
+            <a href="{{ dramatikschluessel_pricing_url }}" target="_blank" rel="noopener">{{ dramatikschluessel_pricing_label }}</a>
             {% else %}
             {{ dramatikschluessel_pricing_label }}
             {% endif %}
@@ -103,7 +103,7 @@ permalink: /zeitecht/index.html
 <div class="entry-list zeitecht-entry-list">
   {% for item in collections.zeitecht | sort(false, false, "data.order") %}
   <div class="entry">
-    {% if item.data.is_detailed %}<a class="entry-image-link thumb" href="{{ item.url }}" aria-label="{{ item.data.title }}">{% endif %}
+    {% if item.data.is_detailed %}<a class="entry-image-link thumb" href="{{ item.url }}" aria-label="{{ item.data.title }}" target="_blank" rel="noopener">{% endif %}
     {% if item.data.desktop_image or item.data.mobile_image %}
       <picture class="{% if item.data.is_detailed %}entry-picture{% else %}thumb{% endif %}">
         {% if item.data.mobile_image %}
@@ -117,14 +117,17 @@ permalink: /zeitecht/index.html
     {% if item.data.is_detailed %}</a>{% endif %}
     <div>
       <div class="title">
-        {% if item.data.is_detailed %}<a class="title-link" href="{{ item.url }}">{{ item.data.title }}</a>
+        {% if item.data.is_detailed %}<a class="title-link" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.data.title }}</a>
         {% else %}{{ item.data.title }}{% endif %}
       </div>
       {% if item.data.overview_meta %}<div class="meta">{{ item.data.overview_meta }}</div>{% endif %}
-      {% if item.data.is_detailed %}<a class="link" href="{{ item.url }}">Auszüge, Bilder und Lizenzstufen →</a>{% endif %}
+      {% if item.data.is_detailed %}<a class="link" href="{{ item.url }}" target="_blank" rel="noopener">Auszüge, Bilder und Lizenzstufen →</a>{% endif %}
       <div class="desc">{{ item.templateContent | safe }}</div>
-      {% if item.data.overview_detail_text %}
-        <p class="entry-detail">{{ item.data.overview_detail_text }}</p>
+      {% if item.data.overview_synopsis %}
+        <p class="entry-detail">{{ item.data.overview_synopsis }}</p>
+      {% endif %}
+      {% if item.data.overview_cta %}
+        <p class="entry-detail">{{ item.data.overview_cta | escape | replace("mail@daphnesander.com", '<span class="email-copy-wrap"><button type="button" class="email-copy" data-copy-email="mail@daphnesander.com" data-copy-hint="zum Kopieren klicken" aria-label="E-Mail-Adresse kopieren">mail@daphnesander.com</button><span class="email-copy-status" role="status" aria-live="polite"></span></span>') | safe }}</p>
       {% endif %}
     </div>
   </div>

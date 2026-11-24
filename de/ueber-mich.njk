@@ -45,6 +45,6 @@ permalink: /ueber-mich/index.html
 <div class="ueber-mich-kontakt">
   <div class="inner">
     <div class="heading">Kontakt</div>
-    <div>{{ kontakt_sentence }} — <span class="email">{{ site.email }}</span></div>
+    <div>{{ kontakt_sentence }} — <span class="email-copy-wrap"><button type="button" class="email-copy" data-copy-email="{{ site.email }}" data-copy-hint="zum Kopieren klicken" aria-label="E-Mail-Adresse kopieren">{{ site.email }}</button><span class="email-copy-status" role="status" aria-live="polite"></span></span></div>
   </div>
 </div>

@@ -24,7 +24,6 @@ Kurze Str. 6/2
 Berufsbezeichnung: Dramatikerin und Drehbuchautorin (freiberuflich tätig)
 
 
-Kontaktformular: daphnesander.com/kontakt
 
 E-Mail: mail(at)daphnesander(dot)com
 
