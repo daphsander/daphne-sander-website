@@ -119,11 +119,11 @@ gallery_images:
 <section class="first-sights-artists wrap">
   <article>
     <h2>{{ artist_left_name }}</h2>
-    <div class="artist-bio">{{ artist_left_text | markdownify | safe }}</div>
+    <div class="artist-bio">{{ artist_left_text | markdownify | replace('<a href=', '<a target="_blank" rel="noopener noreferrer" href=') | safe }}</div>
   </article>
   <article>
     <h2>{{ artist_right_name }}</h2>
-    <div class="artist-bio">{{ artist_right_text | markdownify | safe }}</div>
+    <div class="artist-bio">{{ artist_right_text | markdownify | replace('<a href=', '<a target="_blank" rel="noopener noreferrer" href=') | safe }}</div>
   </article>
   <button class="first-sights-button first-sights-contact-button" type="button" data-lightbox="first-sights-contact">
     Contact &amp; Acquisition
